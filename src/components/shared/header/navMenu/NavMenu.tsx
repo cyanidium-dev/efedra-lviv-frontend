@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 interface NavMenuProps {
   navList: { title: string; link: string }[];
@@ -8,7 +8,7 @@ interface NavMenuProps {
 
 export default function NavMenu({
   navList,
-  className = "",
+  className = '',
   onClick,
 }: NavMenuProps) {
   return (

@@ -1,7 +1,7 @@
 import { PersonelBlock } from './PersonelBlock/PersonelBlock';
 export const Personel = () => {
   return (
-    <div>
+    <div id="personel">
       <h2>Наші майстри потурбуються про вашу красу!</h2>
       <div>logo</div>
       <p>

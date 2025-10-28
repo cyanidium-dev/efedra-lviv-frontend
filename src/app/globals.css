@@ -1,11 +1,15 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin 'tailwind-scrollbar' {
   nocompatible: true;
-  preferredstrategy: "pseudoelements";
+  preferredstrategy: 'pseudoelements';
 }
 
 @theme inline {
   --breakpoint-xs: 440px;
+
+  --color-gray-dark: #333333;
+  --color-beige-secondary: #a9663b4d;
+  --color-green: #546a50;
 
   --color-white: #f9f9fb;
   --color-black: #1e1e1e;
@@ -93,7 +97,7 @@
 
   .loader::before,
   .loader::after {
-    content: "";
+    content: '';
     position: absolute;
     height: 100%;
     width: 100%;

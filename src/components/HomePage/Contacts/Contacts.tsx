@@ -12,7 +12,7 @@ import {
 export const Contacts = () => {
   // check address data
   return (
-    <div>
+    <div id="contacts">
       <h2>Наші контакти</h2>
       <address>
         <ul>
