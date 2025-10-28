@@ -1,27 +1,24 @@
-import Hero from "@/components/homePage/hero/Hero";
-import About from "@/components/homePage/about/About";
-import Blog from "@/components/homePage/blog/Blog";
-import ChooseUs from "@/components/homePage/chooseUs/ChooseUs";
-import Mission from "@/components/homePage/mission/Mission";
-import Reviews from "@/components/homePage/reviews/Reviews";
-import StartJourneyCTA from "@/components/shared/cta/StartJourneyCTA";
-import MarqueeLine from "@/components/shared/marquee/MarqueeLine";
+import { Hero } from '@/components/HomePage/Hero/Hero';
+import { About } from '@/components/HomePage/About/About';
+import { Reviews } from '@/components/HomePage/Reviews/Reviews';
+import { Services } from '@/components/HomePage/Services/Services';
+import { Personel } from '@/components/HomePage/Personel/Personel';
+import { Plug } from '@/components/HomePage/Plug/Plug';
+import { Contacts } from '@/components/HomePage/Contacts/Contacts';
+import StartJourneyCTA from '@/components/shared/cta/StartJourneyCTA';
+import MarqueeLine from '@/components/shared/marquee/MarqueeLine';
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <MarqueeLine />
       <About />
-      <ChooseUs />
-      <Mission />
-      <Blog />
-      <MarqueeLine className="hidden lg:block lg:text-[26px] lg:h-[65px]" />
+      <Services />
+      <Personel />
+      <MarqueeLine />
       <Reviews />
-      <StartJourneyCTA
-        image="/images/homePage/cta/office.webp"
-        className="py-15"
-      />
+      <Plug />
+      <Contacts />
     </>
   );
 }
