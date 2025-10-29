@@ -3,10 +3,10 @@ interface LinkedinIconProps {
   strokeColor?: string;
 }
 
-export default function LinkedinIcon({
+export const LinkedinIcon = ({
   className,
-  strokeColor = "var(--color-blue)",
-}: LinkedinIconProps) {
+  strokeColor = 'var(--color-blue)',
+}: LinkedinIconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -25,4 +25,23 @@ export default function LinkedinIcon({
       />
     </svg>
   );
-}
+};
+
+export const LinkedinIconFilled = ({ className }: LinkedinIconProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      aria-label="linkedin icon"
+      className={className}
+    >
+      <path
+        d="M5.55205 3.99997C5.55184 4.42432 5.38306 4.8312 5.08286 5.13111C4.78265 5.43102 4.3756 5.59938 3.95125 5.59917C3.5269 5.59896 3.12002 5.43018 2.82011 5.12998C2.52021 4.82977 2.35184 4.42272 2.35205 3.99837C2.35226 3.57402 2.52104 3.16714 2.82125 2.86723C3.12145 2.56733 3.5285 2.39896 3.95285 2.39917C4.3772 2.39938 4.78408 2.56816 5.08399 2.86836C5.3839 3.16857 5.55226 3.57562 5.55205 3.99997ZM5.60005 6.78397H2.40005V16.8H5.60005V6.78397ZM10.6561 6.78397H7.47205V16.8H10.6241V11.544C10.6241 8.61597 14.4401 8.34397 14.4401 11.544V16.8H17.6001V10.456C17.6001 5.51997 11.9521 5.70397 10.6241 8.12797L10.6561 6.78397Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

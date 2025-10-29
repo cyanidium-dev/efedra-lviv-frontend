@@ -50,7 +50,7 @@ export default function BurgerMenuContent({
                 onClick={onClose}
               />
             </motion.div>
-            <FollowUs />
+            <FollowUs variant="bordered" />
           </Container>
           <motion.div
             initial="hidden"
