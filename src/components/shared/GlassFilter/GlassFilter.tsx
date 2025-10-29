@@ -1,39 +1,43 @@
-import React, { CSSProperties, PropsWithChildren, useId } from 'react';
+import { CSSProperties, useId } from 'react';
 
-type GlassFilterProps = PropsWithChildren<{
+export type GlassFilterProps = {
   className?: string;
+  children?: React.ReactNode;
+  /** Border radius (default: 0, or read from --glass-border-radius CSS variable) */
   borderRadius?: number | string;
-  frost?: number; // px blur
-  refraction?: number; // 0..1 -> displacement scale
-  dispersion?: number; // 0..1 -> chromatic aberration strength
-  depth?: number; // 0..1 -> shadow strength
-  lightAngle?: number; // degrees 0..360
-  lightIntensity?: number; // 0..1 -> highlight opacity
-  tintColor?: string; // glass tint base color
-  tintOpacity?: number; // 0..1
-}>;
+  /** Frost blur amount in pixels (default: 12px, or read from --glass-frost CSS variable) */
+  frost?: number;
+  /** Refraction scale for displacement effect - 0..1 (default: 0.3, or read from --glass-refraction CSS variable) */
+  refraction?: number;
+  /** Dispersion strength for chromatic aberration - 0..1 (default: 0.15, or read from --glass-dispersion CSS variable) */
+  dispersion?: number;
+  /** Depth strength for shadow effect - 0..1 (default: 0.4, or read from --glass-depth CSS variable) */
+  depth?: number;
+  /** Light angle in degrees 0..360 (default: 120, or read from --glass-light-angle CSS variable) */
+  lightAngle?: number;
+  /** Light intensity - 0..1 highlight opacity (default: 0.35, or read from --glass-light-intensity CSS variable) */
+  lightIntensity?: number;
+  /** Tint color - hex, rgb, or rgba string (default: white, or read from --glass-tint-color CSS variable) */
+  tintColor?: string;
+  /** Tint opacity - 0 to 1 (default: 0.12, or read from --glass-tint-opacity CSS variable) */
+  tintOpacity?: number;
+  /** Highlight color - hex, rgb, or rgba string (default: white, or read from --glass-highlight-color CSS variable) */
+  highlightColor?: string;
+};
 
-/**
- * Generic glass filter panel that approximates Figma-like glass with:
- * - Frost (backdrop blur)
- * - Refraction (noise-based displacement)
- * - Dispersion (subtle chromatic edging)
- * - Depth (multi-layer shadow)
- * - Light (angled highlight wash)
- */
-const GlassFilter: React.FC<GlassFilterProps> = ({
+export const GlassFilter = ({
   children,
-  className,
-  borderRadius = 16,
-  frost = 12,
-  refraction = 0.3,
-  dispersion = 0.15,
-  depth = 0.4,
-  lightAngle = 120,
-  lightIntensity = 0.35,
-  tintColor = '#FFFFFF',
-  tintOpacity = 0.12,
-}) => {
+  className = '',
+  borderRadius,
+  frost = 25,
+  refraction = 0.8,
+  dispersion = 0.5,
+  depth = 0.2,
+  lightAngle = -45,
+  lightIntensity = 0.8,
+  tintColor = '#FFFFFF80',
+  highlightColor = '#FFFFFF',
+}: GlassFilterProps) => {
   const filterId = useId().replace(/:/g, '-');
 
   const radius =
@@ -47,13 +51,6 @@ const GlassFilter: React.FC<GlassFilterProps> = ({
   const depthStrength = clamp01(depth);
   const lightOpacity = clamp01(lightIntensity);
 
-  const wrapperStyle: CSSProperties = {
-    position: 'relative',
-    borderRadius: radius,
-    overflow: 'hidden',
-    // Don't set background here - let the backdrop-filter layer handle it
-  };
-
   // Depth via layered drop shadows
   const depthShadow = `0 1px 2px rgba(0,0,0,${0.06 * depthStrength}), 0 8px 24px rgba(0,0,0,${0.18 * depthStrength})`;
 
@@ -63,96 +60,94 @@ const GlassFilter: React.FC<GlassFilterProps> = ({
   // Light highlight gradient overlay rotated by angle
   const lightGradient = `linear-gradient(${lightAngle}deg, rgba(255,255,255,${0.55 * lightOpacity}) 0%, rgba(255,255,255,${0.18 * lightOpacity}) 20%, rgba(255,255,255,0) 55%)`;
 
-  // Extract RGB from tintColor for rgba
-  const getTintRgba = (color: string, opacity: number) => {
-    // Handle hex colors (with or without alpha)
-    if (color.startsWith('#')) {
-      const hex = color.slice(1);
-      if (hex.length === 6 || hex.length === 8) {
-        const r = parseInt(hex.slice(0, 2), 16);
-        const g = parseInt(hex.slice(2, 4), 16);
-        const b = parseInt(hex.slice(4, 6), 16);
-        // If hex has alpha (8 chars), extract it, otherwise use provided opacity
-        const alpha =
-          hex.length === 8 ? parseInt(hex.slice(6, 8), 16) / 255 : opacity;
-        return `rgba(${r},${g},${b},${alpha})`;
-      }
-    }
-    // Fallback for rgb/rgba strings
-    if (color.includes('rgba') || color.includes('rgb')) {
-      return color;
-    }
-    // Default to white if unrecognized
-    return `rgba(255,255,255,${opacity})`;
+  const cardStyle: CSSProperties = {
+    position: 'relative',
+    overflow: 'hidden',
+    borderRadius: radius,
+    background: 'transparent',
   };
 
-  // Frost layer styles (backdrop blur + saturation)
-  // This layer blurs whatever is behind the GlassFilter component
-  const frostStyle: CSSProperties = {
+  const glassFilterStyle: CSSProperties = {
     position: 'absolute',
     inset: 0,
-    backdropFilter: `blur(${frostPx}px) saturate(1.25)`,
-    WebkitBackdropFilter: `blur(${frostPx}px) saturate(1.25)`,
-    background: getTintRgba(tintColor, tintOpacity),
-    filter: `url(#noise-displace-${filterId})`,
+    backdropFilter: `blur(${frostPx}px)`,
+    WebkitBackdropFilter: `blur(${frostPx}px)`,
+    filter: `url(#liquid-lens-${filterId})`,
     boxShadow: `${depthShadow}, ${dispersionShadow}`,
-    borderRadius: radius,
+    borderRadius: 'inherit',
+    pointerEvents: 'none',
+    zIndex: 0,
+  };
+
+  const glassOverlayStyle: CSSProperties = {
+    position: 'absolute',
+    inset: 0,
+    background: tintColor,
+    borderRadius: 'inherit',
     pointerEvents: 'none',
     zIndex: 1,
   };
 
-  const lightStyle: CSSProperties = {
+  const glassSpecularStyle: CSSProperties = {
     position: 'absolute',
-    inset: '-20%', // bleed outside for smoothness when rotated
-    backgroundImage: lightGradient,
-    pointerEvents: 'none',
+    inset: 0,
+    borderRadius: 'inherit',
     mixBlendMode: 'soft-light',
-    borderRadius: radius,
+    pointerEvents: 'none',
+    boxShadow: `inset 1px 1px 0 ${highlightColor},
+    inset 0 0 5px ${highlightColor}`,
     zIndex: 2,
   };
 
+  const glassContentStyle: CSSProperties = {
+    position: 'relative',
+    zIndex: 3,
+  };
+
   return (
-    <div className={className} style={wrapperStyle}>
-      {/* Displacement filter definition */}
-      <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden>
+    <>
+      <svg style={{ display: 'none' }}>
         <filter
-          id={`noise-displace-${filterId}`}
-          x="-20%"
-          y="-20%"
-          width="140%"
-          height="140%"
+          id={`liquid-lens-${filterId}`}
+          x="-50%"
+          y="-50%"
+          width="200%"
+          height="200%"
         >
-          {/* Noise as height map */}
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.8"
-            numOctaves="2"
-            seed="2"
-            result="noise"
+          <feImage
+            x="0"
+            y="0"
+            result="normalMap"
+            href="data:image/svg+xml;utf8,
+               <svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'>
+                 <radialGradient id='nmap' cx='50%' cy='50%' r='50%'>
+                   <stop offset='0%' stop-color='rgb(128,128,255)'/>
+                   <stop offset='100%' stop-color='rgb(255,255,255)'/>
+                 </radialGradient>
+                 <rect width='100%' height='100%' fill='url(#nmap)'/>
+               </svg>"
           />
-          {/* Gentle smoothing */}
-          <feGaussianBlur in="noise" stdDeviation="0.6" result="blur" />
-          {/* Chromatic dispersion by offsetting channels slightly */}
           <feDisplacementMap
             in="SourceGraphic"
-            in2="blur"
+            in2="normalMap"
             scale={refractScale}
             xChannelSelector="R"
             yChannelSelector="G"
+            result="displaced"
           />
+          <feMerge>
+            <feMergeNode in="displaced" />
+          </feMerge>
         </filter>
       </svg>
 
-      {/* Frosted and refracted layer */}
-      <div aria-hidden style={frostStyle} />
-
-      {/* Light highlight */}
-      <div aria-hidden style={lightStyle} />
-
-      {/* Content */}
-      <div style={{ position: 'relative', zIndex: 3 }}>{children}</div>
-    </div>
+      {/* Glass card container */}
+      <div className={className} style={cardStyle}>
+        <div style={glassFilterStyle} aria-hidden />
+        <div style={glassOverlayStyle} aria-hidden />
+        <div style={glassSpecularStyle} aria-hidden />
+        <div style={glassContentStyle}>{children}</div>
+      </div>
+    </>
   );
 };
-
-export default GlassFilter;

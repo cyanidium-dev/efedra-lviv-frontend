@@ -2,12 +2,12 @@ import Container from '@/components/shared/container/Container';
 import * as motion from 'motion/react-client';
 import { fadeInAnimation } from '@/utils/animationVariants';
 import Image from 'next/image';
-import GlassFilter from '@/components/shared/GlassFilter/GlassFilter';
-import { GlassFilterTest } from '@/components/shared/GlassFilter/GlassFilterTest';
+import { GlassFilter } from '@/components/shared/GlassFilter/GlassFilter';
+import PhoneIcon from '@/components/shared/icons/PhoneIcon';
 
 export const Hero = () => {
   return (
-    <section className="bg-gray-light">
+    <section className="bg-gray-light pt-[4px] pb-[30px] mb-[-15px]">
       <Container className="relative">
         <div className="mb-[52px]">
           <motion.div
@@ -73,39 +73,99 @@ export const Hero = () => {
             />
           </div>
         </motion.div>
-        <div
-          style={
-            {
-              '--glass-frosting': '12.8',
-              '--glass-tint-color': '#A9663B40',
-              '--glass-tint-opacity': '0.12',
-              '--glass-refraction': '0.8',
-              '--glass-border-radius': '15px',
-              '--glass-highlight-color': 'rgba(255,255,255,0.3)',
-              '--glass-text-color': 'inherit',
-              '--glass-depth': '0.2',
-              '--glass-light-angle': '-45',
-              '--glass-light-intensity': '0.8',
-              '--glass-dispersion': '0.5',
-            } as React.CSSProperties
-          }
+        <GlassFilter
+          frost={12.6}
+          tintColor="#A9663B40"
+          refraction={0.8}
+          borderRadius="15px"
+          depth={0.2}
+          lightAngle={-45}
+          lightIntensity={0.8}
+          dispersion={0.5}
+          className="mb-[15px]"
         >
-          <GlassFilterTest>
-            <div className="w-full px-[10px] py-[15px] bg-transparent">
-              <p className="text-[13px] leading-[110%] tracking-[-0.05em] text-white">
+          <div className="w-full px-[10px] py-[15px] bg-transparent">
+            <div className="flex pb-[15px] border-b border-[#FFFFFF54] mb-[14px]">
+              <p className="text-[13px] leading-[110%] tracking-[-0.05em] text-white mr-[5px] max-w-[198px]">
                 Наша команда — це лікарі з багаторічним досвідом, які поєднують
                 професіоналізм із сучасним підходом.
               </p>
-              <div>image</div>
-              <button>Запис на прийом</button>
+              <Image
+                src="/images/homePage/hero/contactCard.jpg"
+                alt="contact card"
+                width={73}
+                height={65}
+                className="rounded-[5px]"
+              />
             </div>
-          </GlassFilterTest>
-        </div>
-        <div>
-          <div>image</div>
-          <p>5000+ жінок</p>
-          <p>Довіряють нам свою красу та здоров’я</p>
-        </div>
+            <button className="relative w-full px-[20px] py-[12px] rounded-full bg-white text-left text-[16px] leading-[100%] tracking-[-0.05em] text-black font-medium">
+              Запис на прийом
+              <span className="absolute right-[4px] top-1/2 -translate-y-1/2 w-[32px] h-[32px] flex items-center justify-center bg-green rounded-full">
+                <PhoneIcon className="text-white" />
+              </span>
+            </button>
+          </div>
+        </GlassFilter>
+        <GlassFilter
+          frost={2}
+          tintColor="#FFFFFF66"
+          refraction={0.8}
+          borderRadius="10px"
+          depth={0.2}
+          lightAngle={-45}
+          lightIntensity={0.8}
+          dispersion={0.5}
+        >
+          <div className="py-[15px] px-[10px] bg-transparent">
+            <div className="flex mb-[5px] items-end">
+              <ul className="flex items-center mr-[10px]">
+                <li className="mr-[-10px]">
+                  <Image
+                    src="/images/homePage/hero/cta1.jpg"
+                    alt="icon1"
+                    width={25}
+                    height={25}
+                    className="rounded-full"
+                  />
+                </li>
+                <li className="mr-[-10px]">
+                  <Image
+                    src="/images/homePage/hero/cta2.jpg"
+                    alt="icon2"
+                    width={25}
+                    height={25}
+                    className="rounded-full"
+                  />
+                </li>
+                <li className="mr-[-10px]">
+                  <Image
+                    src="/images/homePage/hero/cta3.jpg"
+                    alt="icon3"
+                    width={25}
+                    height={25}
+                    className="rounded-full"
+                  />
+                </li>
+                <li>
+                  <Image
+                    src="/images/homePage/hero/cta4.jpg"
+                    alt="icon4"
+                    width={25}
+                    height={25}
+                    className="rounded-full"
+                  />
+                </li>
+              </ul>
+
+              <p className="text-[15px] leading-[110%] tracking-[-0.05em] text-black font-semibold">
+                5000+ жінок
+              </p>
+            </div>
+            <p className="text-[13px] leading-[110%] tracking-[-0.05em] text-black font-normal">
+              Довіряють нам свою красу та здоров’я
+            </p>
+          </div>
+        </GlassFilter>
       </Container>
     </section>
   );
