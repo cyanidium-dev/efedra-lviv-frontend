@@ -5,7 +5,6 @@ import { Services } from '@/components/HomePage/Services/Services';
 import { Personel } from '@/components/HomePage/Personel/Personel';
 import { Plug } from '@/components/HomePage/Plug/Plug';
 import { Contacts } from '@/components/HomePage/Contacts/Contacts';
-import StartJourneyCTA from '@/components/shared/cta/StartJourneyCTA';
 import MarqueeLine from '@/components/shared/marquee/MarqueeLine';
 
 export default function HomePage() {

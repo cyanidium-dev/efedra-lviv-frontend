@@ -18,7 +18,7 @@ export default function Header() {
       exit="exit"
       viewport={{ once: true, amount: 0.2 }}
       variants={headerVariants}
-      className="fixed z-10 top-0 left-0 w-dvw py-6 bg-white"
+      className="fixed z-50 top-0 left-0 w-dvw py-6 bg-white"
     >
       <Container className="flex items-center justify-between">
         <Link

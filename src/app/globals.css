@@ -10,14 +10,18 @@
   --color-gray-dark: #333333;
   --color-beige-secondary: #a9663b4d;
   --color-green: #546a50;
+  --color-olive: #3b3c32;
+  --color-black: #000000;
+  --color-gray-light: #dcd5cd;
+  --color-beige-secondary: #a9663b40;
 
-  --color-white: #f9f9fb;
-  --color-black: #1e1e1e;
+  /* --color-white: #f9f9fb; */
+  /* --color-black: #1e1e1e; */
   --color-beige: #af8c6c;
   --color-blue: #0f3c5a;
   --color-blue-light: #e6eaee;
   --color-gray: #d9d9d9;
-  --color-gray-light: #f2f2f2;
+  /* --color-gray-light: #f2f2f2; */
 
   --font-montserrat: var(--font-montserrat);
   --font-evolenta: var(--font-evolenta);
