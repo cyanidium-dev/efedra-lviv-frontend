@@ -6,11 +6,11 @@ export const About = () => {
   return (
     <section id="about" className="bg-white py-[40px] rounded-t-[15px]">
       <Container className="relative">
-        <h2 className="text-[28px] leading-[100%] tracking-[-0.05em] text-olive font-bold mb-[25px]">
+        <h2 className="text-[28px] leading-[100%] tracking-[-0.05em] text-olive font-bold mb-[25px] uppercase">
           Чому нас обирає більшість
         </h2>
         <ul className="flex flex-col gap-[10px]">
-          <li className="flex items-center p-[10px] max-w-[261px] bg-green-light rounded-[10px] p-[10px]">
+          <li className="flex items-center p-[10px] h-[48px] max-w-[261px] bg-green-light rounded-[10px]">
             <span className="w-[28px] h-[28px] flex items-center justify-center bg-white border border-green rounded-full mr-[9px]">
               <CheckmarkIcon />
             </span>
@@ -18,7 +18,7 @@ export const About = () => {
               Працюємо тільки з сертифікованими препаратами
             </p>
           </li>
-          <li className="flex items-center p-[10px] max-w-[201px] bg-green-light rounded-[10px] p-[10px]">
+          <li className="flex items-center p-[10px] h-[48px] max-w-[201px] bg-green-light rounded-[10px] p-[10px]">
             <span className="w-[28px] h-[28px] flex items-center justify-center bg-white border border-green rounded-full mr-[9px]">
               <CheckmarkIcon />
             </span>
@@ -26,7 +26,7 @@ export const About = () => {
               Сучасні апарати останнього покоління.
             </p>
           </li>
-          <li className="flex items-center p-[10px] max-w-[189px] bg-green-light rounded-[10px] p-[10px]">
+          <li className="flex items-center p-[10px] h-[48px] max-w-[189px] bg-green-light rounded-[10px] p-[10px]">
             <span className="w-[28px] h-[28px] flex items-center justify-center bg-white border border-green rounded-full mr-[9px]">
               <CheckmarkIcon />
             </span>
@@ -34,7 +34,7 @@ export const About = () => {
               Затишна атмосфера і конфіденційність.
             </p>
           </li>
-          <li className="flex items-center p-[10px] max-w-[189px] bg-green-light rounded-[10px] p-[10px]">
+          <li className="flex items-center p-[10px] h-[48px] max-w-[189px] bg-green-light rounded-[10px] p-[10px]">
             <span className="w-[28px] h-[28px] flex items-center justify-center bg-white border border-green rounded-full mr-[9px]">
               <CheckmarkIcon />
             </span>
@@ -42,7 +42,7 @@ export const About = () => {
               Лікарі з досвідом понад 10 років.
             </p>
           </li>
-          <li className="flex items-center p-[10px] max-w-[220px] bg-green-light rounded-[10px] p-[10px]">
+          <li className="flex items-center p-[10px] h-[48px] max-w-[220px] bg-green-light rounded-[10px] p-[10px]">
             <span className="w-[28px] h-[28px] flex items-center justify-center bg-white border border-green rounded-full mr-[9px]">
               <CheckmarkIcon />
             </span>
@@ -55,7 +55,7 @@ export const About = () => {
           <div className="flex relative justify-center items-center w-[266px] h-[266px] border border-[#546A504D] rounded-full">
             <div className="flex relative justify-center items-center w-[205px] h-[205px] border border-[#546A504D] rounded-full">
               <Image
-                src="/images/homePage/about/center.jpg"
+                src="/images/homePage/about/centerMob.jpg"
                 alt="About"
                 width={153}
                 height={153}
@@ -66,7 +66,7 @@ export const About = () => {
                 alt="About"
                 width={26}
                 height={26}
-                className="rounded-full absolute top-[135px] left-0"
+                className="rounded-full absolute top-[134px] left-[-1px]"
               />
             </div>
             <Image
@@ -74,21 +74,21 @@ export const About = () => {
               alt="About"
               width={26}
               height={26}
-              className="rounded-full absolute top-[81px] left-[-9px]"
+              className="rounded-full absolute top-[80px] left-[-10px]"
             />
             <Image
               src="/images/homePage/hero/cta3.jpg"
               alt="About"
               width={26}
               height={26}
-              className="rounded-full absolute top-0 left-[85px]"
+              className="rounded-full absolute top-[-1px] left-[84px]"
             />
             <Image
               src="/images/homePage/hero/cta4.jpg"
               alt="About"
               width={26}
               height={26}
-              className="rounded-full absolute bottom-[-8px] left-[99px]"
+              className="rounded-full absolute bottom-[-9px] left-[98px]"
             />
           </div>
         </div>

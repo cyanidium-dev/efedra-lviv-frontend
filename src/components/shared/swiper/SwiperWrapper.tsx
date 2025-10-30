@@ -20,7 +20,6 @@ interface SwiperWrapperProps {
   isPagination?: boolean;
   autoplay?: SwiperOptions['autoplay'];
   size?: number;
-  cardsEffect?: boolean;
 }
 
 export default function SwiperWrapper({
@@ -33,7 +32,6 @@ export default function SwiperWrapper({
   isPagination = false,
   autoplay = false,
   size = 40,
-  cardsEffect = false,
 }: SwiperWrapperProps) {
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
@@ -76,13 +74,7 @@ export default function SwiperWrapper({
         loop={loop}
         speed={1000}
         autoplay={autoplay}
-        modules={[
-          Navigation,
-          Pagination,
-          Autoplay,
-          ...(cardsEffect ? [EffectCards] : []),
-        ]}
-        effect={cardsEffect ? 'cards' : undefined}
+        modules={[Navigation, Pagination, Autoplay]}
         className={swiperClassName}
       >
         {children}

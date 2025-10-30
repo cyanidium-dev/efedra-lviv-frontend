@@ -24,7 +24,7 @@ export const FollowUs = ({ className, variant = 'normal' }: FollowUsProps) => {
         Слідкуйте за нами:
       </h3>
       <ul className="flex gap-[15px]">
-        <li className={`w-[40px] h-[40px] rounded-full ${styles[variant]}`}>
+        {/*    <li className={`w-[40px] h-[40px] rounded-full ${styles[variant]}`}>
           <a
             href={LINKEDIN_URL}
             target="_blank"
@@ -53,7 +53,7 @@ export const FollowUs = ({ className, variant = 'normal' }: FollowUsProps) => {
               <FacebookIcon className="text-white" />
             )}
           </a>
-        </li>
+        </li> */}
         <li className={`w-[40px] h-[40px] rounded-full ${styles[variant]}`}>
           <a
             href={INSTAGRAM_URL}

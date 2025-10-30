@@ -12,9 +12,9 @@ export const ServiceCard = ({
   number,
 }: ServiceCardProps) => {
   return (
-    <div className="relative w-[296px] h-[243px] pt-[20px] pb-[10px] px-[10px] flex flex-col justify-between rounded-[15px] overflow-hidden">
-      <div className="flex items-center gap-[15px]">
-        <div className="text-[30px] leading-[100%] tracking-[-0.05em] text-white font-medium">
+    <div className="relative w-[143px] h-[117px] lg:w-[296px] lg:h-[243px] pt-[8px] lg:pt-[20px] pb-[6px] lg:pb-[10px] px-[6px] lg:px-[10px] flex flex-col justify-between rounded-[15px] overflow-hidden">
+      <div className="flex items-center gap-[8px]">
+        <div className="text-[18px] lg:text-[30px] leading-[100%] tracking-[-0.05em] text-white font-medium">
           {`0${number}`}
         </div>
         <div className="w-full h-[1px] bg-white"></div>
@@ -27,7 +27,7 @@ export const ServiceCard = ({
           className="object-cover"
         />
       </div>
-      <p className="text-[16px] leading-[110%] tracking-[-0.05em] text-black font-medium w-full text-center py-[15px] bg-white rounded-[10px]">
+      <p className="text-[10px] lg:text-[16px] leading-[110%] tracking-[-0.05em] text-black font-medium w-full text-center py-[8px] bg-white rounded-[10px]">
         {title}
       </p>
     </div>

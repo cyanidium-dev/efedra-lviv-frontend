@@ -18,7 +18,7 @@ export default function Header() {
       exit="exit"
       viewport={{ once: true, amount: 0.2 }}
       variants={headerVariants}
-      className="fixed z-50 top-0 left-0 w-dvw py-6 bg-white"
+      className="fixed z-50 top-0 left-0 w-dvw py-[26px] bg-white"
     >
       <Container className="flex items-center justify-between">
         <Link
@@ -28,7 +28,7 @@ export default function Header() {
         >
           <LogoIcon
             className={clsx(
-              'w-[86px] xl:w-[120px] text-gray-dark h-auto xl:hover:text-beige focus-visible:text-beige transition duration-300 ease-in-out',
+              'w-[61px] xl:w-[120px] text-gray-dark h-auto xl:hover:text-beige focus-visible:text-beige transition duration-300 ease-in-out',
               isOpenBurgerMenu ? 'text-white' : ''
             )}
           />

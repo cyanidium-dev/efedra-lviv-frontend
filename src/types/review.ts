@@ -1,6 +1,6 @@
 export interface Review {
   name: string;
   photo: string;
-  direction: string;
+  age: number;
   text: string;
 }

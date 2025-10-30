@@ -14,7 +14,7 @@ export const MAP_URL =
 export const GOOGLE_MAPS_URL =
   'https://maps.app.goo.gl/vDPL6gmow28vzMD86?g_st=av';
 
-export const INSTAGRAM_URL = 'https://www.instagram.com/efedra';
+export const INSTAGRAM_URL = 'https://www.instagram.com/efedra.centre/#';
 
 export const FACEBOOK_URL = '';
 
