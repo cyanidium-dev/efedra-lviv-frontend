@@ -13,7 +13,7 @@ export const Personel = async () => {
           {`Наші  майстри потурбуються про вашу красу!`}
         </h2>
         <div className="hidden">logo</div>
-        <p className="text-[13px] leading-[120%] tracking-[-0.03em] text-black/50 font-medium mb-[30px]">
+        <p className="text-[13px] leading-[120%] tracking-[-0.03em] text-black/50 font-medium mb-[40px]">
           В центрі естетичної медицини зібрались спеціалісти, об'єднані спільною
           мрією. Мрією про косметологію, яка зберігає молодість та здоров'я
           клієнтів.

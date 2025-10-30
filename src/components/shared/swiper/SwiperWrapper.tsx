@@ -31,7 +31,7 @@ export default function SwiperWrapper({
   loop = false,
   isPagination = false,
   autoplay = false,
-  size = 40,
+  size = 30,
 }: SwiperWrapperProps) {
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
@@ -87,13 +87,13 @@ export default function SwiperWrapper({
           ref={prevRef}
           disabled={isBeginning}
           className={clsx(
-            `enabled:cursor-pointer w-[${size}px] h-[${size}px] rounded-[10px] flex items-center justify-center pointer-events-auto transition-filter 
+            `enabled:cursor-pointer w-[30px] h-[30px] rounded-[10px] flex items-center justify-center pointer-events-auto transition-filter 
           duration-300 xl:enabled:hover:brightness-[1.25] bg-green disabled:bg-white disabled:border disabled:border-green disabled:text-green`
           )}
         >
           <ArrowIconFilled
             className={clsx(
-              'w-[16px] h-[16px] rotate-180',
+              'w-[10px] h-[10px] rotate-180',
               isBeginning ? 'text-green' : 'text-white'
             )}
           />
@@ -103,13 +103,13 @@ export default function SwiperWrapper({
           ref={nextRef}
           disabled={isEnd}
           className={clsx(
-            `enabled:cursor-pointer w-[${size}px] h-[${size}px] rounded-[10px] flex items-center justify-center pointer-events-auto transition-filter 
+            `enabled:cursor-pointer w-[30px] h-[30px] rounded-[10px] flex items-center justify-center pointer-events-auto transition-filter 
           duration-300 xl:enabled:hover:brightness-[1.25] bg-green disabled:bg-white disabled:border disabled:border-green disabled:text-green`
           )}
         >
           <ArrowIconFilled
             className={clsx(
-              'w-[16px] h-[16px]',
+              'w-[10px] h-[10px]',
               isEnd ? 'text-green' : 'text-white'
             )}
           />

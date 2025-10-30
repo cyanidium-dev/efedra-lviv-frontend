@@ -9,7 +9,7 @@ export const ReviewsBlock = () => {
   return (
     <SwiperWrapper
       swiperClassName="reviews"
-      wrapperClassName="lg:flex lg:flex-row-reverse lg:gap-6 bg-white rounded-[10px] p-[10px] pt-[15px]"
+      wrapperClassName="lg:flex lg:flex-row-reverse lg:gap-6 bg-white rounded-[10px] p-[15px] pt-[15px]"
       buttonsWrapperClassName="mt-5 lg:mt-0 justify-end"
       loop
       breakpoints={{
