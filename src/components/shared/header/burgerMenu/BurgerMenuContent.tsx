@@ -50,7 +50,10 @@ export default function BurgerMenuContent({
                 onClick={onClose}
               />
             </motion.div>
-            <FollowUs variant="bordered" />
+            <FollowUs
+              variant="bordered"
+              textClassName="text-[20px] font-semibold leading-[100%] tracking-[-0.05em] text-white mb-[15px]"
+            />
           </Container>
           <motion.div
             initial="hidden"

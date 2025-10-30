@@ -1,12 +1,14 @@
-import { CODE_SITE_URL } from "@/constants/constants";
-import TagIcon from "../icons/TagIcon";
+import { CODE_SITE_URL } from '@/constants/constants';
+import TagIcon from '../icons/TagIcon';
 
 export default function Rights() {
   const year = new Date().getFullYear();
 
   return (
     <div className="flex items-center justify-between">
-      <p className="text-[16px] font-normal leading-[120%]">© {year} Efedra</p>
+      <p className="text-[16px] font-normal leading-[29px] tracking-[0.64px]">
+        © {year} Efedra
+      </p>
       <div>
         <p className="text-[7px] font-normal leading-[200%] uppercase">
           Created by

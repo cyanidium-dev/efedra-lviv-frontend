@@ -1,28 +1,32 @@
 import {
   INSTAGRAM_URL,
-  FACEBOOK_URL,
-  LINKEDIN_URL,
+  //FACEBOOK_URL,
+  //LINKEDIN_URL,
 } from '@/constants/constants';
 import { InstagramIcon, InstagramIconFilled } from '../icons/InstagramIcon';
-import { FacebookIcon, FacebookIconFilled } from '../icons/FacebookIcon';
-import { LinkedinIcon, LinkedinIconFilled } from '../icons/LinkedinIcon';
+import clsx from 'clsx';
+//import { FacebookIcon, FacebookIconFilled } from '../icons/FacebookIcon';
+//import { LinkedinIcon, LinkedinIconFilled } from '../icons/LinkedinIcon';
 
 interface FollowUsProps {
   className?: string;
   variant?: 'bordered' | 'normal';
+  textClassName?: string;
 }
 
-export const FollowUs = ({ className, variant = 'normal' }: FollowUsProps) => {
+export const FollowUs = ({
+  className,
+  variant = 'normal',
+  textClassName,
+}: FollowUsProps) => {
   const styles = {
-    bordered: 'border border-white',
-    normal: '',
+    bordered: 'border border-white w-[40px] h-[40px]',
+    normal: 'w-[24px] h-[24px]',
   };
 
   return (
     <div className={className}>
-      <h3 className="text-[20px] font-semibold leading-[100%] tracking-[-0.05em] text-white mb-[15px]">
-        Слідкуйте за нами:
-      </h3>
+      <h3 className={textClassName}>Слідкуй за нами:</h3>
       <ul className="flex gap-[15px]">
         {/*    <li className={`w-[40px] h-[40px] rounded-full ${styles[variant]}`}>
           <a
@@ -54,7 +58,7 @@ export const FollowUs = ({ className, variant = 'normal' }: FollowUsProps) => {
             )}
           </a>
         </li> */}
-        <li className={`w-[40px] h-[40px] rounded-full ${styles[variant]}`}>
+        <li className={`rounded-full ${styles[variant]}`}>
           <a
             href={INSTAGRAM_URL}
             target="_blank"

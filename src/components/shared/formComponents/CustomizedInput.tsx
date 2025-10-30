@@ -1,8 +1,8 @@
-import { Field, ErrorMessage, useFormikContext } from "formik";
-import { IMaskInput } from "react-imask";
-import { useId } from "react";
-import clsx from "clsx";
-import { twMerge } from "tailwind-merge";
+import { Field, ErrorMessage, useFormikContext } from 'formik';
+import { IMaskInput } from 'react-imask';
+import { useId } from 'react';
+import clsx from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
 interface Values {
   [fieldName: string]: string;
@@ -15,15 +15,17 @@ interface CustomizedInputProps {
   fieldClassName?: string;
   inputType?: string;
   mask?: string;
+  placeholder?: string;
 }
 
 export default function CustomizedInput({
   fieldName,
   label,
-  labelClassName = "",
-  fieldClassName = "",
-  inputType = "text",
-  mask = "+38 (000) 000-00-00",
+  labelClassName = '',
+  fieldClassName = '',
+  inputType = 'text',
+  placeholder = '',
+  mask = '+38 (000) 000-00-00',
 }: CustomizedInputProps) {
   const { setFieldValue } = useFormikContext<Values>();
   const inputId = useId();
@@ -45,15 +47,15 @@ export default function CustomizedInput({
                 clsx(
                   `relative w-full h-[50px] lg:h-[60px] px-4 py-2 text-[14px] lg:text-[16px] font-normal leading-[120%] bg-white border-1 rounded-[20px] outline-none resize-none transition duration-300 ease-out ${
                     meta.touched && meta.error
-                      ? "border-red-500"
-                      : "border-black"
+                      ? 'border-red-500'
+                      : 'border-black'
                   }`,
                   fieldClassName
                 )
               ),
             };
 
-            if (inputType === "tel") {
+            if (inputType === 'tel') {
               return (
                 <IMaskInput
                   {...field}
@@ -63,7 +65,7 @@ export default function CustomizedInput({
                   autoComplete="on"
                   type="tel"
                   onAccept={(value: string) => {
-                    setFieldValue(fieldName, value || "");
+                    setFieldValue(fieldName, value || '');
                   }}
                 />
               );
@@ -75,6 +77,7 @@ export default function CustomizedInput({
                 {...commonProps}
                 type={inputType}
                 autoComplete="on"
+                placeholder={placeholder}
               />
             );
           }}

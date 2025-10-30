@@ -1,12 +1,24 @@
 import './globals.css';
 import { getDefaultMetadata } from '@/utils/getDefaultMetadata';
 import { Montserrat } from 'next/font/google';
-import localFont from 'next/font/local';
 import Header from '@/components/shared/header/Header';
 import dynamic from 'next/dynamic';
 import SplashGate from '@/components/shared/splashScreen/SplashGate';
-// raleway font
-// manrope font
+import { Manrope } from 'next/font/google';
+import { Raleway } from 'next/font/google';
+
+const raleway = Raleway({
+  variable: '--font-raleway',
+  subsets: ['latin', 'cyrillic'],
+  display: 'swap',
+});
+
+const manrope = Manrope({
+  variable: '--font-manrope',
+  subsets: ['latin', 'cyrillic'],
+  display: 'swap',
+});
+
 const Footer = dynamic(() => import('@/components/shared/footer/Footer'), {
   ssr: true,
 });
@@ -14,12 +26,6 @@ const Footer = dynamic(() => import('@/components/shared/footer/Footer'), {
 const montserrat = Montserrat({
   variable: '--font-montserrat',
   subsets: ['latin', 'cyrillic'],
-  display: 'swap',
-});
-
-const evolenta = localFont({
-  src: '../fonts/evolenta-regular.ttf',
-  variable: '--font-evolenta',
   display: 'swap',
 });
 
@@ -34,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="uk">
       <body
-        className={`${montserrat.variable} ${evolenta.variable} flex min-h-dvh flex-col antialiased text-[14px] font-normal leading-[120%]`}
+        className={`${montserrat.variable} ${manrope.variable} ${raleway.variable} flex min-h-dvh flex-col antialiased text-[14px] font-normal leading-[120%]`}
       >
         <SplashGate>
           <Header />
