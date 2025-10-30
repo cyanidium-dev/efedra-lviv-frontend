@@ -97,8 +97,6 @@ export const allServicesQuery = `
   *[_type == "service"] | order(order asc) {
     title,
     "slug": slug.current,
-    category,
-    order,
     categoryImage {
       asset->{
         _id,
@@ -107,87 +105,6 @@ export const allServicesQuery = `
       crop,
       hotspot
     },
-    mainImage {
-      asset->{
-        _id,
-        url
-      },
-      crop,
-      hotspot
-    },
-    shortDescription,
-    procedureDescription {
-      text,
-      images[] {
-        "asset": asset->{
-          _id,
-          url
-        },
-        crop,
-        hotspot
-      },
-      info
-    },
-    recommended[] {
-      image {
-        asset->{
-          _id,
-          url
-        },
-        crop,
-        hotspot
-      },
-      text
-    },
-    howItGoes {
-      image {
-        asset->{
-          _id,
-          url
-        },
-        crop,
-        hotspot
-      },
-      steps {
-        title,
-        description
-      }
-    },
-    advantages[] {
-      "icon": icon.asset->url,
-      title,
-      text
-    },
-    contraindications {
-      image {
-        asset->{
-          _id,
-          url
-        },
-        crop,
-        hotspot
-      },
-      items
-    },
-    types {
-      title,
-      list[] {
-        image {
-          asset->{
-            _id,
-            url
-          },
-          crop,
-          hotspot
-        },
-        title,
-        text,
-        details
-      }
-    },
-    pricing {
-      link
-    }
   }
 `;
 

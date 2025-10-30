@@ -1,9 +1,35 @@
-export const ServiceCard = () => {
+import Image from 'next/image';
+
+interface ServiceCardProps {
+  title: string;
+  categoryImageUrl: string;
+  number: number;
+}
+
+export const ServiceCard = ({
+  title,
+  categoryImageUrl,
+  number,
+}: ServiceCardProps) => {
   return (
-    <div>
-      <div>number</div>
-      <div>image</div>
-      <p>name</p>
+    <div className="relative w-[296px] h-[243px] pt-[20px] pb-[10px] px-[10px] flex flex-col justify-between rounded-[15px] overflow-hidden">
+      <div className="flex items-center gap-[15px]">
+        <div className="text-[30px] leading-[100%] tracking-[-0.05em] text-white font-medium">
+          {`0${number}`}
+        </div>
+        <div className="w-full h-[1px] bg-white"></div>
+      </div>
+      <div className="absolute inset-0 w-full h-full z-[-10]">
+        <Image
+          src={categoryImageUrl}
+          alt={title}
+          fill
+          className="object-cover"
+        />
+      </div>
+      <p className="text-[16px] leading-[110%] tracking-[-0.05em] text-black font-medium w-full text-center py-[15px] bg-white rounded-[10px]">
+        {title}
+      </p>
     </div>
   );
 };

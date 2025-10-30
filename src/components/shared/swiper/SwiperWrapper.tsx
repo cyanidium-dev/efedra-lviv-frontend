@@ -1,35 +1,39 @@
-"use client";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { ReactNode, useRef, useEffect, useState } from "react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import { Swiper } from "swiper/react";
-import { SwiperOptions } from "swiper/types";
-import Image from "next/image";
+'use client';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { ReactNode, useRef, useEffect, useState } from 'react';
+import { Navigation, Pagination, Autoplay, EffectCards } from 'swiper/modules';
+import { Swiper } from 'swiper/react';
+import { SwiperOptions } from 'swiper/types';
+import ArrowIconFilled from '../icons/ArrowIconFilled';
+import clsx from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
 interface SwiperWrapperProps {
   children: ReactNode;
-  breakpoints: SwiperOptions["breakpoints"];
+  breakpoints: SwiperOptions['breakpoints'];
   swiperClassName?: string;
   wrapperClassName?: string;
   buttonsWrapperClassName?: string;
   loop?: boolean;
   isPagination?: boolean;
-  autoplay?: SwiperOptions["autoplay"];
-  variant?: "blue" | "beige";
+  autoplay?: SwiperOptions['autoplay'];
+  size?: number;
+  cardsEffect?: boolean;
 }
 
 export default function SwiperWrapper({
   children,
   breakpoints,
-  swiperClassName = "",
-  wrapperClassName = "",
-  buttonsWrapperClassName = "",
+  swiperClassName = '',
+  wrapperClassName = '',
+  buttonsWrapperClassName = '',
   loop = false,
   isPagination = false,
   autoplay = false,
-  variant = "blue",
+  size = 40,
+  cardsEffect = false,
 }: SwiperWrapperProps) {
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
@@ -56,7 +60,7 @@ export default function SwiperWrapper({
       setIsEnd(swiperInstance.isEnd);
 
       // оновлюємо стан кнопок при зміні слайду
-      swiperInstance.on("slideChange", () => {
+      swiperInstance.on('slideChange', () => {
         setIsBeginning(swiperInstance.isBeginning);
         setIsEnd(swiperInstance.isEnd);
       });
@@ -72,7 +76,13 @@ export default function SwiperWrapper({
         loop={loop}
         speed={1000}
         autoplay={autoplay}
-        modules={[Navigation, Pagination, Autoplay]}
+        modules={[
+          Navigation,
+          Pagination,
+          Autoplay,
+          ...(cardsEffect ? [EffectCards] : []),
+        ]}
+        effect={cardsEffect ? 'cards' : undefined}
         className={swiperClassName}
       >
         {children}
@@ -84,28 +94,32 @@ export default function SwiperWrapper({
         <button
           ref={prevRef}
           disabled={isBeginning}
-          className={`enabled:cursor-pointer w-[30px] h-[30px] rounded-full flex items-center justify-center pointer-events-auto transition-filter 
-          duration-300 xl:enabled:hover:brightness-[1.25] disabled:bg-gray ${variant === "blue" ? "bg-blue" : "bg-beige"}`}
+          className={clsx(
+            `enabled:cursor-pointer w-[${size}px] h-[${size}px] rounded-[10px] flex items-center justify-center pointer-events-auto transition-filter 
+          duration-300 xl:enabled:hover:brightness-[1.25] bg-green disabled:bg-white disabled:border disabled:border-green disabled:text-green`
+          )}
         >
-          <Image
-            src="/images/icons/arrow-left.svg"
-            alt="Prev"
-            width={16}
-            height={16}
+          <ArrowIconFilled
+            className={clsx(
+              'w-[16px] h-[16px] rotate-180',
+              isBeginning ? 'text-green' : 'text-white'
+            )}
           />
         </button>
 
         <button
           ref={nextRef}
           disabled={isEnd}
-          className={`enabled:cursor-pointer w-[30px] h-[30px] rounded-full flex items-center justify-center pointer-events-auto transition-filter 
-          duration-300 xl:enabled:hover:brightness-[1.25] disabled:bg-gray ${variant === "blue" ? "bg-blue" : "bg-beige"}`}
+          className={clsx(
+            `enabled:cursor-pointer w-[${size}px] h-[${size}px] rounded-[10px] flex items-center justify-center pointer-events-auto transition-filter 
+          duration-300 xl:enabled:hover:brightness-[1.25] bg-green disabled:bg-white disabled:border disabled:border-green disabled:text-green`
+          )}
         >
-          <Image
-            src="/images/icons/arrow-right.svg"
-            alt="Next"
-            width={16}
-            height={16}
+          <ArrowIconFilled
+            className={clsx(
+              'w-[16px] h-[16px]',
+              isEnd ? 'text-green' : 'text-white'
+            )}
           />
         </button>
       </div>

@@ -1,15 +1,13 @@
 'use client';
-import { PersonelCard } from './PersonelCard';
-import { Doctor } from '@/types/doctor';
-
 import SwiperWrapper from '@/components/shared/swiper/SwiperWrapper';
 import { SwiperSlide } from 'swiper/react';
+import { Service } from '@/types/service';
+import { ServiceCard } from './ServiceCard';
 
-export const PersonelBlock = ({ doctors }: { doctors: Doctor[] }) => {
-  // TODO: fix cards effect
+export const ServicesSwiper = ({ services }: { services: Service[] }) => {
   return (
     <SwiperWrapper
-      swiperClassName="personel"
+      swiperClassName="services"
       wrapperClassName="lg:flex lg:flex-row-reverse lg:gap-6"
       buttonsWrapperClassName="mt-7 lg:mt-0"
       breakpoints={{
@@ -20,16 +18,14 @@ export const PersonelBlock = ({ doctors }: { doctors: Doctor[] }) => {
         640: { spaceBetween: 16, slidesPerView: 2 },
         1024: { spaceBetween: 20, slidesPerView: 'auto' },
       }}
-      size={40}
-      loop={true}
-      cardsEffect={true}
+      size={30}
     >
-      {doctors.map((doctor: Doctor, idx: number) => (
+      {services.map((service: Service, idx: number) => (
         <SwiperSlide key={idx}>
-          <PersonelCard
-            name={doctor.name}
-            position={doctor.position}
-            photoUrl={doctor.photo.asset.url}
+          <ServiceCard
+            title={service.title}
+            categoryImageUrl={service.categoryImage.asset.url}
+            number={idx + 1}
           />
         </SwiperSlide>
       ))}

@@ -1,10 +1,10 @@
 export interface Doctor {
   id: string;
   name: string;
-  photo: string;
+  photo: {
+    asset: {
+      url: string;
+    };
+  };
   position: string;
-  startYear: number;
-  direction: "dentistry" | "aesthetic";
-  description: string;
-  order: number;
 }

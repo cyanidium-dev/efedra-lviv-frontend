@@ -1,18 +1,18 @@
-"use client";
-import Marquee from "react-fast-marquee";
-import * as motion from "motion/react-client";
-import { headerVariants } from "@/utils/animationVariants";
-import clsx from "clsx";
-import { twMerge } from "tailwind-merge";
+'use client';
+import Marquee from 'react-fast-marquee';
+import * as motion from 'motion/react-client';
+import { headerVariants } from '@/utils/animationVariants';
+import clsx from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
 interface MarqueeLineProps {
-  variant?: "beige" | "blue";
+  variant?: 'beige' | 'blue' | 'green';
   className?: string;
 }
 
 export default function MarqueeLine({
-  className = "",
-  variant = "beige",
+  className = '',
+  variant = 'green',
 }: MarqueeLineProps) {
   return (
     <motion.div
@@ -29,9 +29,11 @@ export default function MarqueeLine({
         className={twMerge(
           clsx(
             `h-[42px] lg:h-[76px] border-y lg:border-y-2 font-evolenta text-[17px] lg:text-[30px] leading-none ${
-              variant === "beige"
-                ? "text-beige border-beige"
-                : "text-blue border-blue"
+              variant === 'green'
+                ? 'text-green border-green'
+                : variant === 'blue'
+                  ? 'text-blue border-blue'
+                  : 'text-beige border-beige'
             }`,
             className
           )
