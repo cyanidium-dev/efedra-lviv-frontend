@@ -12,12 +12,16 @@ interface FollowUsProps {
   className?: string;
   variant?: 'bordered' | 'normal';
   textClassName?: string;
+  iconClassName?: string;
+  strokeColor?: string;
 }
 
 export const FollowUs = ({
   className,
   variant = 'normal',
   textClassName,
+  iconClassName,
+  strokeColor,
 }: FollowUsProps) => {
   const styles = {
     bordered: 'border border-white w-[40px] h-[40px]',
@@ -63,13 +67,16 @@ export const FollowUs = ({
             href={INSTAGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="block w-full h-full flex items-center justify-center"
+            className="w-full h-full flex items-center justify-center"
           >
             <span className="sr-only">Instagram</span>
             {variant === 'bordered' ? (
-              <InstagramIconFilled className="text-white" />
+              <InstagramIconFilled className={iconClassName} />
             ) : (
-              <InstagramIcon className="text-white" />
+              <InstagramIcon
+                className={iconClassName}
+                strokeColor={strokeColor}
+              />
             )}
           </a>
         </li>

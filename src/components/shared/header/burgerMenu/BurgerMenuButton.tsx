@@ -25,6 +25,7 @@ export default function BurgerMenuButton({
             top: '2px',
             left: '0',
             opacity: 1,
+            backgroundColor: 'black',
           }}
           animate={
             isHeaderMenuOpened
@@ -32,6 +33,7 @@ export default function BurgerMenuButton({
                   top: '9px', // Переміщаємо в центр
                   left: '0',
                   opacity: 0,
+                  backgroundColor: 'white',
                 }
               : {
                   top: '2px', // Повертаємо на початкове місце
@@ -48,9 +50,12 @@ export default function BurgerMenuButton({
           initial={{
             top: '9px',
             left: '0',
+            backgroundColor: 'black',
           }}
           animate={
-            isHeaderMenuOpened ? { rotate: '45deg' } : { rotate: '0deg' }
+            isHeaderMenuOpened
+              ? { rotate: '45deg', backgroundColor: 'white' }
+              : { rotate: '0deg', backgroundColor: 'black' }
           }
           transition={{ duration: 0.7, ease: 'easeOut' }}
         />
@@ -61,12 +66,14 @@ export default function BurgerMenuButton({
           initial={{
             top: '16px',
             left: '0',
+            backgroundColor: 'black',
           }}
           animate={
             isHeaderMenuOpened
               ? {
                   rotate: '-45deg',
                   top: '9px',
+                  backgroundColor: 'white',
                 }
               : {
                   rotate: '0deg',

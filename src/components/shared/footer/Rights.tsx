@@ -5,7 +5,7 @@ export default function Rights() {
   const year = new Date().getFullYear();
 
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-end justify-between">
       <p className="text-[16px] font-normal leading-[29px] tracking-[0.64px]">
         © {year} Efedra
       </p>

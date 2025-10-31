@@ -53,6 +53,7 @@ export default function BurgerMenuContent({
             <FollowUs
               variant="bordered"
               textClassName="text-[20px] font-semibold leading-[100%] tracking-[-0.05em] text-white mb-[15px]"
+              iconClassName="text-white"
             />
           </Container>
           <motion.div

@@ -61,6 +61,7 @@ export const Contacts = () => {
           <FollowUs
             variant="bordered"
             textClassName="font-manrope text-[14px] leading-[110%] tracking-[-0.03em] text-white font-bold mb-[10px]"
+            iconClassName="text-white"
           />
         </div>
         <ContactForm />

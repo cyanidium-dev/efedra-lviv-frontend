@@ -16,6 +16,7 @@ interface CustomizedInputProps {
   inputType?: string;
   mask?: string;
   placeholder?: string;
+  isLabelHidden?: boolean;
 }
 
 export default function CustomizedInput({
@@ -26,6 +27,7 @@ export default function CustomizedInput({
   inputType = 'text',
   placeholder = '',
   mask = '+38 (000) 000-00-00',
+  isLabelHidden = false,
 }: CustomizedInputProps) {
   const { setFieldValue } = useFormikContext<Values>();
   const inputId = useId();
@@ -35,7 +37,14 @@ export default function CustomizedInput({
       htmlFor={inputId}
       className={`relative flex flex-col w-full ${labelClassName}`}
     >
-      <span className="mb-1 lg:mb-3 text-[14px] lg:text-[16px] font-normal leading-[120%]">
+      <span
+        className={twMerge(
+          clsx(
+            'mb-1 lg:mb-3 text-[14px] lg:text-[16px] font-normal leading-[120%]',
+            isLabelHidden && 'sr-only'
+          )
+        )}
+      >
         {label}
       </span>
       <div className="relative w-full">
@@ -45,7 +54,7 @@ export default function CustomizedInput({
               id: inputId,
               className: twMerge(
                 clsx(
-                  `relative w-full h-[50px] lg:h-[60px] px-4 py-2 text-[14px] lg:text-[16px] font-normal leading-[120%] bg-white border-1 rounded-[20px] outline-none resize-none transition duration-300 ease-out ${
+                  `relative w-full outline-none resize-none transition duration-300 ease-out ${
                     meta.touched && meta.error
                       ? 'border-red-500'
                       : 'border-black'
@@ -61,9 +70,10 @@ export default function CustomizedInput({
                   {...field}
                   {...commonProps}
                   mask={mask}
-                  lazy={false}
+                  lazy={placeholder ? true : false}
                   autoComplete="on"
                   type="tel"
+                  placeholder={placeholder || undefined}
                   onAccept={(value: string) => {
                     setFieldValue(fieldName, value || '');
                   }}
@@ -87,7 +97,7 @@ export default function CustomizedInput({
       <ErrorMessage
         name={fieldName}
         component="p"
-        className="absolute bottom-[-12px] left-2 text-[9px] font-normal leading-none text-red-500"
+        className="absolute bottom-[-10px] left-2 text-[9px] font-normal leading-none text-red-500"
       />
     </label>
   );

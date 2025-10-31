@@ -1,14 +1,8 @@
-interface LoaderIconProps {
-  variant?: "beige" | "blue" | "white" | "bordered";
-}
-
-export default function LoaderIcon({ variant = "beige" }: LoaderIconProps) {
+export default function LoaderIcon() {
   return (
     <svg
       aria-hidden="true"
-      className={`absolute top-[calc(50%-10px)] right-5 w-5 h-5 text-gray rotation ${
-        variant === "beige" ? "fill-beige" : "fill-blue"
-      }`}
+      className={`absolute top-[calc(50%-10px)] right-5 w-5 h-5 text-green rotation`}
       viewBox="0 0 100 101"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -7,6 +7,7 @@ import { callBackValidation } from '@/schemas/callBackValidation';
 
 import CustomizedInput from '@/components/shared/formComponents/CustomizedInput';
 import MainButton from '@/components/shared/buttons/MainButton';
+import NotificationPopUp from '@/components/shared/notifications/NotificationPopUp';
 
 export interface ValuesContactFormType {
   name: string;
@@ -14,17 +15,13 @@ export interface ValuesContactFormType {
 }
 
 interface ContactFormProps {
-  //setIsError: Dispatch<SetStateAction<boolean>>;
-  //setIsNotificationShown: Dispatch<SetStateAction<boolean>>;
   className?: string;
 }
 
-export const ContactForm = ({
-  // setIsError,
-  // setIsNotificationShown,
-  className = '',
-}: ContactFormProps) => {
+export const ContactForm = ({ className = '' }: ContactFormProps) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [isNotificationShown, setIsNotificationShown] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const initialValues = {
     name: '',
@@ -43,7 +40,7 @@ export const ContactForm = ({
       `<b>Ім'я:</b> ${values.name.trim()}\n` +
       `<b>Телефон:</b> ${values.phone.trim().replace(/(?!^)\D/g, '')}\n`;
     try {
-      //etIsError(false);
+      setIsError(false);
       setIsLoading(true);
 
       await axios({
@@ -56,10 +53,10 @@ export const ContactForm = ({
       });
       resetForm();
 
-      //    setIsNotificationShown(true);
+      setIsNotificationShown(true);
     } catch (error) {
-      //   setIsError(true);
-      //   setIsNotificationShown(true);
+      setIsError(true);
+      setIsNotificationShown(true);
       return error;
     } finally {
       setIsLoading(false);
@@ -67,35 +64,60 @@ export const ContactForm = ({
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={submitForm}
-      validationSchema={validationSchema}
-    >
-      {({ dirty, isValid }) => (
-        <>
-          <h2 className="sr-only">Форма зворотнього зв'язку</h2>
-          <Form className={`${className}`}>
-            <div className="flex flex-col w-full gap-y-3 lg:gap-y-3.5 mb-[22px] lg:mb-[26px]">
-              <CustomizedInput fieldName="name" label="Ваше м’я" />
-              <CustomizedInput
-                fieldName="phone"
-                label="Номер телефону"
-                inputType="tel"
-              />
-            </div>
-            <MainButton
-              type="submit"
-              disabled={!(dirty && isValid) || isLoading}
-              isLoading={isLoading}
-              loadingText="Надсилання..."
-              className="h-14 px-5 lg:px-5 text-[14px] lg:text-[16px] font-medium"
+    <>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={submitForm}
+        validationSchema={validationSchema}
+      >
+        {({ dirty, isValid }) => (
+          <>
+            <h2 className="sr-only">Форма зворотнього зв'язку</h2>
+            <Form
+              className={`${className} bg-green rounded-[15px] px-[10px] py-[20px]`}
             >
-              Надіслати
-            </MainButton>
-          </Form>
-        </>
-      )}
-    </Formik>
+              <div className="flex flex-col w-full gap-y-[10px] lg:gap-y-3.5 mb-[25px] lg:mb-[26px]">
+                <CustomizedInput
+                  fieldName="name"
+                  label="Ваше ім’я"
+                  isLabelHidden={true}
+                  placeholder="Ваше ім’я"
+                  fieldClassName="h-[40px] lg:h-[48px] bg-white/30 h-[40px] w-[276px] text-[14px] leading-[15px] text-white rounded-full px-[20px] pt-[15px] pb-[10px]"
+                />
+                <CustomizedInput
+                  fieldName="phone"
+                  label="Номер телефону"
+                  inputType="tel"
+                  isLabelHidden={true}
+                  placeholder="Номер телефону"
+                  fieldClassName="h-[40px] lg:h-[48px] bg-white/30 h-[40px] w-[276px] text-[14px] leading-[15px] text-white rounded-full px-[20px] pt-[15px] pb-[10px]"
+                />
+              </div>
+              <MainButton
+                type="submit"
+                disabled={!(dirty && isValid) || isLoading}
+                isLoading={isLoading}
+                loadingText="Надсилання..."
+                className="px-[20px] py-[12px] text-[16px] leading-[100%] tracking-[-0.05em] text-black font-medium bg-white text-left"
+                spanClassName="w-[32px] h-[32px] flex items-center justify-center bg-green rounded-full"
+                iconClassName="text-white"
+              >
+                Надіслати
+              </MainButton>
+            </Form>
+          </>
+        )}
+      </Formik>
+      <NotificationPopUp
+        title={isError ? 'На жаль, щось пішло не так' : 'Дякуємо за звернення!'}
+        description={
+          isError
+            ? 'Спробуйте відправити форму ще раз'
+            : "Наш менеджер скоро зв'яжеться з вами"
+        }
+        isPopUpShown={isNotificationShown}
+        setIsPopUpShown={setIsNotificationShown}
+      />
+    </>
   );
 };

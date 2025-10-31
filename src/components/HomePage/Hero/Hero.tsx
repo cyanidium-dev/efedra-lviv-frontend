@@ -4,6 +4,7 @@ import { fadeInAnimation } from '@/utils/animationVariants';
 import Image from 'next/image';
 import { GlassFilter } from '@/components/shared/GlassFilter/GlassFilter';
 import PhoneIcon from '@/components/shared/icons/PhoneIcon';
+import MainButton from '@/components/shared/buttons/MainButton';
 
 export const Hero = () => {
   return (
@@ -99,12 +100,13 @@ export const Hero = () => {
                 className="rounded-[5px]"
               />
             </div>
-            <button className="relative w-full px-[20px] py-[12px] rounded-full bg-white text-left text-[16px] leading-[100%] tracking-[-0.05em] text-black font-medium">
+            <MainButton
+              className="px-[20px] py-[12px] text-[16px] leading-[100%] tracking-[-0.05em] text-black font-medium bg-white text-left"
+              spanClassName="w-[32px] h-[32px] flex items-center justify-center bg-green rounded-full"
+              iconClassName="text-white"
+            >
               Запис на прийом
-              <span className="absolute right-[4px] top-1/2 -translate-y-1/2 w-[32px] h-[32px] flex items-center justify-center bg-green rounded-full">
-                <PhoneIcon className="text-white" />
-              </span>
-            </button>
+            </MainButton>
           </div>
         </GlassFilter>
         <GlassFilter
