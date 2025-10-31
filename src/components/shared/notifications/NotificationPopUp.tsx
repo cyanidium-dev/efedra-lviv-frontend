@@ -1,6 +1,6 @@
-import { Dispatch, SetStateAction } from "react";
-import Modal from "../modals/Modal";
-import MainButton from "../buttons/MainButton";
+import { Dispatch, SetStateAction } from 'react';
+import Modal from '../modals/Modal';
+import MainButton from '../buttons/MainButton';
 
 interface NotificationPopUpProps {
   title: string;
@@ -19,7 +19,7 @@ export default function NotificationPopUp({
 }: NotificationPopUpProps) {
   return (
     <Modal isModalShown={isPopUpShown} setIsModalShown={setIsPopUpShown}>
-      <div className="py-10 relative flex flex-col justify-center items-center w-full">
+      <div className="py-10 relative flex flex-col justify-center items-center w-full z-20">
         <h3 className="mb-8 lg:mb-10 font-evolenta text-[24px] lg:text-[32px] font-normal leading-[120%] text-center uppercase">
           {title}
         </h3>

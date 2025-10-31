@@ -1,14 +1,44 @@
 import LogoIcon from '@/components/shared/icons/LogoIcon';
+import { fadeInAnimation } from '@/utils/animationVariants';
+import * as motion from 'motion/react-client';
 import Image from 'next/image';
 export const Plug = () => {
   return (
     <div>
-      <ul className="flex items-center justify-center">
-        <li className="bg-green text-white flex items-center justify-center h-[59px] w-full rounded-full">
+      <motion.ul
+        initial="hidden"
+        whileInView="visible"
+        exit="exit"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeInAnimation({ y: 20, delay: 0.3 })}
+        className="flex items-center justify-center"
+      >
+        <motion.li
+          initial="hidden"
+          whileInView="visible"
+          exit="exit"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInAnimation({ y: 20, delay: 0.3 })}
+          className="bg-green text-white flex items-center justify-center h-[59px] w-full rounded-full"
+        >
           <LogoIcon className="w-[55px]" />
-        </li>
-        <li className="hidden lg:block"></li>
-        <li className="relative text-[14px] leading-[100%] tracking-[-0.03em] text-white font-medium h-[59px] flex items-center justify-center w-full rounded-full overflow-hidden">
+        </motion.li>
+        <motion.li
+          initial="hidden"
+          whileInView="visible"
+          exit="exit"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInAnimation({ y: 20, delay: 0.3 })}
+          className="hidden lg:block"
+        ></motion.li>
+        <motion.li
+          initial="hidden"
+          whileInView="visible"
+          exit="exit"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInAnimation({ y: 20, delay: 0.3 })}
+          className="relative text-[14px] leading-[100%] tracking-[-0.03em] text-white font-medium h-[59px] flex items-center justify-center w-full rounded-full overflow-hidden"
+        >
           <Image
             src="/images/homePage/plug/imageBg.jpg"
             alt="imageBg"
@@ -17,11 +47,18 @@ export const Plug = () => {
             className="object-cover w-full h-full absolute inset-0 z-[-10]"
           />
           НАМ
-        </li>
-        <li className="text-[14px] leading-[100%] tracking-[-0.03em] text-white font-medium bg-green h-[59px] flex items-center justify-center w-full rounded-full">
+        </motion.li>
+        <motion.li
+          initial="hidden"
+          whileInView="visible"
+          exit="exit"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInAnimation({ y: 20, delay: 0.3 })}
+          className="text-[14px] leading-[100%] tracking-[-0.03em] text-white font-medium bg-green h-[59px] flex items-center justify-center w-full rounded-full"
+        >
           Довіряють
-        </li>
-      </ul>
+        </motion.li>
+      </motion.ul>
     </div>
   );
 };

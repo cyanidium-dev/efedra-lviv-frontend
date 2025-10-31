@@ -4,28 +4,38 @@ import { reviewsList } from './data';
 import SwiperWrapper from '@/components/shared/swiper/SwiperWrapper';
 import { SwiperSlide } from 'swiper/react';
 import { Review } from '@/types/review';
+import { fadeInAnimation } from '@/utils/animationVariants';
+import * as motion from 'motion/react-client';
 
 export const ReviewsBlock = () => {
   return (
-    <SwiperWrapper
-      swiperClassName="reviews"
-      wrapperClassName="lg:flex lg:flex-row-reverse lg:gap-6 bg-white rounded-[10px] p-[15px] pt-[15px]"
-      buttonsWrapperClassName="mt-5 lg:mt-0 justify-end"
-      loop
-      breakpoints={{
-        0: {
-          spaceBetween: 16,
-          slidesPerView: 1,
-        },
-        640: { spaceBetween: 16, slidesPerView: 2 },
-        1024: { spaceBetween: 20, slidesPerView: 'auto' },
-      }}
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      exit="exit"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={fadeInAnimation({ y: 20, delay: 0.3 })}
     >
-      {reviewsList.map((review: Review, idx: number) => (
-        <SwiperSlide key={idx}>
-          <ReviewsCard review={review} />
-        </SwiperSlide>
-      ))}
-    </SwiperWrapper>
+      <SwiperWrapper
+        swiperClassName="reviews"
+        wrapperClassName="lg:flex lg:flex-row-reverse lg:gap-6 bg-white rounded-[10px] p-[15px] pt-[15px]"
+        buttonsWrapperClassName="mt-5 lg:mt-0 justify-end"
+        loop
+        breakpoints={{
+          0: {
+            spaceBetween: 16,
+            slidesPerView: 1,
+          },
+          640: { spaceBetween: 16, slidesPerView: 2 },
+          1024: { spaceBetween: 20, slidesPerView: 'auto' },
+        }}
+      >
+        {reviewsList.map((review: Review, idx: number) => (
+          <SwiperSlide key={idx}>
+            <ReviewsCard review={review} />
+          </SwiperSlide>
+        ))}
+      </SwiperWrapper>
+    </motion.div>
   );
 };

@@ -99,8 +99,8 @@ export const ContactForm = ({ className = '' }: ContactFormProps) => {
                 isLoading={isLoading}
                 loadingText="Надсилання..."
                 className="px-[20px] py-[12px] text-[16px] leading-[100%] tracking-[-0.05em] text-black font-medium bg-white text-left"
-                spanClassName="w-[32px] h-[32px] flex items-center justify-center bg-green rounded-full"
-                iconClassName="text-white"
+                spanClassName="w-[32px] h-[32px] flex items-center justify-center bg-green-light-2 rounded-full"
+                iconClassName="text-black"
               >
                 Надіслати
               </MainButton>
