@@ -85,13 +85,13 @@ export default function CallBackForm({
             <CustomizedInput
               fieldName="name"
               label="Імʼя"
-              fieldClassName="h-[40px] lg:h-[48px] h-[40px] w-full text-[14px] leading-[15px] rounded-full px-[20px] pt-[15px] pb-[10px] border border-black"
+              fieldClassName="h-[50px] lg:h-[48px] w-full text-[14px] leading-[15px] rounded-[16px] px-[20px] pt-[15px] pb-[10px] border border-black"
             />
             <CustomizedInput
               fieldName="phone"
               label="Телефон"
               inputType="tel"
-              fieldClassName="h-[40px] lg:h-[48px] h-[40px] w-full text-[14px] leading-[15px] rounded-full px-[20px] pt-[15px] pb-[10px] border border-black"
+              fieldClassName="h-[50px] lg:h-[48px] w-full text-[14px] leading-[15px] rounded-[16px] px-[20px] pt-[15px] pb-[10px] border border-black"
             />
           </div>
           <MainButton
@@ -99,9 +99,7 @@ export default function CallBackForm({
             disabled={!(dirty && isValid) || isLoading}
             isLoading={isLoading}
             loadingText="Надсилання..."
-            className="px-[20px] py-[8px] text-[16px] leading-[100%] tracking-[-0.05em] text-white bg-green font-medium text-left"
-            spanClassName="w-[32px] h-[32px] flex items-center justify-center bg-green-light-2 rounded-full"
-            iconClassName="text-black"
+            className="w-full h-[56px] text-[14px] leading-[17px] text-white bg-green-light-2 font-medium text-center rounded-full"
           >
             Записатися на консультацію
           </MainButton>

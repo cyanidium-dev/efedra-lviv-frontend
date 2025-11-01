@@ -12,5 +12,5 @@ export interface PriceSubcategory {
 export interface PriceCategory {
   title: string;
   subcategories: PriceSubcategory[];
-  colorScheme: "black" | "beige" | "blue";
+  colorScheme: 'light-green' | 'black' | 'green';
 }

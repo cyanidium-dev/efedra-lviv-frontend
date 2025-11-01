@@ -53,16 +53,18 @@ const MainButton = forwardRef<HTMLButtonElement, MainButtonProps>(
           <p className="relative z-10 w-full">
             {isLoading ? loadingText : children}
           </p>
-          <span
-            className={twMerge(
-              clsx(
-                'absolute right-[4px] top-1/2 -translate-y-1/2  flex items-center justify-center rounded-full',
-                spanClassName
-              )
-            )}
-          >
-            {phoneIcon ? <PhoneIcon className={iconClassName} /> : null}
-          </span>
+          {phoneIcon ? (
+            <span
+              className={twMerge(
+                clsx(
+                  'absolute right-[4px] top-1/2 -translate-y-1/2  flex items-center justify-center rounded-full',
+                  spanClassName
+                )
+              )}
+            >
+              <PhoneIcon className={iconClassName} />
+            </span>
+          ) : null}
         </div>
         {isLoading ? <LoaderIcon /> : null}
       </button>

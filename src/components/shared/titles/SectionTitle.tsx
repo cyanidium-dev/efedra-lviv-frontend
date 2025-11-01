@@ -6,7 +6,7 @@ import { twMerge } from 'tailwind-merge';
 
 interface SectionTitleProps {
   children?: ReactNode;
-  variant?: 'beige' | 'blue' | 'black' | 'green';
+  variant?: 'light-green' | 'black' | 'green';
   type?: 'bordered' | 'solid';
   className?: string;
   animationDirection?: 'left' | 'right';
@@ -31,24 +31,8 @@ export default function SectionTitle({
       className={twMerge(
         clsx(
           `flex items-center justify-center w-fit h-[29px] mb-5 lg:mb-6 rounded-full px-3 py-1 
-      ${
-        variant === 'green'
-          ? type === 'solid'
-            ? 'text-white bg-green-light-2'
-            : 'text-green-light-2 bg-white border-[1.8px] border-green-light-2'
-          : variant === 'beige'
-            ? type === 'solid'
-              ? 'text-white bg-beige/80'
-              : 'text-beige bg-white border-[1.8px] border-beige/80'
-            : variant === 'blue'
-              ? type === 'solid'
-                ? 'text-white bg-blue/80'
-                : 'text-blue bg-white border-[1.8px] border-blue/80'
-              : type === 'solid'
-                ? 'text-white bg-black/80'
-                : 'text-black bg-white border-[1.8px] border-black/80'
-      }
-      `,
+        ${variant === 'green' ? (type === 'solid' ? 'text-white bg-green' : 'text-greenbg-white border-[1.8px] border-green') : variant === 'light-green' ? (type === 'solid' ? 'text-white bg-green-light-4' : 'text-green-light-4 bg-white border-[1.8px] border-green-light-4') : variant === 'black' ? (type === 'solid' ? 'text-white bg-black/80' : 'text-black bg-white border-[1.8px] border-black') : ''}
+        `,
           className
         )
       )}

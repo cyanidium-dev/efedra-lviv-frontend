@@ -1,27 +1,25 @@
-"use client";
+'use client';
 
-import * as motion from "motion/react-client";
-import { useState } from "react";
-import { twMerge } from "tailwind-merge";
-import Image from "next/image";
-import { fadeInAnimation } from "@/utils/animationVariants";
-import Container from "../container/Container";
-import CallBackForm from "../forms/CallBackForm";
-import NotificationPopUp from "../notifications/NotificationPopUp";
-import Backdrop from "../backdrop/Backdrop";
+import * as motion from 'motion/react-client';
+import { useState } from 'react';
+import { twMerge } from 'tailwind-merge';
+import Image from 'next/image';
+import { fadeInAnimation } from '@/utils/animationVariants';
+import Container from '../container/Container';
+import CallBackForm from '../forms/CallBackForm';
+import NotificationPopUp from '../notifications/NotificationPopUp';
+import Backdrop from '../backdrop/Backdrop';
 
 interface CTAFormWithBackgroundProps {
   image: string;
-  buttonVariant?: "blue" | "beige";
   className?: string;
   imageClassName?: string;
 }
 
 export default function CTAFormWithBackground({
   image,
-  className = "",
-  buttonVariant = "blue",
-  imageClassName = "",
+  className = '',
+  imageClassName = '',
 }: CTAFormWithBackgroundProps) {
   const [isNotificationShown, setIsNotificationShown] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -35,7 +33,7 @@ export default function CTAFormWithBackground({
         exit="exit"
         variants={fadeInAnimation({ scale: 0.95, duration: 1.2 })}
         className={twMerge(
-          "md:hidden relative w-full text-white rounded-[20px] h-auto flex flex-col pt-[30px] pb-11 overflow-hidden"
+          'md:hidden relative w-full text-white rounded-[20px] h-auto flex flex-col pt-[30px] pb-11 overflow-hidden'
         )}
       >
         <Image
@@ -43,7 +41,7 @@ export default function CTAFormWithBackground({
           alt="cta background"
           fill
           className={twMerge(
-            "object-cover object-[center_-27px] xs:object-center scale-[108%] xs:scale-none",
+            'object-cover object-[center_-27px] xs:object-center scale-[108%] xs:scale-none',
             imageClassName
           )}
         />
@@ -67,7 +65,6 @@ export default function CTAFormWithBackground({
                 setIsError={setIsError}
                 setIsNotificationShown={setIsNotificationShown}
                 className="text-black"
-                buttonVariant={buttonVariant}
               />
             </motion.div>
           </div>
@@ -111,17 +108,16 @@ export default function CTAFormWithBackground({
               <CallBackForm
                 setIsError={setIsError}
                 setIsNotificationShown={setIsNotificationShown}
-                buttonVariant={buttonVariant}
               />
             </motion.div>
           </motion.div>
         </div>
       </Container>
       <NotificationPopUp
-        title={isError ? "На жаль, щось пішло не так" : "Дякуємо за звернення!"}
+        title={isError ? 'На жаль, щось пішло не так' : 'Дякуємо за звернення!'}
         description={
           isError
-            ? "Спробуйте відправити форму ще раз"
+            ? 'Спробуйте відправити форму ще раз'
             : "Наш менеджер скоро зв'яжеться з вами"
         }
         isPopUpShown={isNotificationShown}

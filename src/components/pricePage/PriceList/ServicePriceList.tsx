@@ -1,9 +1,9 @@
-import { PriceService } from "@/types/price";
-import { twMerge } from "tailwind-merge";
+import { PriceService } from '@/types/price';
+import { twMerge } from 'tailwind-merge';
 
 interface ServicePriceListProps {
   services: PriceService[];
-  colorScheme: "beige" | "blue" | "black";
+  colorScheme: 'light-green' | 'black' | 'green';
 }
 
 export default function ServicePriceList({
@@ -26,7 +26,7 @@ export default function ServicePriceList({
         </div>
 
         {services
-          .filter((service) => service?.title)
+          .filter(service => service?.title)
           .map((service, idx) => {
             return (
               <div key={idx} className={`contents`}>
@@ -44,7 +44,7 @@ export default function ServicePriceList({
                     `flex items-center justify-center py-3 text-[12px] md:text-[14px] text-center border-t-[0.5px] border-${colorScheme}`
                   )}
                 >
-                  {service.price || <span>—</span>}
+                  {service.price + 'грн' || <span>—</span>}
                 </div>
                 <div
                   key={`duration-${idx}`}
@@ -62,18 +62,18 @@ export default function ServicePriceList({
         className={`md:hidden mt-[6px] border border-${colorScheme} rounded-[32px] overflow-hidden`}
       >
         {services
-          .filter((service) => service?.title)
+          .filter(service => service?.title)
           .map((service, idx) => {
             return (
               <div
                 key={idx}
-                className={`flex flex-col gap-2 px-3 py-4 text-sm border-t-[0.5px] border-${colorScheme} ${idx === 0 ? "border-t-[0px]" : ""}`}
+                className={`flex flex-col gap-2 px-3 py-4 text-sm border-t-[0.5px] border-${colorScheme} ${idx === 0 ? 'border-t-[0px]' : ''}`}
               >
                 <p className="text-[12px] leading-[133%]">{service.title}</p>
                 <div className="flex justify-between text-[12px] leading-[133%]">
-                  <span>{service.price || "—"}</span>
+                  <span>{service.price + ' грн' || '—'}</span>
                   <span>
-                    {service.duration ? `${service.duration} хв` : "—"}
+                    {service.duration ? `${service.duration} хв` : '—'}
                   </span>
                 </div>
               </div>

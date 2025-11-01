@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Image from "next/image";
-import * as motion from "motion/react-client";
-import Container from "../container/Container";
-import { fadeInAnimation } from "@/utils/animationVariants";
-import MainButton from "../buttons/MainButton";
-import CallBackModal from "../modals/CallBackModal";
+import { useState } from 'react';
+import Image from 'next/image';
+import * as motion from 'motion/react-client';
+import Container from '../container/Container';
+import { fadeInAnimation } from '@/utils/animationVariants';
+import MainButton from '../buttons/MainButton';
+import CallBackModal from '../modals/CallBackModal';
 
 interface VerticalTitleHeroProps {
   title: string;
@@ -28,7 +28,7 @@ export default function VerticalTitleHero({
           exit="exit"
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInAnimation({ scale: 0.95, x: 50, duration: 1.2 })}
-          className="max-h-[195px] lg:max-h-[380px] text-[16px] md:text-[28px] lg:text-[32px] leading-[115%] lg:leading-[135%] font-evolenta uppercase self-end [writing-mode:sideways-lr]"
+          className="max-h-[195px] lg:max-h-[380px] text-[16px] md:text-[28px] lg:text-[32px] leading-[115%] lg:leading-[135%] uppercase self-end [writing-mode:sideways-lr]"
         >
           {title}
         </motion.h1>
@@ -60,24 +60,20 @@ export default function VerticalTitleHero({
           >
             <MainButton
               onClick={() => setIsModalShown(true)}
-              variant="bordered"
-              withArrow
-              className="md:hidden absolute -bottom-[20px] -right-[12px] px-[17px] max-w-[158px] h-[43px] text-[14px]"
-              iconClassName="w-[26px] h-[21px]"
-              iconStrokeColor="var(--color-white)"
+              className="md:hidden absolute -bottom-[20px] -right-[12px] px-[20px] max-w-[207px] h-[40px] text-[16px] leading-[100%] tracking-[-0.05em] text-black font-medium text-center bg-white border border-black text-left justify-start"
+              iconClassName="text-white"
+              spanClassName="w-[32px] h-[32px] flex items-center justify-center bg-green rounded-full"
+              phoneIcon={true}
             >
-              Записатись
+              Запис на прийом
             </MainButton>
 
             <MainButton
               onClick={() => setIsModalShown(true)}
-              variant="white"
-              withArrow
-              className="hidden md:flex absolute bottom-[16px] right-[15px] px-[23px] lg:px-[23px] max-w-[175px] h-[56px] text-[15px] leading-[120%] text-black"
+              className="hidden md:flex absolute bottom-[16px] right-[15px] px-[23px] lg:px-[23px] max-w-[175px] h-[56px] text-[15px] leading-[120%] text-black text-center justify-center font-medium bg-white border border-black text-left justify-start"
               iconClassName="w-[26px] h-[21px]"
-              iconStrokeColor="var(--color-white)"
             >
-              Записатись
+              Запис на прийом
             </MainButton>
           </motion.div>
         </div>
