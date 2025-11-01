@@ -1,9 +1,9 @@
-import * as motion from "motion/react-client";
-import { fadeInAnimation } from "@/utils/animationVariants";
-import Container from "@/components/shared/container/Container";
-import SectionTitle from "@/components/shared/titles/SectionTitle";
-import { Post } from "@/types/post";
-import RecommendedPostsSlider from "./RecommendedPostsSlider";
+import * as motion from 'motion/react-client';
+import { fadeInAnimation } from '@/utils/animationVariants';
+import Container from '@/components/shared/container/Container';
+import SectionTitle from '@/components/shared/titles/SectionTitle';
+import { Post } from '@/types/post';
+import RecommendedPostsSlider from './RecommendedPostsSlider';
 
 interface RecommendedPostsProps {
   posts: Post[];
@@ -15,7 +15,9 @@ export default function RecommendedPosts({ posts }: RecommendedPostsProps) {
   return (
     <section className="pt-16 pb-14 lg:pt-30 lg:pb-25">
       <Container>
-        <SectionTitle className="mb-6 lg:mb-7">Читайте також</SectionTitle>
+        <SectionTitle className="mb-6 lg:mb-7 border-green-light-3 text-white">
+          Читайте також
+        </SectionTitle>
         <motion.div
           initial="hidden"
           whileInView="visible"

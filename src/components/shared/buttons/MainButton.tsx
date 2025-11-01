@@ -15,6 +15,7 @@ interface MainButtonProps {
   loadingText?: string;
   iconClassName?: string;
   spanClassName?: string;
+  phoneIcon?: boolean;
 }
 
 const MainButton = forwardRef<HTMLButtonElement, MainButtonProps>(
@@ -29,6 +30,7 @@ const MainButton = forwardRef<HTMLButtonElement, MainButtonProps>(
       loadingText,
       iconClassName = '',
       spanClassName = '',
+      phoneIcon = false,
     },
     ref
   ) => {
@@ -59,7 +61,7 @@ const MainButton = forwardRef<HTMLButtonElement, MainButtonProps>(
               )
             )}
           >
-            <PhoneIcon className={iconClassName} />
+            {phoneIcon ? <PhoneIcon className={iconClassName} /> : null}
           </span>
         </div>
         {isLoading ? <LoaderIcon /> : null}

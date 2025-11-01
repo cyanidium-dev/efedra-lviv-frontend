@@ -25,6 +25,7 @@ export default function Callback({
         className={buttonClassName}
         iconClassName={iconClassName}
         spanClassName={spanClassName}
+        phoneIcon={true}
       >
         {buttonText}
       </MainButton>

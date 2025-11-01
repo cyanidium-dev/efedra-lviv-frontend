@@ -1,11 +1,11 @@
-import MainButton from "@/components/shared/buttons/MainButton";
-import DirectionTag from "@/components/shared/directionTag/DirectionTag";
-import EstimatedReadingTime from "@/components/shared/estReadingTime/estimatedReadingTime";
-import { Post } from "@/types/post";
-import Image from "next/image";
-import Link from "next/link";
-import FormattedDate from "@/components/shared/formattedDate/FormattedDate";
-import { urlFor } from "@/utils/getUrlForSanityImage";
+import MainButton from '@/components/shared/buttons/MainButton';
+import DirectionTag from '@/components/shared/directionTag/DirectionTag';
+import EstimatedReadingTime from '@/components/shared/estReadingTime/estimatedReadingTime';
+import { Post } from '@/types/post';
+import Image from 'next/image';
+import Link from 'next/link';
+import FormattedDate from '@/components/shared/formattedDate/FormattedDate';
+import { urlFor } from '@/utils/getUrlForSanityImage';
 
 interface BlogCardProps {
   post: Post;
@@ -21,7 +21,7 @@ export default function BlogCard({ post }: BlogCardProps) {
     >
       <div className="relative w-full h-[223px] lg:h-[245px]">
         <Image
-          src={urlFor(image).fit("crop").url()}
+          src={urlFor(image).fit('crop').url()}
           alt={title}
           fill
           className="object-cover"
@@ -42,10 +42,7 @@ export default function BlogCard({ post }: BlogCardProps) {
           <p className="mb-5 text-[12px] font-normal leading-[120%] line-clamp-4">
             {description}
           </p>
-          <MainButton
-            variant="beige"
-            className="h-[42px] text-[14px] font-medium"
-          >
+          <MainButton className="h-[42px] text-[14px] font-medium bg-green-light-2 text-white">
             Читаті далі
           </MainButton>
         </div>

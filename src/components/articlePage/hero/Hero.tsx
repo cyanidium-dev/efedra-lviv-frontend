@@ -1,12 +1,12 @@
-import Container from "@/components/shared/container/Container";
-import { Post } from "@/types/post";
-import Image from "next/image";
-import FormattedDate from "@/components/shared/formattedDate/FormattedDate";
-import DirectionTag from "@/components/shared/directionTag/DirectionTag";
-import EstimatedReadingTime from "@/components/shared/estReadingTime/estimatedReadingTime";
-import * as motion from "motion/react-client";
-import { fadeInAnimation } from "@/utils/animationVariants";
-import { urlFor } from "@/utils/getUrlForSanityImage";
+import Container from '@/components/shared/container/Container';
+import { Post } from '@/types/post';
+import Image from 'next/image';
+import FormattedDate from '@/components/shared/formattedDate/FormattedDate';
+import DirectionTag from '@/components/shared/directionTag/DirectionTag';
+import EstimatedReadingTime from '@/components/shared/estReadingTime/estimatedReadingTime';
+import * as motion from 'motion/react-client';
+import { fadeInAnimation } from '@/utils/animationVariants';
+import { urlFor } from '@/utils/getUrlForSanityImage';
 
 interface HeroProps {
   post: Post;
@@ -29,7 +29,7 @@ export default function Hero({ post }: HeroProps) {
           className="relative sm:w-[calc(50%-11px)] lg:w-[calc(50%-23px)] h-[195px] sm:h-auto sm:min-h-[240px] lg:min-h-[280px] xl:min-h-[350px] rounded-[20px]"
         >
           <Image
-            src={urlFor(image).fit("crop").url()}
+            src={urlFor(image).fit('crop').url()}
             priority
             fetchPriority="high"
             fill
@@ -42,7 +42,7 @@ export default function Hero({ post }: HeroProps) {
             exit="exit"
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeInAnimation({ scale: 0.95, delay: 0.3 })}
-            className="sm:hidden absolute -left-0.5 bottom-[-13px] flex items-center justify-center py-1 px-3 min-w-[70px] h-[26px] bg-beige rounded-full text-white"
+            className="sm:hidden absolute -left-0.5 bottom-[-13px] flex items-center justify-center py-1 px-3 min-w-[70px] h-[26px] bg-green-light-3 rounded-full text-white"
           >
             <EstimatedReadingTime
               post={post}

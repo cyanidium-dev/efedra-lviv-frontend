@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
 interface MarqueeLineProps {
-  variant?: 'beige' | 'blue' | 'green';
+  variant?: 'green' | 'light-green';
   className?: string;
 }
 
@@ -31,9 +31,9 @@ export default function MarqueeLine({
             `h-[42px] lg:h-[76px] border-y lg:border-y-2 font-evolenta text-[17px] lg:text-[30px] leading-none ${
               variant === 'green'
                 ? 'text-green border-green'
-                : variant === 'blue'
-                  ? 'text-blue border-blue'
-                  : 'text-beige border-beige'
+                : variant === 'light-green'
+                  ? 'text-green-light-2 border-green-light-2'
+                  : 'text-green border-green'
             }`,
             className
           )

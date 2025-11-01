@@ -1,23 +1,23 @@
-import { ReactNode } from "react";
-import * as motion from "motion/react-client";
-import { fadeInAnimation } from "@/utils/animationVariants";
-import clsx from "clsx";
-import { twMerge } from "tailwind-merge";
+import { ReactNode } from 'react';
+import * as motion from 'motion/react-client';
+import { fadeInAnimation } from '@/utils/animationVariants';
+import clsx from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
 interface SectionTitleProps {
   children?: ReactNode;
-  variant?: "beige" | "blue" | "black";
-  type?: "bordered" | "solid";
+  variant?: 'beige' | 'blue' | 'black' | 'green';
+  type?: 'bordered' | 'solid';
   className?: string;
-  animationDirection?: "left" | "right";
+  animationDirection?: 'left' | 'right';
 }
 
 export default function SectionTitle({
   children,
-  variant = "beige",
-  type = "solid",
-  className = "",
-  animationDirection = "right",
+  variant = 'green',
+  type = 'solid',
+  className = '',
+  animationDirection = 'right',
 }: SectionTitleProps) {
   return (
     <motion.div
@@ -26,23 +26,27 @@ export default function SectionTitle({
       exit="exit"
       viewport={{ once: true, amount: 0.8 }}
       variants={fadeInAnimation({
-        x: animationDirection === "right" ? -30 : 30,
+        x: animationDirection === 'right' ? -30 : 30,
       })}
       className={twMerge(
         clsx(
           `flex items-center justify-center w-fit h-[29px] mb-5 lg:mb-6 rounded-full px-3 py-1 
       ${
-        variant === "beige"
-          ? type === "solid"
-            ? "text-white bg-beige/80"
-            : "text-beige bg-white border-[1.8px] border-beige/80"
-          : variant === "blue"
-            ? type === "solid"
-              ? "text-white bg-blue/80"
-              : "text-blue bg-white border-[1.8px] border-blue/80"
-            : type === "solid"
-              ? "text-white bg-black/80"
-              : "text-black bg-white border-[1.8px] border-black/80"
+        variant === 'green'
+          ? type === 'solid'
+            ? 'text-white bg-green-light-2'
+            : 'text-green-light-2 bg-white border-[1.8px] border-green-light-2'
+          : variant === 'beige'
+            ? type === 'solid'
+              ? 'text-white bg-beige/80'
+              : 'text-beige bg-white border-[1.8px] border-beige/80'
+            : variant === 'blue'
+              ? type === 'solid'
+                ? 'text-white bg-blue/80'
+                : 'text-blue bg-white border-[1.8px] border-blue/80'
+              : type === 'solid'
+                ? 'text-white bg-black/80'
+                : 'text-black bg-white border-[1.8px] border-black/80'
       }
       `,
           className
