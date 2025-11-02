@@ -1,6 +1,6 @@
 export const CODE_SITE_URL = 'https://www.code-site.art/';
 
-export const PHONE = '+380932468888';
+export const PHONE = '+380630642223';
 
 export const EMAIL = 'efedraplus@gmail.com';
 

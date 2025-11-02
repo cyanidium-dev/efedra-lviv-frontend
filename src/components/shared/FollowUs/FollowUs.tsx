@@ -25,7 +25,7 @@ export const FollowUs = ({
 }: FollowUsProps) => {
   const styles = {
     bordered: 'border border-white w-[40px] h-[40px]',
-    normal: 'w-[24px] h-[24px]',
+    normal: 'w-[24px] h-[24px] lg:w-[28px] lg:h-[28px]',
   };
 
   return (
