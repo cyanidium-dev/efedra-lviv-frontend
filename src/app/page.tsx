@@ -14,7 +14,10 @@ export default function HomePage() {
       <About />
       <Services />
       <Personel />
-      <MarqueeLine className="h-[38px] text-[15.2317px] leading-[19px]" />
+      <MarqueeLine
+        className="h-[38px] text-[15.2317px] leading-[19px]"
+        variant="light-green"
+      />
       <Reviews />
       <Plug />
       <Contacts />

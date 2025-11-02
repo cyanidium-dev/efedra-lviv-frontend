@@ -6,7 +6,10 @@ import * as motion from 'motion/react-client';
 
 export const Reviews = () => {
   return (
-    <div id="reviews" className="pt-[80px] pb-[50px]">
+    <div
+      id="reviews"
+      className="pt-[80px] pb-[50px] lg:pt-[50px] lg:pb-[100px]"
+    >
       <Container>
         <motion.div
           initial="hidden"
@@ -14,7 +17,7 @@ export const Reviews = () => {
           exit="exit"
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInAnimation({ y: 20, delay: 0.3 })}
-          className="pt-[25px] pb-[12px] px-[15px] relative rounded-[15px] overflow-hidden"
+          className="pt-[25px] pb-[12px] px-[15px] lg:p-[50px] lg:pl-[40px] lg:flex lg:justify-between relative rounded-[15px] overflow-hidden lg:rounded-[25px]"
         >
           <Image
             src="/images/homePage/reviews/bgMob.jpg"
@@ -23,13 +26,20 @@ export const Reviews = () => {
             height={100}
             className="object-cover w-full h-full absolute inset-0 z-[-10]"
           />
+          <Image
+            src="/images/homePage/reviews/bgDesk.jpg"
+            alt="reviews"
+            width={1180}
+            height={613}
+            className="object-cover w-full h-full absolute inset-0 z-[-10]"
+          />
           <motion.h2
             initial="hidden"
             whileInView="visible"
             exit="exit"
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeInAnimation({ y: 20, delay: 0.3 })}
-            className="text-[28px] leading-[100%] tracking-[-0.05em] text-white font-bold mb-[50px] uppercase"
+            className="text-[28px] lg:text-[50px] leading-[100%] tracking-[-0.05em] text-white font-bold mb-[50px] lg:mb-0 uppercase"
           >
             Відгуки наших клієнтів
           </motion.h2>

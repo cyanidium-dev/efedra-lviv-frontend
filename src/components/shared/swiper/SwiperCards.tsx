@@ -144,28 +144,34 @@ export default function SwiperCards({
       </Swiper>
 
       <div
-        className={`flex items-center lg:items-end justify-center gap-2.5 ${buttonsWrapperClassName}`}
+        className={`flex items-center lg:items-end justify-center gap-2.5 lg:gap-5 ${buttonsWrapperClassName}`}
       >
         <button
           ref={prevRef}
           disabled={isBeginning}
           className={clsx(
-            `enabled:cursor-pointer w-[${size}px] h-[${size}px] rounded-[10px] flex items-center justify-center pointer-events-auto transition-filter 
+            `enabled:cursor-pointer w-[${size}px] h-[${size}px] lg:w-[54px] lg:h-[54px] rounded-[10px] lg:rounded-[15px] flex items-center justify-center pointer-events-auto transition-filter 
           duration-300 xl:enabled:hover:brightness-[1.25] bg-green disabled:bg-white disabled:border disabled:border-green disabled:text-green text-white`
           )}
         >
-          <ArrowIconFilled className={clsx('w-[16px] h-[16px] rotate-180')} />
+          <ArrowIconFilled
+            className={clsx(
+              'w-[16px] h-[16px] lg:w-[22px] lg:h-[22px] rotate-180'
+            )}
+          />
         </button>
 
         <button
           ref={nextRef}
           disabled={isEnd}
           className={clsx(
-            `enabled:cursor-pointer w-[${size}px] h-[${size}px] rounded-[10px] flex items-center justify-center pointer-events-auto transition-filter 
+            `enabled:cursor-pointer w-[${size}px] h-[${size}px] lg:w-[54px] lg:h-[54px] rounded-[10px] lg:rounded-[15px] flex items-center justify-center pointer-events-auto transition-filter 
           duration-300 xl:enabled:hover:brightness-[1.25] bg-green disabled:bg-white disabled:border disabled:border-green disabled:text-green text-white`
           )}
         >
-          <ArrowIconFilled className={clsx('w-[16px] h-[16px]')} />
+          <ArrowIconFilled
+            className={clsx('w-[16px] h-[16px] lg:w-[22px] lg:h-[22px]')}
+          />
         </button>
       </div>
     </div>
