@@ -29,7 +29,7 @@ export default function Accordion({
   };
 
   const openVariant = {
-    open: 'border rounded-t-[32px] rounded-b-none border-b-0',
+    open: 'border rounded-t-[32px] rounded-b-none border-b-[0.5px]',
     close: 'border rounded-[32px]',
   };
 

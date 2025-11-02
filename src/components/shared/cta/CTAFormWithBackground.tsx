@@ -33,7 +33,7 @@ export default function CTAFormWithBackground({
         exit="exit"
         variants={fadeInAnimation({ scale: 0.95, duration: 1.2 })}
         className={twMerge(
-          'md:hidden relative w-full text-white rounded-[20px] h-auto flex flex-col pt-[30px] pb-11 overflow-hidden'
+          'md:hidden relative w-full text-white rounded-[20px] h-auto flex flex-col pt-[30px] pb-11 overflow-hidden '
         )}
       >
         <Image
@@ -50,7 +50,7 @@ export default function CTAFormWithBackground({
           <div className="relative z-10 flex flex-col items-center gap-[112px] w-full">
             <motion.p
               variants={fadeInAnimation({ y: 30, delay: 0.3 })}
-              className="text-[24px] font-evolenta uppercase text-center leading-[134%] xs:max-w-[378px]"
+              className="text-[24px] uppercase text-center leading-[134%] xs:max-w-[378px]"
             >
               Бажаєте познайомитися з нашим центром особисто?
             </motion.p>
@@ -93,13 +93,13 @@ export default function CTAFormWithBackground({
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeInAnimation({ y: 30, delay: 0.3 })}
-            className="flex flex-col gap-[15px] bg-gray-light rounded-[20px] px-[20px] py-[30px] lg:px-[45px] lg:py-[56px]"
+            className="flex flex-col gap-[15px] bg-gray-light-2 rounded-[20px] px-[20px] py-[30px] lg:px-[45px] lg:py-[56px]"
           >
             <motion.p
               variants={fadeInAnimation({ y: 30, delay: 0.3 })}
               className="text-[20px] lg:text-[24px] xl:text-[32px] font-evolenta uppercase text-center leading-[135%]"
             >
-              Бажаєте познайомитися з нашим центром особисто?
+              Бажаєте <br /> познайомитися з нашим центром особисто?
             </motion.p>
             <motion.div
               viewport={{ once: true, amount: 0.3 }}
@@ -108,6 +108,7 @@ export default function CTAFormWithBackground({
               <CallBackForm
                 setIsError={setIsError}
                 setIsNotificationShown={setIsNotificationShown}
+                buttonClassName="bg-green"
               />
             </motion.div>
           </motion.div>

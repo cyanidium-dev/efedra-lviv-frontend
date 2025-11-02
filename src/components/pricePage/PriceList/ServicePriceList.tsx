@@ -29,7 +29,7 @@ export default function ServicePriceList({
           Назва послуги
         </div>
         <div className="py-[18px] uppercase font-evolenta text-[12px] md:text-[14px] text-center">
-          Вартість
+          Вартість (грн)
         </div>
         <div className="pr-[27px] py-[18px] uppercase font-evolenta text-[12px] md:text-[14px] text-center">
           Час (хв)
@@ -54,7 +54,7 @@ export default function ServicePriceList({
                     `flex items-center justify-center py-3 text-[12px] md:text-[14px] text-center border-t-[0.5px] border-${colorScheme}`
                   )}
                 >
-                  {service.price + 'грн' || <span>—</span>}
+                  {service.price || <span>—</span>}
                 </div>
                 <div
                   key={`duration-${idx}`}

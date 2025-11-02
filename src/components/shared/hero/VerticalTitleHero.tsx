@@ -60,18 +60,10 @@ export default function VerticalTitleHero({
           >
             <MainButton
               onClick={() => setIsModalShown(true)}
-              className="md:hidden absolute -bottom-[20px] -right-[12px] px-[20px] max-w-[207px] h-[40px] text-[16px] leading-[100%] tracking-[-0.05em] text-black font-medium text-center bg-white border border-black text-left justify-start"
+              className="absolute md:bottom-[20px] md:right-[20px] -bottom-[20px] -right-[12px] px-[20px] max-w-[207px] h-[40px] text-[16px] leading-[100%] tracking-[-0.05em] text-black font-medium text-center bg-white border border-black text-left justify-start"
               iconClassName="text-white"
               spanClassName="w-[32px] h-[32px] flex items-center justify-center bg-green rounded-full"
               phoneIcon={true}
-            >
-              Запис на прийом
-            </MainButton>
-
-            <MainButton
-              onClick={() => setIsModalShown(true)}
-              className="hidden md:flex absolute bottom-[16px] right-[15px] px-[23px] lg:px-[23px] max-w-[175px] h-[56px] text-[15px] leading-[120%] text-black text-center justify-center font-medium bg-white border border-black text-left justify-start"
-              iconClassName="w-[26px] h-[21px]"
             >
               Запис на прийом
             </MainButton>

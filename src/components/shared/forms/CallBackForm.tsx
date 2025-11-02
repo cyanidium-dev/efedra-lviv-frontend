@@ -7,6 +7,7 @@ import { callBackValidation } from '@/schemas/callBackValidation';
 
 import CustomizedInput from '../formComponents/CustomizedInput';
 import MainButton from '../buttons/MainButton';
+import { twMerge } from 'tailwind-merge';
 
 export interface ValuesCallBackFormType {
   name: string;
@@ -18,6 +19,7 @@ interface CallBackFormProps {
   setIsNotificationShown: Dispatch<SetStateAction<boolean>>;
   setIsModalShown?: Dispatch<SetStateAction<boolean>>;
   className?: string;
+  buttonClassName?: string;
 }
 
 export default function CallBackForm({
@@ -25,6 +27,7 @@ export default function CallBackForm({
   setIsNotificationShown,
   setIsModalShown,
   className = '',
+  buttonClassName = '',
 }: CallBackFormProps) {
   const [isLoading, setIsLoading] = useState(false);
 
@@ -99,7 +102,12 @@ export default function CallBackForm({
             disabled={!(dirty && isValid) || isLoading}
             isLoading={isLoading}
             loadingText="Надсилання..."
-            className="w-full h-[56px] text-[14px] leading-[17px] text-white bg-green-light-2 font-medium text-center rounded-full"
+            className={
+              twMerge(
+                'w-full h-[56px] text-[14px] leading-[17px] text-white  font-medium text-center rounded-full',
+                buttonClassName || 'bg-green-light-2'
+              ) as string
+            }
           >
             Записатися на консультацію
           </MainButton>
