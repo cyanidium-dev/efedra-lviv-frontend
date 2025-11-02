@@ -124,8 +124,8 @@ export const listItemVariants = {
   },
 };
 
-export const scaleInAnimation = {
-  hidden: { opacity: 0, scale: 0.8, rotate: -15 },
+export const scaleInAnimation = (rotate = -15, scale = 0.8) => ({
+  hidden: { opacity: 0, scale: scale, rotate: rotate },
   visible: {
     opacity: 1,
     scale: 1,
@@ -137,10 +137,10 @@ export const scaleInAnimation = {
   },
   exit: {
     opacity: 0,
-    scale: 0.8,
+    scale: scale,
     transition: {
       duration: 0.3,
       ease: [0.42, 0, 1, 1] as const,
     },
   },
-};
+});

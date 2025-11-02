@@ -150,7 +150,7 @@ export const Hero = () => {
               duration: 1.5,
               opacity: 0.01,
             })}
-            className="lg:max-w-[322px]"
+            className="lg:w-[322px]"
           >
             <GlassFilter
               frost={2}
@@ -162,8 +162,8 @@ export const Hero = () => {
               lightIntensity={0.8}
               dispersion={0.5}
             >
-              <div className="py-[15px] px-[10px] bg-transparent">
-                <div className="flex mb-[5px] items-end">
+              <div className="py-[15px] px-[10px] lg:px-[15px] bg-transparent">
+                <div className="flex mb-[5px] lg:mb-[6px] items-end lg:items-center">
                   <ul className="flex items-center mr-[10px]">
                     <li className="mr-[-10px]">
                       <Image
@@ -171,7 +171,7 @@ export const Hero = () => {
                         alt="icon1"
                         width={25}
                         height={25}
-                        className="rounded-full"
+                        className="rounded-full lg:w-[35px] lg:h-[35px]"
                       />
                     </li>
                     <li className="mr-[-10px]">
@@ -180,7 +180,7 @@ export const Hero = () => {
                         alt="icon2"
                         width={25}
                         height={25}
-                        className="rounded-full"
+                        className="rounded-full lg:w-[35px] lg:h-[35px]"
                       />
                     </li>
                     <li className="mr-[-10px]">
@@ -189,7 +189,7 @@ export const Hero = () => {
                         alt="icon3"
                         width={25}
                         height={25}
-                        className="rounded-full"
+                        className="rounded-full lg:w-[35px] lg:h-[35px]"
                       />
                     </li>
                     <li>
@@ -198,15 +198,16 @@ export const Hero = () => {
                         alt="icon4"
                         width={25}
                         height={25}
-                        className="rounded-full"
+                        className="rounded-full lg:w-[35px] lg:h-[35px]"
                       />
                     </li>
                   </ul>
-                  <p className="text-[15px] leading-[110%] tracking-[-0.05em] text-black font-semibold">
+
+                  <p className="text-[15px] leading-[110%] tracking-[-0.05em] text-black font-semibold lg:text-[18px]">
                     5000+ жінок
                   </p>
                 </div>
-                <p className="text-[13px] leading-[110%] tracking-[-0.05em] text-black font-normal">
+                <p className="text-[13px] leading-[110%] tracking-[-0.05em] text-black font-normal lg:text-[14px]">
                   Довіряють нам свою красу та здоров’я
                 </p>
               </div>

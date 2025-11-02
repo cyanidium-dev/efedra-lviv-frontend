@@ -14,7 +14,7 @@ export const Services = async () => {
   // download services from sanity
   const services = await fetchSanityDataServer(allServicesQuery);
   return (
-    <div id="services" className="py-[50px]">
+    <div id="services" className="py-[50px] lg:pt-[60px] lg:pb-[75px]">
       <Container>
         <motion.h2
           initial="hidden"
@@ -22,7 +22,7 @@ export const Services = async () => {
           exit="exit"
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInAnimation({ y: 20, delay: 0.3 })}
-          className="text-[30px] leading-[100%] tracking-[-0.05em] text-olive font-bold mb-[30px] uppercase"
+          className="text-[30px] leading-[100%] tracking-[-0.05em] text-olive font-bold mb-[30px] uppercase lg:text-[50px] lg:mb-[40px] "
         >
           Наші послуги
         </motion.h2>
@@ -32,7 +32,7 @@ export const Services = async () => {
           exit="exit"
           viewport={{ once: true, amount: 0.3 }}
           variants={listVariants({ staggerChildren: 0.3, delayChildren: 0.3 })}
-          className="flex flex-wrap items-center justify-center gap-[10px]"
+          className="flex flex-wrap items-center justify-center gap-[10px] lg:gap-x-[20px] lg:gap-y-[40px]"
         >
           {services.map((service: Service, index: number) => (
             <motion.li

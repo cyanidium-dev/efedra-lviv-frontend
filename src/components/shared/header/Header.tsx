@@ -67,7 +67,7 @@ export default function Header() {
       viewport={{ once: true, amount: 0.2 }}
       variants={headerVariants}
       className={clsx(
-        'fixed z-50 top-0 left-0 w-dvw py-[26px] bg-white lg:bg-transparent transition-all duration-300 ease-in-out',
+        'fixed z-50 top-0 left-0 w-dvw py-[26px] lg:py-[15px] bg-white lg:bg-transparent transition-all duration-300 ease-in-out',
         isScrolledDown ? 'lg:bg-white/50' : 'lg:bg-transparent'
       )}
     >
@@ -79,7 +79,7 @@ export default function Header() {
         >
           <LogoIcon
             className={clsx(
-              'w-[61px] xl:w-[120px] text-gray-dark h-auto xl:hover:text-green focus-visible:text-green transition duration-300 ease-in-out',
+              'w-[61px] lg:w-[74px] text-gray-dark h-auto xl:hover:text-green focus-visible:text-green transition duration-300 ease-in-out',
               isOpenBurgerMenu ? 'text-white' : ''
             )}
           />
