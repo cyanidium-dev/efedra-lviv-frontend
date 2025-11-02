@@ -81,19 +81,19 @@ export default function SwiperWrapper({
       </Swiper>
 
       <div
-        className={`flex items-center lg:items-end justify-center gap-2.5 ${buttonsWrapperClassName}`}
+        className={`flex items-center lg:items-end justify-center gap-2.5 lg:gap-5 ${buttonsWrapperClassName}`}
       >
         <button
           ref={prevRef}
           disabled={isBeginning}
           className={clsx(
-            `enabled:cursor-pointer w-[30px] h-[30px] rounded-[10px] flex items-center justify-center pointer-events-auto transition-filter 
+            `enabled:cursor-pointer w-[30px] h-[30px] lg:w-[54px] lg:h-[54px] rounded-[10px] flex items-center justify-center pointer-events-auto transition-filter 
           duration-300 xl:enabled:hover:brightness-[1.25] bg-green disabled:bg-white disabled:border disabled:border-green disabled:text-green`
           )}
         >
           <ArrowIconFilled
             className={clsx(
-              'w-[10px] h-[10px] rotate-180',
+              'w-[10px] h-[10px] lg:w-[22px] lg:h-[22px] rotate-180',
               isBeginning ? 'text-green' : 'text-white'
             )}
           />
@@ -103,13 +103,13 @@ export default function SwiperWrapper({
           ref={nextRef}
           disabled={isEnd}
           className={clsx(
-            `enabled:cursor-pointer w-[30px] h-[30px] rounded-[10px] flex items-center justify-center pointer-events-auto transition-filter 
+            `enabled:cursor-pointer w-[30px] h-[30px] lg:w-[54px] lg:h-[54px] rounded-[10px] flex items-center justify-center pointer-events-auto transition-filter 
           duration-300 xl:enabled:hover:brightness-[1.25] bg-green disabled:bg-white disabled:border disabled:border-green disabled:text-green`
           )}
         >
           <ArrowIconFilled
             className={clsx(
-              'w-[10px] h-[10px]',
+              'w-[10px] h-[10px] lg:w-[22px] lg:h-[22px]',
               isEnd ? 'text-green' : 'text-white'
             )}
           />

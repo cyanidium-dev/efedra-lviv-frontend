@@ -15,7 +15,7 @@ export default function HomePage() {
       <Services />
       <Personel />
       <MarqueeLine
-        className="h-[38px] text-[15.2317px] leading-[19px]"
+        className="h-[38px] lg:h-[76px] text-[15.2317px] lg:text-[30.46px] leading-[19px] lg:leading-[30px]"
         variant="light-green"
       />
       <Reviews />

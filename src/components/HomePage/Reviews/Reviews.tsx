@@ -3,6 +3,7 @@ import { ReviewsBlock } from './ReviewsBlock/ReviewsBlock';
 import Image from 'next/image';
 import { fadeInAnimation } from '@/utils/animationVariants';
 import * as motion from 'motion/react-client';
+import LogoLeavesIcon from '@/components/shared/icons/LogoLeavesIcon';
 
 export const Reviews = () => {
   return (
@@ -10,7 +11,7 @@ export const Reviews = () => {
       id="reviews"
       className="pt-[80px] pb-[50px] lg:pt-[50px] lg:pb-[100px]"
     >
-      <Container>
+      <Container className="relative">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -44,6 +45,9 @@ export const Reviews = () => {
             Відгуки наших клієнтів
           </motion.h2>
           <ReviewsBlock />
+          <div className="hidden lg:block absolute left-[-108px] bottom-[-124px] z-[10] pointer-events-none rotate-90">
+            <LogoLeavesIcon className="w-[497px] h-[497px]" stroke="white" />
+          </div>
         </motion.div>
       </Container>
     </div>
