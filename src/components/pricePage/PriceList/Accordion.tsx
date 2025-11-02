@@ -34,20 +34,22 @@ export default function Accordion({
   };
 
   const colorSchemeHover: Record<AccordionProps['colorScheme'], string> = {
-    'light-green': `${isOpen ? 'bg-green-light-2/20' : 'bg-white hover:bg-green-light-2/20'}`,
-    black: `${isOpen ? 'bg-black/20' : 'bg-white hover:bg-black/20'}`,
-    green: `${isOpen ? 'bg-green/20' : 'bg-white hover:bg-green/20'}`,
+    'light-green': `${isOpen ? 'bg-green-light-2/20' : 'hover:bg-green-light-2/20'}`,
+    black: `${isOpen ? 'bg-black/20' : 'hover:bg-black/20'}`,
+    green: `${isOpen ? 'bg-green/20' : 'hover:bg-green/20'}`,
   };
 
   return (
     <div>
       <motion.div
         onClick={toggleAccordion}
-        className={twMerge(
-          'relative w-full flex justify-between items-center pt-[18px] pb-[19px] px-6 md:pl-[46px] text-left cursor-pointer max-h-[57px] transition-all duration-300 ease-in-out',
-          colorSchemeHover[colorScheme],
-          openVariant[isOpen ? 'open' : 'close']
-        )}
+        className={
+          twMerge(
+            'relative w-full flex justify-between items-center pt-[18px] pb-[19px] px-6 md:pl-[46px] text-left cursor-pointer max-h-[57px] transition-all duration-300 ease-in-out',
+            colorSchemeHover[colorScheme],
+            openVariant[isOpen ? 'open' : 'close']
+          ) as string
+        }
       >
         <p
           className={`leading-[135%] md:text-[16px] md:leading-[132%] ${

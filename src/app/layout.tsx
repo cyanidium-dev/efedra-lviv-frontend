@@ -44,7 +44,7 @@ export default function RootLayout({
       >
         <SplashGate>
           <Header />
-          <main className="flex-1 pt-[86px] lg:pt-[99px]">{children}</main>
+          <main className="flex-1 pt-[86px] lg:pt-0">{children}</main>
           <Footer />
         </SplashGate>
       </body>

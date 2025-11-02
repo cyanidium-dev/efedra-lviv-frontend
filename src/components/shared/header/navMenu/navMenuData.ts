@@ -5,7 +5,7 @@ export const navListPages = [
 ];
 
 export const navListAnchors = [
-  { title: 'Спеціалісти', link: '/#personel' },
-  { title: 'Відгуки', link: '/#reviews' },
-  { title: 'Контакти', link: '/#contacts' },
+  { title: 'Спеціалісти', link: '#personel' },
+  { title: 'Відгуки', link: '#reviews' },
+  { title: 'Контакти', link: '#contacts' },
 ];
