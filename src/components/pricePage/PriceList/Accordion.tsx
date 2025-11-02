@@ -8,7 +8,7 @@ import { twMerge } from 'tailwind-merge';
 interface AccordionProps {
   title: string;
   colorScheme: 'light-green' | 'black' | 'green';
-  children: React.ReactNode;
+  children: (props: { isOpen: boolean }) => React.ReactNode;
 }
 
 export default function Accordion({
@@ -28,6 +28,11 @@ export default function Accordion({
     }
   };
 
+  const openVariant = {
+    open: 'border rounded-t-[32px] rounded-b-none border-b-0',
+    close: 'border rounded-[32px]',
+  };
+
   const colorSchemeHover: Record<AccordionProps['colorScheme'], string> = {
     'light-green': `${isOpen ? 'bg-green-light-2/20' : 'bg-white hover:bg-green-light-2/20'}`,
     black: `${isOpen ? 'bg-black/20' : 'bg-white hover:bg-black/20'}`,
@@ -39,9 +44,9 @@ export default function Accordion({
       <motion.div
         onClick={toggleAccordion}
         className={twMerge(
-          'relative w-full flex justify-between items-center pt-[18px] pb-[19px] px-6 md:pl-[46px] text-left border cursor-pointer max-h-[57px] rounded-[32px] transition-all duration-300 ease-in-out',
-          `border-${colorScheme}`,
-          colorSchemeHover[colorScheme]
+          'relative w-full flex justify-between items-center pt-[18px] pb-[19px] px-6 md:pl-[46px] text-left cursor-pointer max-h-[57px] transition-all duration-300 ease-in-out',
+          colorSchemeHover[colorScheme],
+          openVariant[isOpen ? 'open' : 'close']
         )}
       >
         <p
@@ -74,7 +79,7 @@ export default function Accordion({
             transition={{ duration: 0.5, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <div>{children}</div>
+            <div>{children({ isOpen })}</div>
           </motion.div>
         )}
       </AnimatePresence>

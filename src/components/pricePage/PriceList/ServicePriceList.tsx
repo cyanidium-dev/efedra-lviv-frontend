@@ -4,16 +4,26 @@ import { twMerge } from 'tailwind-merge';
 interface ServicePriceListProps {
   services: PriceService[];
   colorScheme: 'light-green' | 'black' | 'green';
+  isOpen: boolean;
 }
 
 export default function ServicePriceList({
   services,
   colorScheme,
+  isOpen,
 }: ServicePriceListProps) {
+  console.log(isOpen);
+  const openVariant = {
+    open: 'border border-t-0 rounded-b-[32px] rounded-t-none mt-0',
+    close: 'border rounded-[32px] mt-[6px]',
+  };
   return (
     <>
       <div
-        className={`hidden md:grid md:grid-cols-[2.5fr_1.75fr_0.7fr] lg:grid-cols-[2.5fr_1.75fr_0.5fr] border-x border-b border-t border-${colorScheme} rounded-[32px] mt-[6px]`}
+        className={twMerge(
+          `hidden md:grid md:grid-cols-[2.5fr_1.75fr_0.7fr] lg:grid-cols-[2.5fr_1.75fr_0.5fr] border-${colorScheme} `,
+          openVariant[isOpen ? 'open' : 'close'] as string
+        )}
       >
         <div className="pl-[46px] py-[18px] uppercase font-evolenta text-[12px] md:text-[14px] text-left">
           Назва послуги
@@ -59,7 +69,10 @@ export default function ServicePriceList({
       </div>
 
       <div
-        className={`md:hidden mt-[6px] border border-${colorScheme} rounded-[32px] overflow-hidden`}
+        className={twMerge(
+          `md:hidden mt-[6px] border-${colorScheme} overflow-hidden`,
+          openVariant[isOpen ? 'open' : 'close'] as string
+        )}
       >
         {services
           .filter(service => service?.title)
