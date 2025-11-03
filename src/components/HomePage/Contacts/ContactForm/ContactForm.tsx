@@ -74,15 +74,16 @@ export const ContactForm = ({ className = '' }: ContactFormProps) => {
           <>
             <h2 className="sr-only">Форма зворотнього зв'язку</h2>
             <Form
-              className={`${className} bg-green rounded-[15px] px-[10px] py-[20px]`}
+              className={`${className} bg-green rounded-[15px] px-[10px] py-[20px] md:px-[20px] md:py-[25px] md:w-full md:h-full md:flex md:flex-col md:justify-between`}
             >
-              <div className="flex flex-col w-full gap-y-[10px] lg:gap-y-3.5 mb-[25px] lg:mb-[26px]">
+              <div className="flex flex-col w-full gap-y-[10px] md:gap-y-3.5 mb-[25px] md:mb-[26px]">
                 <CustomizedInput
                   fieldName="name"
                   label="Ваше ім’я"
                   isLabelHidden={true}
                   placeholder="Ваше ім’я"
-                  fieldClassName="h-[40px] lg:h-[48px] bg-white/30 h-[40px] w-[276px] text-[14px] leading-[15px] text-white rounded-full px-[20px] pt-[15px] pb-[10px]"
+                  fieldClassName="h-[40px] md:h-[46px] bg-white/30 w-[276px] md:w-full text-[14px] leading-[15px] text-white rounded-full px-[20px] md:px-[25px] pt-[15px] pb-[10px] md:py-[14px]
+                  md:text-[16px] md:leading-[110%] md:tracking-[-0.03em]"
                 />
                 <CustomizedInput
                   fieldName="phone"
@@ -90,7 +91,8 @@ export const ContactForm = ({ className = '' }: ContactFormProps) => {
                   inputType="tel"
                   isLabelHidden={true}
                   placeholder="Номер телефону"
-                  fieldClassName="h-[40px] lg:h-[48px] bg-white/30 h-[40px] w-[276px] text-[14px] leading-[15px] text-white rounded-full px-[20px] pt-[15px] pb-[10px]"
+                  fieldClassName="h-[40px] md:h-[46px] bg-white/30 h-[40px] w-[276px] md:w-full text-[14px] leading-[15px] text-white rounded-full px-[20px] md:px-[25px] pt-[15px] pb-[10px] md:py-[14px]
+                  md:text-[16px] md:leading-[110%] md:tracking-[-0.03em]"
                 />
               </div>
               <MainButton

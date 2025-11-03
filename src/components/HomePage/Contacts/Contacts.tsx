@@ -16,135 +16,150 @@ export const Contacts = () => {
   return (
     <div id="contacts" className="pt-[90px] pb-[80px]">
       <Container>
-        <motion.h2
-          initial="hidden"
-          whileInView="visible"
-          exit="exit"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeInAnimation({ y: 20, delay: 0.3 })}
-          className="text-[30px] leading-[100%] tracking-[-0.05em] text-black font-bold uppercase mb-[30px]"
-        >
-          Наші контакти
-        </motion.h2>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          exit="exit"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeInAnimation({ y: 20, delay: 0.3 })}
-          className="rounded-[20px] mb-[30px] h-[167px]"
-        >
-          <Map />
-        </motion.div>
-        <motion.address
-          initial="hidden"
-          whileInView="visible"
-          exit="exit"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeInAnimation({ y: 20, delay: 0.3 })}
-          className="not-italic mb-[40px]"
-        >
-          <motion.ul
-            initial="hidden"
-            whileInView="visible"
-            exit="exit"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={listVariants({
-              staggerChildren: 0.3,
-              delayChildren: 0.3,
-            })}
-            className="flex flex-wrap gap-y-[25px] gap-x-[20px]"
-          >
-            <motion.li
+        <div className="lg:flex lg:mb-[60px]">
+          <div className="lg:max-w-[434px] lg:flex lg:flex-col lg:justify-between lg:mr-[auto] xl:mr-[113px]">
+            <motion.h2
               initial="hidden"
               whileInView="visible"
               exit="exit"
               viewport={{ once: true, amount: 0.3 }}
-              variants={listItemVariants}
+              variants={fadeInAnimation({ y: 20, delay: 0.3 })}
+              className="text-[30px] lg:text-[50px] leading-[100%] tracking-[-0.05em] text-black font-bold uppercase mb-[30px] lg:mb-0"
             >
-              <p className="text-[16px] leading-[100%] tracking-[-0.03em] text-black font-medium uppercase mb-[5px]">
-                Адреса
-              </p>
-              <p className="text-[14px] leading-[17px] tracking-[-0.05em] text-black/50">
-                {CITY}, {ADDRESS}
-              </p>
-            </motion.li>
-            <motion.li
+              Наші контакти
+            </motion.h2>
+            <motion.div
               initial="hidden"
               whileInView="visible"
               exit="exit"
               viewport={{ once: true, amount: 0.3 }}
-              variants={listItemVariants}
+              variants={fadeInAnimation({ y: 20, delay: 0.3 })}
+              className="rounded-[20px] mb-[30px] h-[167px] lg:hidden"
             >
-              <p className="text-[16px] leading-[100%] tracking-[-0.03em] text-black font-medium uppercase mb-[5px]">
-                Телефон
-              </p>
-              <a
-                href={`tel:${PHONE}`}
-                className="text-[14px] leading-[17px] tracking-[-0.05em] text-black/50"
+              <Map />
+            </motion.div>
+            <motion.address
+              initial="hidden"
+              whileInView="visible"
+              exit="exit"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={fadeInAnimation({ y: 20, delay: 0.3 })}
+              className="not-italic mb-[40px] lg:mb-0"
+            >
+              <motion.ul
+                initial="hidden"
+                whileInView="visible"
+                exit="exit"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={listVariants({
+                  staggerChildren: 0.3,
+                  delayChildren: 0.3,
+                })}
+                className="flex flex-wrap gap-y-[25px] gap-x-[20px] lg:gap-y-[30px] lg:gap-x-[32px] lg:max-w-[350px]"
               >
-                {PHONE.replace(contactsPhoneRegex, '+38 ($1) $2 $3 $4')}
-              </a>
-            </motion.li>
-            <motion.li
+                <motion.li
+                  initial="hidden"
+                  whileInView="visible"
+                  exit="exit"
+                  viewport={{ once: true, amount: 0.3 }}
+                  variants={listItemVariants}
+                >
+                  <p className="text-[16px] lg:text-[20px] leading-[100%] tracking-[-0.03em] text-black font-medium lg:font-semibold uppercase mb-[5px]">
+                    Адреса
+                  </p>
+
+                  <p className="text-[14px] leading-[17px] tracking-[-0.05em] lg:tracking-[-0.03em] text-black/50">
+                    {CITY}, {ADDRESS}
+                  </p>
+                </motion.li>
+                <motion.li
+                  initial="hidden"
+                  whileInView="visible"
+                  exit="exit"
+                  viewport={{ once: true, amount: 0.3 }}
+                  variants={listItemVariants}
+                >
+                  <p className="text-[16px] lg:text-[20px] leading-[100%] tracking-[-0.03em] text-black font-medium lg:font-semibold uppercase mb-[5px]">
+                    Телефон
+                  </p>
+                  <a
+                    href={`tel:${PHONE}`}
+                    className="text-[14px] leading-[17px] tracking-[-0.05em] lg:tracking-[-0.03em] text-black/50"
+                  >
+                    {PHONE.replace(contactsPhoneRegex, '+38 ($1) $2 $3 $4')}
+                  </a>
+                </motion.li>
+                <motion.li
+                  initial="hidden"
+                  whileInView="visible"
+                  exit="exit"
+                  viewport={{ once: true, amount: 0.3 }}
+                  variants={listItemVariants}
+                >
+                  <p className="text-[16px] lg:text-[20px] leading-[100%] tracking-[-0.03em] text-black font-medium lg:font-semibold uppercase mb-[5px]">
+                    Email
+                  </p>
+                  <a
+                    href={`mailto:${EMAIL}`}
+                    className="text-[14px] leading-[17px] tracking-[-0.05em] lg:tracking-[-0.03em] text-black/50"
+                  >
+                    {EMAIL}
+                  </a>
+                </motion.li>
+              </motion.ul>
+            </motion.address>
+          </div>
+          <div className="md:flex">
+            <motion.div
               initial="hidden"
               whileInView="visible"
               exit="exit"
               viewport={{ once: true, amount: 0.3 }}
-              variants={listItemVariants}
+              variants={fadeInAnimation({ y: 20, delay: 0.3 })}
+              className="relative xl:shrink-0 rounded-[15px] lg:rounded-[20px] overflow-hidden px-[14px] md:px-[18px] pb-[15px] md:pb-[20px] pt-[82px] md:pt-[152px] mb-[10px] md:mb-0 md:w-[232px] md:mr-[10px]"
             >
-              <p className="text-[16px] leading-[100%] tracking-[-0.03em] text-black font-medium uppercase mb-[5px]">
-                Email
-              </p>
-              <a
-                href={`mailto:${EMAIL}`}
-                className="text-[14px] leading-[17px] tracking-[-0.05em] text-black/50"
-              >
-                {EMAIL}
-              </a>
-            </motion.li>
-          </motion.ul>
-        </motion.address>
+              <Image
+                src="/images/homePage/contacts/socialsBg.jpg"
+                alt="Socials"
+                width={296}
+                height={162}
+                className="w-full h-full object-cover absolute inset-0 z-[-10] md:hidden"
+              />
+              <Image
+                src="/images/homePage/contacts/socialsBgDesk.jpg"
+                alt="Socials"
+                width={232}
+                height={240}
+                className="w-full h-full object-cover absolute inset-0 z-[-10] hidden md:block"
+              />
+              <h3 className="sr-only">Соціальні мережі</h3>
+              <FollowUs
+                variant="bordered"
+                textClassName="font-manrope text-[14px] md:text-[16px] leading-[110%] tracking-[-0.03em] text-white font-bold mb-[10px]"
+                iconClassName="text-white"
+              />
+            </motion.div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              exit="exit"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={fadeInAnimation({ y: 20, delay: 0.3 })}
+              className="md:w-full md:max-w-[391px] xl:shrink-0"
+            >
+              <ContactForm />
+            </motion.div>
+          </div>
+        </div>
         <motion.div
           initial="hidden"
           whileInView="visible"
           exit="exit"
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInAnimation({ y: 20, delay: 0.3 })}
-          className="relative rounded-[15px] overflow-hidden px-[14px] pb-[15px] pt-[82px] mb-[10px]"
+          className="hidden lg:block w-full h-[352px]"
         >
-          <Image
-            src="/images/homePage/contacts/socialsBg.jpg"
-            alt="Socials"
-            width={100}
-            height={100}
-            className="w-full h-full object-cover absolute inset-0 z-[-10]"
-          />
-          <h3 className="sr-only">Соціальні мережі</h3>
-          <FollowUs
-            variant="bordered"
-            textClassName="font-manrope text-[14px] leading-[110%] tracking-[-0.03em] text-white font-bold mb-[10px]"
-            iconClassName="text-white"
-          />
-        </motion.div>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          exit="exit"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeInAnimation({ y: 20, delay: 0.3 })}
-        >
-          <ContactForm />
-        </motion.div>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          exit="exit"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeInAnimation({ y: 20, delay: 0.3 })}
-          className="hidden lg:block"
-        >
-          <Map />
+          <Map zoom={1} />
         </motion.div>
       </Container>
     </div>

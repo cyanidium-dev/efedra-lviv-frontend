@@ -1,8 +1,8 @@
-import clsx from "clsx";
-import { twMerge } from "tailwind-merge";
-import { calculateReadingTime } from "@/utils/calculateReadingTime";
-import { Post } from "@/types/post";
-import ClockIcon from "../icons/ClockIcon";
+import clsx from 'clsx';
+import { twMerge } from 'tailwind-merge';
+import { calculateReadingTime } from '@/utils/calculateReadingTime';
+import { Post } from '@/types/post';
+import ClockIcon from '@/components/shared/icons/ClockIcon';
 
 interface EstimatedReadingTimeProps {
   post: Post;
@@ -11,7 +11,7 @@ interface EstimatedReadingTimeProps {
 
 export default function EstimatedReadingTime({
   post,
-  className = "",
+  className = '',
 }: EstimatedReadingTimeProps) {
   const readingTime = calculateReadingTime(post);
 

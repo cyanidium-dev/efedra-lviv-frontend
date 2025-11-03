@@ -15,11 +15,12 @@ export const ReviewsBlock = () => {
       exit="exit"
       viewport={{ once: true, amount: 0.3 }}
       variants={fadeInAnimation({ y: 20, delay: 0.3 })}
+      className="lg:w-[539px] z-20"
     >
       <SwiperWrapper
-        swiperClassName="reviews"
-        wrapperClassName="lg:flex lg:flex-row-reverse lg:gap-6 bg-white rounded-[10px] p-[15px] pt-[15px]"
-        buttonsWrapperClassName="mt-5 lg:mt-0 justify-end"
+        swiperClassName="reviews "
+        wrapperClassName="bg-white rounded-[10px] lg:rounded-[25px] p-[15px] lg:p-[40px] pt-[15px]"
+        buttonsWrapperClassName="mt-5 justify-end"
         loop
         breakpoints={{
           0: {

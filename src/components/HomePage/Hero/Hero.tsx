@@ -7,9 +7,9 @@ import Callback from '@/components/shared/cta/Callback';
 
 export const Hero = () => {
   return (
-    <section className="relative bg-gray-light lg:bg-white pb-[30px] mb-[-15px] lg:mb-0 lg:pt-[122px]">
-      <Container>
-        <div className="mb-[52px] lg:mb-[108px]">
+    <section className="relative bg-gray-light lg:bg-white pb-[30px] mb-[-15px] lg:mb-0 ">
+      <Container className="relative">
+        <div className="mb-[52px] lg:mb-[108px] lg:pt-[122px]">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -50,7 +50,7 @@ export const Hero = () => {
             duration: 1.5,
             opacity: 0.01,
           })}
-          className="relative lg:absolute left-[50%] lg:left-[unset] lg:right-0 lg:top-0 mt-[-86px] mb-[-127px] lg:mt-0 lg:mb-0 -translate-x-1/2 lg:translate-x-0 pointer-events-none w-[454px] lg:w-[970px] h-auto"
+          className="relative lg:absolute left-[50%] lg:left-[unset] lg:right-0 lg:top-0 mt-[-86px] mb-[-127px] lg:mt-0 lg:mb-0 -translate-x-1/2 lg:translate-x-0 pointer-events-none w-[454px] md:w-[full] lg:w-[970px] h-auto"
         >
           <div className="relative w-full h-full">
             <Image

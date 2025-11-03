@@ -16,10 +16,11 @@ export const PersonelBlock = ({ doctors }: { doctors: Doctor[] }) => {
       exit="exit"
       viewport={{ once: true, amount: 0.3 }}
       variants={fadeInAnimation({ y: 20, delay: 0.3 })}
+      className="lg:w-[500px] lg:h-[553px]"
     >
       <SwiperCards
-        swiperClassName="personel max-w-[256px] mx-auto"
-        wrapperClassName="lg:flex lg:flex-row-reverse lg:gap-6"
+        swiperClassName="personel max-w-[256px] lg:max-w-[380px] mx-auto"
+        wrapperClassName="lg:flex lg:flex-col lg:gap-[25px] lg:items-center"
         buttonsWrapperClassName="mt-[25px] lg:mt-0"
         breakpoints={{
           0: {
