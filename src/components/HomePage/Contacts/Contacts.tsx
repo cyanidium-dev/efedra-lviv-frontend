@@ -17,7 +17,7 @@ export const Contacts = () => {
     <div id="contacts" className="pt-[90px] pb-[80px]">
       <Container>
         <div className="lg:flex lg:mb-[60px]">
-          <div className="lg:max-w-[434px] lg:flex lg:flex-col lg:justify-between lg:mr-[113px]">
+          <div className="lg:max-w-[434px] lg:flex lg:flex-col lg:justify-between lg:mr-[auto] xl:mr-[113px]">
             <motion.h2
               initial="hidden"
               whileInView="visible"
@@ -109,45 +109,47 @@ export const Contacts = () => {
               </motion.ul>
             </motion.address>
           </div>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            exit="exit"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={fadeInAnimation({ y: 20, delay: 0.3 })}
-            className="relative rounded-[15px] lg:rounded-[20px] overflow-hidden px-[14px] lg:px-[18px] pb-[15px] lg:pb-[20px] pt-[82px] lg:pt-[152px] mb-[10px] lg:mb-0 lg:w-[232px] lg:mr-[10px]"
-          >
-            <Image
-              src="/images/homePage/contacts/socialsBg.jpg"
-              alt="Socials"
-              width={296}
-              height={162}
-              className="w-full h-full object-cover absolute inset-0 z-[-10] lg:hidden"
-            />
-            <Image
-              src="/images/homePage/contacts/socialsBgDesk.jpg"
-              alt="Socials"
-              width={232}
-              height={240}
-              className="w-full h-full object-cover absolute inset-0 z-[-10] hidden lg:block"
-            />
-            <h3 className="sr-only">Соціальні мережі</h3>
-            <FollowUs
-              variant="bordered"
-              textClassName="font-manrope text-[14px] lg:text-[16px] leading-[110%] tracking-[-0.03em] text-white font-bold mb-[10px]"
-              iconClassName="text-white"
-            />
-          </motion.div>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            exit="exit"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={fadeInAnimation({ y: 20, delay: 0.3 })}
-            className="lg:w-full lg:max-w-[391px]"
-          >
-            <ContactForm />
-          </motion.div>
+          <div className="md:flex md:justify-between md:items-center">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              exit="exit"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={fadeInAnimation({ y: 20, delay: 0.3 })}
+              className="relative rounded-[15px] lg:rounded-[20px] overflow-hidden px-[14px] md:px-[18px] pb-[15px] md:pb-[20px] pt-[82px] md:pt-[152px] mb-[10px] md:mb-0 md:w-[232px] md:mr-[10px]"
+            >
+              <Image
+                src="/images/homePage/contacts/socialsBg.jpg"
+                alt="Socials"
+                width={296}
+                height={162}
+                className="w-full h-full object-cover absolute inset-0 z-[-10] md:hidden"
+              />
+              <Image
+                src="/images/homePage/contacts/socialsBgDesk.jpg"
+                alt="Socials"
+                width={232}
+                height={240}
+                className="w-full h-full object-cover absolute inset-0 z-[-10] hidden md:block"
+              />
+              <h3 className="sr-only">Соціальні мережі</h3>
+              <FollowUs
+                variant="bordered"
+                textClassName="font-manrope text-[14px] md:text-[16px] leading-[110%] tracking-[-0.03em] text-white font-bold mb-[10px]"
+                iconClassName="text-white"
+              />
+            </motion.div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              exit="exit"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={fadeInAnimation({ y: 20, delay: 0.3 })}
+              className="md:w-full md:max-w-[391px]"
+            >
+              <ContactForm />
+            </motion.div>
+          </div>
         </div>
         <motion.div
           initial="hidden"

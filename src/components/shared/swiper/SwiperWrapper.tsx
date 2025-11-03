@@ -53,17 +53,28 @@ export default function SwiperWrapper({
       swiperInstance.navigation.init();
       swiperInstance.navigation.update();
 
-      // початковий стан кнопок
-      setIsBeginning(swiperInstance.isBeginning);
-      setIsEnd(swiperInstance.isEnd);
-
-      // оновлюємо стан кнопок при зміні слайду
-      swiperInstance.on('slideChange', () => {
+      // початковий стан кнопок (у loop режимі завжди активні)
+      if (!loop) {
         setIsBeginning(swiperInstance.isBeginning);
         setIsEnd(swiperInstance.isEnd);
+      } else {
+        setIsBeginning(false);
+        setIsEnd(false);
+      }
+
+      // оновлюємо стан кнопок при зміні слайду (інакше у loop не блокуємо)
+      swiperInstance.on('slideChange', () => {
+        if (!loop) {
+          setIsBeginning(swiperInstance.isBeginning);
+          setIsEnd(swiperInstance.isEnd);
+        }
       });
     }
   }, [swiperInstance]);
+
+  // ефективні значення дизейблу для кнопок
+  const disablePrev = loop ? false : isBeginning;
+  const disableNext = loop ? false : isEnd;
 
   return (
     <div className={wrapperClassName}>
@@ -85,7 +96,7 @@ export default function SwiperWrapper({
       >
         <button
           ref={prevRef}
-          disabled={isBeginning}
+          disabled={disablePrev}
           className={clsx(
             `enabled:cursor-pointer w-[30px] h-[30px] lg:w-[54px] lg:h-[54px] rounded-[10px] flex items-center justify-center pointer-events-auto transition-filter 
           duration-300 xl:enabled:hover:brightness-[1.25] bg-green disabled:bg-white disabled:border disabled:border-green disabled:text-green`
@@ -94,14 +105,14 @@ export default function SwiperWrapper({
           <ArrowIconFilled
             className={clsx(
               'w-[10px] h-[10px] lg:w-[22px] lg:h-[22px] rotate-180',
-              isBeginning ? 'text-green' : 'text-white'
+              disablePrev ? 'text-green' : 'text-white'
             )}
           />
         </button>
 
         <button
           ref={nextRef}
-          disabled={isEnd}
+          disabled={disableNext}
           className={clsx(
             `enabled:cursor-pointer w-[30px] h-[30px] lg:w-[54px] lg:h-[54px] rounded-[10px] flex items-center justify-center pointer-events-auto transition-filter 
           duration-300 xl:enabled:hover:brightness-[1.25] bg-green disabled:bg-white disabled:border disabled:border-green disabled:text-green`
@@ -110,7 +121,7 @@ export default function SwiperWrapper({
           <ArrowIconFilled
             className={clsx(
               'w-[10px] h-[10px] lg:w-[22px] lg:h-[22px]',
-              isEnd ? 'text-green' : 'text-white'
+              disableNext ? 'text-green' : 'text-white'
             )}
           />
         </button>

@@ -47,7 +47,7 @@ export const Personel = async () => {
         </div>
 
         <PersonelBlock doctors={doctors} />
-        <div className="hidden lg:block absolute top-[172px] left-[497px] rotate-45 opacity-30">
+        <div className="hidden lg:block absolute top-[172px] left-[42.3%] rotate-45 opacity-30 -z-10">
           <LogoLeavesIconFull className="w-[170px] h-[170px] stroke-green-light-2" />
         </div>
       </Container>

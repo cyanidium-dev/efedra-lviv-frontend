@@ -6,6 +6,16 @@ import { Personel } from '@/components/HomePage/Personel/Personel';
 import { Plug } from '@/components/HomePage/Plug/Plug';
 import { Contacts } from '@/components/HomePage/Contacts/Contacts';
 import MarqueeLine from '@/components/shared/marquee/MarqueeLine';
+import { getDefaultMetadata } from '@/utils/getDefaultMetadata';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = getDefaultMetadata({
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : 'http://localhost:3000'),
+});
 
 export default function HomePage() {
   return (

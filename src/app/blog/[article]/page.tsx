@@ -12,38 +12,50 @@ import { getDefaultMetadata } from '@/utils/getDefaultMetadata';
 import { urlFor } from '@/utils/getUrlForSanityImage';
 
 interface ArticlePageProps {
-  params: Promise<{ article: string }>;
+  params: { article: string };
 }
 
 export async function generateMetadata({
   params,
 }: ArticlePageProps): Promise<Metadata> {
-  const { article } = await params;
+  const { article } = params;
 
   const currentPost = await fetchSanityDataServer(postBySlugQuery, {
     slug: article,
   });
 
-  return {
-    title: `${currentPost?.title}` || getDefaultMetadata().title,
-    description: currentPost?.description || getDefaultMetadata().description,
-    openGraph: {
-      images: [
-        {
-          url:
-            urlFor(currentPost?.image).fit('crop').url() ||
-            '/opengraph-image.jpg',
-          width: 1200,
-          height: 630,
-          alt: 'Efedra Clinic',
-        },
-      ],
-    },
-  };
+  const SITE_URL =
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : 'http://localhost:3000');
+
+  if (!currentPost) {
+    return getDefaultMetadata();
+  }
+
+  const articleImage = currentPost?.image
+    ? urlFor(currentPost.image).width(1200).height(630).fit('crop').url()
+    : undefined;
+
+  const articleUrl = `${SITE_URL}/blog/${article}`;
+  const articleTitle = currentPost.title
+    ? `${currentPost.title} | Efedra Clinic`
+    : undefined;
+
+  return getDefaultMetadata({
+    title: articleTitle,
+    description: currentPost.description,
+    url: articleUrl,
+    image: articleImage,
+    imageAlt: currentPost.title || 'Efedra Clinic',
+    type: 'article',
+    publishedTime: currentPost.createdAt,
+  });
 }
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
-  const { article } = await params;
+  const { article } = params;
 
   const res = await fetchSanityDataServer(postsAndPostBySlugQuery, {
     slug: article,

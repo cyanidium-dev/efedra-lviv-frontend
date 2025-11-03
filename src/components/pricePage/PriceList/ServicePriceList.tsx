@@ -12,7 +12,6 @@ export default function ServicePriceList({
   colorScheme,
   isOpen,
 }: ServicePriceListProps) {
-  console.log(isOpen);
   const openVariant = {
     open: 'border border-t-0 rounded-b-[32px] rounded-t-none mt-0',
     close: 'border rounded-[32px] mt-[6px]',

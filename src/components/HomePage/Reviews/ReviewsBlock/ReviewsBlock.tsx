@@ -15,7 +15,7 @@ export const ReviewsBlock = () => {
       exit="exit"
       viewport={{ once: true, amount: 0.3 }}
       variants={fadeInAnimation({ y: 20, delay: 0.3 })}
-      className="lg:w-[539px]"
+      className="lg:w-[539px] z-20"
     >
       <SwiperWrapper
         swiperClassName="reviews "

@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { AnimatePresence, motion } from "framer-motion";
-import Lottie from "lottie-react";
+import { AnimatePresence, motion } from 'framer-motion';
+import Lottie from 'lottie-react';
 
-import animationData from "./lottieLogoAnimation.json";
+import animationData from './lottieLogoAnimation.json';
 
 interface LottieSplashScreenProps {
   visible: boolean;
@@ -19,10 +19,10 @@ export default function LottieSplashScreen({
           initial={{ opacity: 1 }}
           exit={{
             opacity: 0,
-            transition: { duration: 1, ease: "easeInOut" },
+            transition: { duration: 1, ease: 'easeInOut' },
           }}
           transition={{ duration: 1 }}
-          className="no-doc-scroll fixed inset-0 z-50 flex items-center justify-center bg-beige"
+          className="no-doc-scroll fixed inset-0 z-50 flex items-center justify-center bg-green"
         >
           <Lottie
             animationData={animationData}
@@ -31,7 +31,7 @@ export default function LottieSplashScreen({
             style={{
               width: 300,
               height: 300,
-              position: "absolute",
+              position: 'absolute',
             }}
           />
         </motion.div>

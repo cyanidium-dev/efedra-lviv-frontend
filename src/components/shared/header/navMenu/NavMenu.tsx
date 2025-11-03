@@ -52,13 +52,19 @@ export default function NavMenu({
               href={link}
               className={twMerge(
                 'block px-[40px] py-[12px] w-full h-full text-[16px] font-normal leading-[16px] xl:hover:bg-green-light-2/50 focus-visible:bg-green-light-2/50 transition duration-300 ease-in-out',
-                pathname === link ? 'bg-green-light-2 rounded-full' : ''
+                pathname === link
+                  ? 'bg-green-light-2 rounded-full text-white'
+                  : ''
               )}
             >
               {title}
               {link === '/' && (
                 <button
-                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  onClick={e => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setIsDropdownOpen(!isDropdownOpen);
+                  }}
                   type="button"
                   className="ml-[10px]"
                 >
@@ -72,11 +78,11 @@ export default function NavMenu({
         ))}
       </ul>
       {isDropdownOpen && (
-        <ul className="absolute top-full mt-2 left-0 flex flex-col gap-[12px] bg-green-light-2/80 rounded-[10px] p-4 z-10 max-w-[1000px]">
+        <ul className="absolute top-full mt-2 left-0 flex flex-col gap-[12px] bg-green-light-2/90 rounded-[10px] p-4 z-10 max-w-[1000px]">
           {anchorsNavList.map(({ title, link }) => (
             <li
               key={link}
-              className="w-full px-[10px] py-[6px] text-[16px] font-normal leading-[16px] xl:hover:bg-green-light-2/50 focus-visible:bg-green-light-2/50 transition duration-300 ease-in-out"
+              className="w-full px-[10px] py-[6px] text-[16px] font-normal leading-[16px] text-white xl:hover:bg-green-light-2/50 focus-visible:bg-green-light-2/50 transition duration-300 ease-in-out"
             >
               <AnchorLink href={link} closeDropdown={closeDropdown} offset={80}>
                 {title}
