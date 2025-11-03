@@ -109,14 +109,14 @@ export const Contacts = () => {
               </motion.ul>
             </motion.address>
           </div>
-          <div className="md:flex md:justify-between md:items-center">
+          <div className="md:flex">
             <motion.div
               initial="hidden"
               whileInView="visible"
               exit="exit"
               viewport={{ once: true, amount: 0.3 }}
               variants={fadeInAnimation({ y: 20, delay: 0.3 })}
-              className="relative rounded-[15px] lg:rounded-[20px] overflow-hidden px-[14px] md:px-[18px] pb-[15px] md:pb-[20px] pt-[82px] md:pt-[152px] mb-[10px] md:mb-0 md:w-[232px] md:mr-[10px]"
+              className="relative xl:shrink-0 rounded-[15px] lg:rounded-[20px] overflow-hidden px-[14px] md:px-[18px] pb-[15px] md:pb-[20px] pt-[82px] md:pt-[152px] mb-[10px] md:mb-0 md:w-[232px] md:mr-[10px]"
             >
               <Image
                 src="/images/homePage/contacts/socialsBg.jpg"
@@ -145,7 +145,7 @@ export const Contacts = () => {
               exit="exit"
               viewport={{ once: true, amount: 0.3 }}
               variants={fadeInAnimation({ y: 20, delay: 0.3 })}
-              className="md:w-full md:max-w-[391px]"
+              className="md:w-full md:max-w-[391px] xl:shrink-0"
             >
               <ContactForm />
             </motion.div>
