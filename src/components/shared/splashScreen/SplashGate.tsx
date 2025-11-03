@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
+import { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 
-const LottieSplashScreen = dynamic(() => import("./LottieSplashScreen"), {
+const LottieSplashScreen = dynamic(() => import('./LottieSplashScreen'), {
   ssr: false,
 });
 
@@ -13,22 +13,21 @@ export default function SplashGate({
   children: React.ReactNode;
 }) {
   const [showSplash, setShowSplash] = useState(false);
-  const [showContent, setShowContent] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    const alreadyPlayed = sessionStorage.getItem("splashPlayed");
+    setIsMounted(true);
+    const alreadyPlayed = sessionStorage.getItem('splashPlayed');
 
     if (alreadyPlayed) {
-      setShowContent(true);
       return;
     }
 
     setShowSplash(true);
 
     const timer = setTimeout(() => {
-      sessionStorage.setItem("splashPlayed", "true");
+      sessionStorage.setItem('splashPlayed', 'true');
       setShowSplash(false);
-      setShowContent(true);
     }, 2200);
 
     return () => {
@@ -38,15 +37,8 @@ export default function SplashGate({
 
   return (
     <>
-      <LottieSplashScreen visible={showSplash} />
-
-      <div
-        style={{
-          display: showContent ? "block" : "none",
-        }}
-      >
-        {children}
-      </div>
+      {isMounted && <LottieSplashScreen visible={showSplash} />}
+      {children}
     </>
   );
 }
