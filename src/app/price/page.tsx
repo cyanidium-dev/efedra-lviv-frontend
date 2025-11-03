@@ -30,7 +30,7 @@ export default async function PricePage() {
     <>
       <VerticalTitleHero
         title="Прайс-лист"
-        image="/images/pricePage/hero/priceMob.jpg"
+        image="/images/pricePage/hero/priceMob.webp"
       />
       <MarqueeLine variant="green" />
       <Suspense fallback={<Loader />}>

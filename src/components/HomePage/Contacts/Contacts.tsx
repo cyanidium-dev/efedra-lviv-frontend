@@ -119,14 +119,14 @@ export const Contacts = () => {
               className="relative xl:shrink-0 rounded-[15px] lg:rounded-[20px] overflow-hidden px-[14px] md:px-[18px] pb-[15px] md:pb-[20px] pt-[82px] md:pt-[152px] mb-[10px] md:mb-0 md:w-[232px] md:mr-[10px]"
             >
               <Image
-                src="/images/homePage/contacts/socialsBg.jpg"
+                src="/images/homePage/contacts/socialsBg.webp"
                 alt="Socials"
                 width={296}
                 height={162}
                 className="w-full h-full object-cover absolute inset-0 z-[-10] md:hidden"
               />
               <Image
-                src="/images/homePage/contacts/socialsBgDesk.jpg"
+                src="/images/homePage/contacts/socialsBgDesk.webp"
                 alt="Socials"
                 width={232}
                 height={240}

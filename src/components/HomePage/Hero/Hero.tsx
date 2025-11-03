@@ -8,7 +8,7 @@ import Callback from '@/components/shared/cta/Callback';
 export const Hero = () => {
   return (
     <section className="relative bg-gray-light lg:bg-white pb-[30px] mb-[-15px] lg:mb-0 ">
-      <Container className="relative">
+      <Container className="lg:relative">
         <div className="mb-[52px] lg:mb-[108px] lg:pt-[122px]">
           <motion.div
             initial="hidden"
@@ -54,7 +54,7 @@ export const Hero = () => {
         >
           <div className="relative w-full h-full">
             <Image
-              src="/images/homePage/hero/bgMob.jpg"
+              src="/images/homePage/hero/bgMob.webp"
               alt="background"
               priority
               fetchPriority="high"
@@ -65,7 +65,7 @@ export const Hero = () => {
               className="object-cover w-full h-full lg:hidden"
             />
             <Image
-              src="/images/homePage/hero/bgDesk.jpg"
+              src="/images/homePage/hero/bgDesk.webp"
               alt="background"
               priority
               fetchPriority="high"
@@ -110,8 +110,11 @@ export const Hero = () => {
             >
               <div className="w-full px-[10px] lg:pl-[20px] lg:pr-[18px] py-[15px] lg:py-[20px] bg-transparent lg:flex">
                 <Image
-                  src="/images/homePage/hero/contactCardDesk.jpg"
+                  src="/images/homePage/hero/contactCardDesk.webp"
                   alt="contact card"
+                  priority
+                  fetchPriority="high"
+                  unoptimized
                   width={126}
                   height={135}
                   className="hidden lg:block rounded-[10px] object-cover mr-[20px] w-[126px] h-[135px]"
@@ -123,8 +126,11 @@ export const Hero = () => {
                       поєднують професіоналізм із сучасним підходом.
                     </p>
                     <Image
-                      src="/images/homePage/hero/contactCard.jpg"
+                      src="/images/homePage/hero/contactCard.webp"
                       alt="contact card"
+                      priority
+                      fetchPriority="high"
+                      unoptimized
                       width={73}
                       height={65}
                       className="rounded-[5px] lg:hidden"
@@ -167,8 +173,11 @@ export const Hero = () => {
                   <ul className="flex items-center mr-[10px]">
                     <li className="mr-[-10px]">
                       <Image
-                        src="/images/homePage/hero/cta1.jpg"
+                        src="/images/homePage/hero/cta1.webp"
                         alt="icon1"
+                        priority
+                        fetchPriority="high"
+                        unoptimized
                         width={25}
                         height={25}
                         className="rounded-full lg:w-[35px] lg:h-[35px]"
@@ -176,8 +185,11 @@ export const Hero = () => {
                     </li>
                     <li className="mr-[-10px]">
                       <Image
-                        src="/images/homePage/hero/cta2.jpg"
+                        src="/images/homePage/hero/cta2.webp"
                         alt="icon2"
+                        priority
+                        fetchPriority="high"
+                        unoptimized
                         width={25}
                         height={25}
                         className="rounded-full lg:w-[35px] lg:h-[35px]"
@@ -185,8 +197,11 @@ export const Hero = () => {
                     </li>
                     <li className="mr-[-10px]">
                       <Image
-                        src="/images/homePage/hero/cta3.jpg"
+                        src="/images/homePage/hero/cta3.webp"
                         alt="icon3"
+                        priority
+                        fetchPriority="high"
+                        unoptimized
                         width={25}
                         height={25}
                         className="rounded-full lg:w-[35px] lg:h-[35px]"
@@ -194,7 +209,7 @@ export const Hero = () => {
                     </li>
                     <li>
                       <Image
-                        src="/images/homePage/hero/cta4.jpg"
+                        src="/images/homePage/hero/cta4.webp"
                         alt="icon4"
                         width={25}
                         height={25}

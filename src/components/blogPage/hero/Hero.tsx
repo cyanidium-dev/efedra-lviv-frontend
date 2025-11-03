@@ -18,7 +18,7 @@ export default function Hero() {
           <div className="absolute -z-10 top-0 md:top-auto md:bottom-[42px] right-[-210px] md:right-auto md:left-[-102px] xl:left-[-152px] w-[305px] h-[305px] rounded-full bg-green" />
           <div className="relative w-full h-full rounded-[15px] overflow-hidden">
             <Image
-              src="/images/blogPage/hero/picOne.jpg"
+              src="/images/blogPage/hero/picOne.webp"
               alt="background"
               fill
               priority
@@ -48,7 +48,7 @@ export default function Hero() {
               className="md:hidden relative aspect-[115/94] w-auto h-[94px] xs:h-[140px] rounded-[20px] overflow-hidden shrink-0"
             >
               <Image
-                src="/images/blogPage/hero/picTwo.jpg"
+                src="/images/blogPage/hero/picTwo.webp"
                 alt="background"
                 fill
                 priority

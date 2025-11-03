@@ -21,14 +21,14 @@ export const Reviews = () => {
           className="pt-[25px] pb-[12px] px-[15px] lg:p-[50px] lg:pl-[40px] lg:flex lg:justify-between relative rounded-[15px] overflow-hidden lg:rounded-[25px]"
         >
           <Image
-            src="/images/homePage/reviews/bgMob.jpg"
+            src="/images/homePage/reviews/bgMob.webp"
             alt="reviews"
             width={100}
             height={100}
             className="object-cover w-full h-full absolute inset-0 z-[-10]"
           />
           <Image
-            src="/images/homePage/reviews/bgDesk.jpg"
+            src="/images/homePage/reviews/bgDesk.webp"
             alt="reviews"
             width={1180}
             height={613}
