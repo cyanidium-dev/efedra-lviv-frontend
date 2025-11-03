@@ -58,7 +58,6 @@ export const Hero = () => {
               alt="background"
               priority
               fetchPriority="high"
-              unoptimized
               sizes="(min-width: 1024px) 0px, 100vw"
               width={1063}
               height={868}
@@ -69,7 +68,6 @@ export const Hero = () => {
               alt="background"
               priority
               fetchPriority="high"
-              unoptimized
               sizes="(min-width: 1024px) 0px, 100vw"
               width={1063}
               height={868}
@@ -112,9 +110,6 @@ export const Hero = () => {
                 <Image
                   src="/images/homePage/hero/contactCardDesk.webp"
                   alt="contact card"
-                  priority
-                  fetchPriority="high"
-                  unoptimized
                   width={126}
                   height={135}
                   className="hidden lg:block rounded-[10px] object-cover mr-[20px] w-[126px] h-[135px]"
@@ -130,7 +125,6 @@ export const Hero = () => {
                       alt="contact card"
                       priority
                       fetchPriority="high"
-                      unoptimized
                       width={73}
                       height={65}
                       className="rounded-[5px] lg:hidden"
@@ -177,7 +171,6 @@ export const Hero = () => {
                         alt="icon1"
                         priority
                         fetchPriority="high"
-                        unoptimized
                         width={25}
                         height={25}
                         className="rounded-full lg:w-[35px] lg:h-[35px]"
@@ -189,7 +182,6 @@ export const Hero = () => {
                         alt="icon2"
                         priority
                         fetchPriority="high"
-                        unoptimized
                         width={25}
                         height={25}
                         className="rounded-full lg:w-[35px] lg:h-[35px]"
