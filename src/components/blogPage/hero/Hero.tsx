@@ -78,14 +78,14 @@ export default function Hero() {
               duration: 1.2,
               delay: 0.6,
             })}
-            className="hidden md:block relative aspect-[280/229] w-auto h-[229px] rounded-[20px] overflow-hidden shrink-0"
+            className="hidden md:block relative aspect-[280/229] w-[280px] h-[229px] rounded-[20px] overflow-hidden shrink-0"
           >
             <Image
-              src="/images/blogPage/hero/imageTwo.webp"
+              src="/images/blogPage/hero/picTwo.webp"
               alt="background"
               fill
               priority
-              className="object-cover object-[center_-56px] xs:object-[center_-89px] md:object-[center_-139px]"
+              className="object-cover"
             />
           </motion.div>
         </div>

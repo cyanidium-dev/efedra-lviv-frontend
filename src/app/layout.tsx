@@ -27,6 +27,7 @@ const montserrat = Montserrat({
   variable: '--font-montserrat',
   subsets: ['latin', 'cyrillic'],
   display: 'swap',
+  preload: true,
 });
 
 export async function generateMetadata() {
@@ -44,14 +45,49 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="uk">
+      <head>
+        <style>{`
+          #pre-splash {
+            position: fixed;
+            inset: 0;
+            background: #ffffff;
+            z-index: 999;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+          }
+          #pre-splash.hidden {
+            opacity: 0;
+            pointer-events: none;
+          }
+        `}</style>
+
+        {/* Inline script runs before React hydrates but doesn't alter DOM structure */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  if (sessionStorage.getItem('splashPlayed')) {
+                    const el = document.getElementById('pre-splash');
+                    if (el) el.classList.add('hidden');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
       <body
         className={`${montserrat.variable} ${manrope.variable} ${raleway.variable} flex min-h-dvh flex-col antialiased text-[14px] font-normal leading-[120%]`}
       >
-        <SplashGate>
-          <Header />
-          <main className="flex-1 pt-[86px] lg:pt-0">{children}</main>
-          <Footer />
-        </SplashGate>
+        <div id="pre-splash"></div>
+        <div id="root">
+          <SplashGate>
+            <Header />
+            <main className="flex-1 pt-[86px] lg:pt-0">{children}</main>
+            <Footer />
+          </SplashGate>
+        </div>
       </body>
     </html>
   );
