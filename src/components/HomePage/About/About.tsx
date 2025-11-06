@@ -139,21 +139,21 @@ export const About = () => {
                 className="flex relative justify-center items-center w-[205px] h-[205px] md:w-[440px] md:h-[440px] border border-[#546A504D] rounded-full"
               >
                 <Image
-                  src="/images/homePage/about/centerMob.jpg"
+                  src="/images/homePage/about/centerMob.webp"
                   alt="About"
                   width={153}
                   height={153}
                   className="rounded-full md:hidden"
                 />
                 <Image
-                  src="/images/homePage/about/center.jpg"
+                  src="/images/homePage/about/center.webp"
                   alt="About"
                   width={329}
                   height={329}
                   className="rounded-full md:block hidden"
                 />
                 <Image
-                  src="/images/homePage/hero/cta2.jpg"
+                  src="/images/homePage/hero/cta2.webp"
                   alt="About"
                   width={26}
                   height={26}
@@ -161,21 +161,21 @@ export const About = () => {
                 />
               </motion.div>
               <Image
-                src="/images/homePage/hero/cta1.jpg"
+                src="/images/homePage/hero/cta1.webp"
                 alt="About"
                 width={26}
                 height={26}
                 className="rounded-full absolute top-[80px] left-[-10px] md:top-[174px] md:left-[-20px] md:w-[55px] md:h-[55px]"
               />
               <Image
-                src="/images/homePage/hero/cta3.jpg"
+                src="/images/homePage/hero/cta3.webp"
                 alt="About"
                 width={26}
                 height={26}
                 className="rounded-full absolute top-[-1px] left-[84px] md:top-0 md:left-[unset] md:right-[121px] md:w-[55px] md:h-[55px]"
               />
               <Image
-                src="/images/homePage/hero/cta4.jpg"
+                src="/images/homePage/hero/cta4.webp"
                 alt="About"
                 width={26}
                 height={26}

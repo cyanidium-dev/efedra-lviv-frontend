@@ -25,7 +25,7 @@ export const Plug = () => {
           className="hidden lg:block bg-green flex items-center justify-center h-[181px] w-full rounded-full overflow-hidden"
         >
           <Image
-            src="/images/homePage/plug/image.jpg"
+            src="/images/homePage/plug/image.webp"
             alt="image"
             width={295}
             height={181}
@@ -41,7 +41,7 @@ export const Plug = () => {
           className="relative bg-green text-[14px] lg:text-[38px] leading-[100%] tracking-[-0.03em] text-white font-medium h-[59px] lg:h-[181px] flex items-center justify-center w-full rounded-full overflow-hidden"
         >
           <Image
-            src="/images/homePage/plug/imageBg.jpg"
+            src="/images/homePage/plug/imageBg.webp"
             alt="imageBg"
             width={100}
             height={100}
@@ -58,7 +58,7 @@ export const Plug = () => {
           className="text-[14px] lg:text-[38px] leading-[100%] tracking-[-0.03em] text-white font-medium bg-green h-[59px] lg:h-[181px] flex items-center justify-center w-full rounded-full overflow-hidden"
         >
           <Image
-            src="/images/homePage/plug/imageBg.jpg"
+            src="/images/homePage/plug/imageBg.webp"
             alt="imageBg"
             width={295}
             height={181}
