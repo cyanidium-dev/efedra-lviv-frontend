@@ -54,8 +54,6 @@ export async function generateMetadata({
   });
 }
 
-export const revalidate = 600;
-
 export default async function ArticlePage({ params }: ArticlePageProps) {
   const { article } = params;
 
