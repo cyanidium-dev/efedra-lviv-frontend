@@ -30,6 +30,8 @@ const montserrat = Montserrat({
   preload: true,
 });
 
+export const revalidate = 60;
+
 export async function generateMetadata() {
   return {
     ...getDefaultMetadata(),

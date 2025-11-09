@@ -105,7 +105,7 @@ export default function CallBackForm({
             className={
               twMerge(
                 'w-full h-[56px] text-[14px] leading-[17px] text-white  font-medium text-center rounded-full',
-                buttonClassName || 'bg-green-light-2'
+                buttonClassName || 'bg-green'
               ) as string
             }
           >

@@ -14,6 +14,7 @@ interface FollowUsProps {
   textClassName?: string;
   iconClassName?: string;
   strokeColor?: string;
+  title?: string;
 }
 
 export const FollowUs = ({
@@ -22,6 +23,7 @@ export const FollowUs = ({
   textClassName,
   iconClassName,
   strokeColor,
+  title,
 }: FollowUsProps) => {
   const styles = {
     bordered: 'border border-white w-[40px] h-[40px]',
@@ -30,7 +32,7 @@ export const FollowUs = ({
 
   return (
     <div className={className}>
-      <h3 className={textClassName}>Слідкуй за нами:</h3>
+      <h3 className={textClassName}>{title}</h3>
       <ul className="flex gap-[15px]">
         {/*    <li className={`w-[40px] h-[40px] rounded-full ${styles[variant]}`}>
           <a

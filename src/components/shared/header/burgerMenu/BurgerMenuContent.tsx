@@ -62,6 +62,7 @@ export default function BurgerMenuContent({
                 variant="bordered"
                 textClassName="text-[20px] font-semibold leading-[100%] tracking-[-0.05em] text-white "
                 iconClassName="text-white"
+                title="Слідкуйте за нами:"
               />
             </motion.div>
           </Container>

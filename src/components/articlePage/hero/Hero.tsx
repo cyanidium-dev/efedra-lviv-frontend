@@ -18,7 +18,7 @@ export default function Hero({ post }: HeroProps) {
   const { image, title, description, direction, createdAt } = post;
 
   return (
-    <section className="pt-4 pb-10 lg:pt-9 lg:pb-16">
+    <section className="pt-[97px] pb-10 lg:pt-[135px] lg:pb-16">
       <Container className="flex flex-col sm:flex-row gap-[22px] lg:gap-[46px]">
         <motion.div
           initial="hidden"
@@ -57,7 +57,7 @@ export default function Hero({ post }: HeroProps) {
             exit="exit"
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeInAnimation({ x: 20 })}
-            className="mb-[13px] lg:mb-[23px] font-evolenta text-[20px] lg:text-[36px] font-normal leading-[133%] uppercase"
+            className="mb-[13px] lg:mb-[23px] text-[20px] lg:text-[36px] font-normal leading-[133%] uppercase"
           >
             {title}
           </motion.h1>

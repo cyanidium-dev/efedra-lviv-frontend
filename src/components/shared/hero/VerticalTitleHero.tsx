@@ -11,16 +11,18 @@ import CallBackModal from '../modals/CallBackModal';
 interface VerticalTitleHeroProps {
   title: string;
   image: string;
+  imageDesktop: string;
 }
 
 export default function VerticalTitleHero({
   title,
   image,
+  imageDesktop,
 }: VerticalTitleHeroProps) {
   const [isModalShown, setIsModalShown] = useState(false);
 
   return (
-    <section className="pt-[14px] pb-11 lg:pt-4 lg:pb-[35px]">
+    <section className="pt-[97px] pb-11 lg:pt-[115px] lg:pb-[35px]">
       <Container className="flex gap-[10px] md:gap-[16px] lg:gap-[23px] w-full items-center">
         <motion.h1
           initial="hidden"
@@ -48,7 +50,17 @@ export default function VerticalTitleHero({
               fill
               priority
               fetchPriority="high"
-              className="object-cover"
+              className="object-cover lg:hidden"
+              unoptimized
+            />
+            <Image
+              src={imageDesktop}
+              alt="background"
+              fill
+              priority
+              fetchPriority="high"
+              className="object-cover hidden lg:block"
+              unoptimized
             />
           </motion.div>
           <motion.div
@@ -60,7 +72,7 @@ export default function VerticalTitleHero({
           >
             <MainButton
               onClick={() => setIsModalShown(true)}
-              className="absolute md:bottom-[20px] md:right-[20px] -bottom-[20px] -right-[12px] px-[20px] max-w-[207px] h-[40px] text-[16px] leading-[100%] tracking-[-0.05em] text-black font-medium text-center bg-white border border-black text-left justify-start"
+              className="absolute md:bottom-[20px] md:right-[20px] -bottom-[20px] -right-[12px] px-[20px] max-w-[207px] h-[40px] text-[16px] leading-[100%] tracking-[-0.05em] text-black font-medium text-center bg-white border border-black text-left justify-start md:border-none"
               iconClassName="text-white"
               spanClassName="w-[32px] h-[32px] flex items-center justify-center bg-green rounded-full"
               phoneIcon={true}

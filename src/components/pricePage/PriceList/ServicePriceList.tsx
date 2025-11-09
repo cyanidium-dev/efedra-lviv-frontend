@@ -16,23 +16,35 @@ export default function ServicePriceList({
     open: 'border border-t-0 rounded-b-[32px] rounded-t-none mt-0',
     close: 'border rounded-[32px] mt-[6px]',
   };
+
+  // Check if any service has duration (must be truthy and not empty string)
+  const hasDuration = services.some(
+    service => service?.duration && service.duration.trim() !== ''
+  );
+
   return (
     <>
       <div
         className={twMerge(
-          `hidden md:grid md:grid-cols-[2.5fr_1.75fr_0.7fr] lg:grid-cols-[2.5fr_1.75fr_0.5fr] border-${colorScheme} `,
+          `hidden md:grid ${
+            hasDuration
+              ? 'md:grid-cols-[2.5fr_1.75fr_0.7fr] lg:grid-cols-[2.5fr_1.75fr_0.5fr]'
+              : 'md:grid-cols-[2.5fr_1fr] lg:grid-cols-[2.5fr_1fr]'
+          } border-${colorScheme} `,
           openVariant[isOpen ? 'open' : 'close'] as string
         )}
       >
-        <div className="pl-[46px] py-[18px] uppercase font-evolenta text-[12px] md:text-[14px] text-left">
+        <div className="pl-[46px] py-[18px] uppercase text-[12px] md:text-[14px] text-left">
           Назва послуги
         </div>
-        <div className="py-[18px] uppercase font-evolenta text-[12px] md:text-[14px] text-center">
+        <div className="py-[18px] uppercase text-[12px] md:text-[14px] text-center">
           Вартість (грн)
         </div>
-        <div className="pr-[27px] py-[18px] uppercase font-evolenta text-[12px] md:text-[14px] text-center">
-          Час (хв)
-        </div>
+        {hasDuration && (
+          <div className="pr-[27px] py-[18px] uppercase text-[12px] md:text-[14px] text-center">
+            Час (хв)
+          </div>
+        )}
 
         {services
           .filter(service => service?.title)
@@ -55,13 +67,15 @@ export default function ServicePriceList({
                 >
                   {service.price || <span>—</span>}
                 </div>
-                <div
-                  key={`duration-${idx}`}
-                  className={twMerge(`flex items-center justify-center pr-[27px] py-3 text-[12px] md:text-[14px] text-center border-t-[0.5px] border-${colorScheme}
+                {hasDuration && (
+                  <div
+                    key={`duration-${idx}`}
+                    className={twMerge(`flex items-center justify-center pr-[27px] py-3 text-[12px] md:text-[14px] text-center border-t-[0.5px] border-${colorScheme}
                 `)}
-                >
-                  {service.duration || <span>—</span>}
-                </div>
+                  >
+                    {service.duration || <span>—</span>}
+                  </div>
+                )}
               </div>
             );
           })}
@@ -84,9 +98,11 @@ export default function ServicePriceList({
                 <p className="text-[12px] leading-[133%]">{service.title}</p>
                 <div className="flex justify-between text-[12px] leading-[133%]">
                   <span>{service.price + ' грн' || '—'}</span>
-                  <span>
-                    {service.duration ? `${service.duration} хв` : '—'}
-                  </span>
+                  {hasDuration && (
+                    <span>
+                      {service.duration ? `${service.duration} хв` : '—'}
+                    </span>
+                  )}
                 </div>
               </div>
             );

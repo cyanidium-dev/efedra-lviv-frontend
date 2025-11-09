@@ -34,7 +34,7 @@ export default function BlogCard({ post }: BlogCardProps) {
             <FormattedDate createdAt={createdAt} />
             <DirectionTag direction={direction} />
           </div>
-          <h2 className="mb-2 font-evolenta text-[16px] font-normal leading-[133%] uppercase">
+          <h2 className="mb-2 text-[16px] font-normal leading-[133%] uppercase">
             {title}
           </h2>
         </div>

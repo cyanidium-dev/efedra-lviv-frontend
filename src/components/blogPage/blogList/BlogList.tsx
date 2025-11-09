@@ -1,12 +1,12 @@
-"use client";
-import { useRef } from "react";
-import Container from "@/components/shared/container/Container";
-import { Post } from "@/types/post";
-import BlogCard from "./BlogCard";
-import Pagination from "@/components/shared/pagination/Pagination";
-import { useBlogArticlesPerPage } from "@/hooks/useBlogArticlesPerPage";
-import * as motion from "motion/react-client";
-import { fadeInAnimation } from "@/utils/animationVariants";
+'use client';
+import { useRef } from 'react';
+import Container from '@/components/shared/container/Container';
+import { Post } from '@/types/post';
+import BlogCard from './BlogCard';
+import Pagination from '@/components/shared/pagination/Pagination';
+import { useBlogArticlesPerPage } from '@/hooks/useBlogArticlesPerPage';
+import * as motion from 'motion/react-client';
+import { fadeInAnimation } from '@/utils/animationVariants';
 
 interface BlogListProps {
   posts: Post[];
@@ -22,16 +22,16 @@ export default function BlogList({ posts }: BlogListProps) {
   return (
     <section
       ref={sectionRef}
-      className="pt-[46px] lg:pt-[71px] pb-[50px] lg:pb-[100px] scroll-mt-21"
+      className="pt-[46px] lg:pt-[71px] pb-[50px] lg:pb-[100px] scroll-mt-21 "
     >
       <Container>
         <Pagination
           items={posts}
           useItemsPerPage={() => itemsPerPage}
           scrollTargetRef={sectionRef}
-          renderItems={(currentItems) => (
+          renderItems={currentItems => (
             <ul className="flex flex-col sm:flex-row sm:flex-wrap gap-[22px] lg:gap-y-7">
-              {currentItems.map((post) => (
+              {currentItems.map(post => (
                 <motion.li
                   initial="hidden"
                   whileInView="visible"

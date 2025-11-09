@@ -8,31 +8,50 @@ const LottieSplashScreen = dynamic(() => import('./LottieSplashScreen'), {
   ssr: false,
 });
 
+const MIN_DURATION = 1500;
+
 export default function SplashGate({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const [isLoaded, setIsLoaded] = useState(false); // page/assets loaded
   const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
+    const preSplash = document.getElementById('pre-splash');
     const alreadyPlayed = sessionStorage.getItem('splashPlayed');
 
-    const preSplash = document.getElementById('pre-splash');
-
+    // If splash already played, hide pre-splash immediately and skip splash
     if (alreadyPlayed) {
       preSplash?.classList.add('hidden');
       setShowSplash(false);
+      setIsLoaded(true);
       return;
     }
 
-    const timer = setTimeout(() => {
-      sessionStorage.setItem('splashPlayed', 'true');
-      preSplash?.classList.add('hidden');
-      setShowSplash(false);
-    }, 2200);
+    // If not played, wait for fonts and window load
+    const startTime = Date.now();
+    const fontsPromise = document.fonts
+      ? document.fonts.ready
+      : Promise.resolve();
+    const windowLoadPromise = new Promise<void>(resolve => {
+      if (document.readyState === 'complete') resolve();
+      else window.addEventListener('load', () => resolve());
+    });
 
-    return () => clearTimeout(timer);
+    Promise.any([fontsPromise, windowLoadPromise]).then(() => {
+      const elapsed = Date.now() - startTime;
+      const remaining = Math.max(0, MIN_DURATION - elapsed);
+      setTimeout(() => {
+        // Hide pre-splash and mark splash as played
+        preSplash?.classList.add('hidden');
+        sessionStorage.setItem('splashPlayed', 'true');
+        setIsLoaded(true);
+        // Hide splash to trigger exit animation (0.6s duration)
+        setShowSplash(false);
+      }, remaining);
+    });
   }, []);
 
   return (

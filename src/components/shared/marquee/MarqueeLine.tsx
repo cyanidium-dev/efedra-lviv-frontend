@@ -28,7 +28,7 @@ export default function MarqueeLine({
         speed={70}
         className={twMerge(
           clsx(
-            `h-[42px] lg:h-[76px] border-y lg:border-y-2 font-evolenta text-[17px] lg:text-[30px] leading-none ${
+            `h-[42px] lg:h-[76px] border-y lg:border-y-2 text-[17px] lg:text-[30px] leading-none ${
               variant === 'green'
                 ? 'text-green border-green'
                 : variant === 'light-green'

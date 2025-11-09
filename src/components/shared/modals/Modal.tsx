@@ -14,7 +14,7 @@ export default function Modal({
   isModalShown,
   setIsModalShown,
   children,
-  className = 'bg-white',
+  className = 'bg-gray-light-2',
 }: ModalProps) {
   return (
     <div
@@ -24,13 +24,13 @@ export default function Modal({
           : 'pointer-events-none opacity-0 scale-90'
       } fixed left-1/2 bottom-0 transform -translate-x-1/2 transition duration-[600ms] ease-out z-70 w-[82%] max-w-[470px] lg:max-w-[568px] max-h-dvh
       px-5 lg:px-[45px] pt-11 pb-8 lg:py-14 overflow-y-auto  rounded-[16px] lg:rounded-[20px] scrollbar scrollbar-w-[3px] scrollbar-thumb-rounded-full 
-      scrollbar-track-rounded-full scrollbar-thumb-transparent scrollbar-track-main popup-scroll shadow-md ${className}`}
+      scrollbar-track-rounded-full  scrollbar-thumb-transparent scrollbar-track-main popup-scroll shadow-md ${className}`}
     >
       <IconButton
         handleClick={() => setIsModalShown(false)}
-        className="absolute top-4 right-4 size-6"
+        className="absolute top-8 right-8 w-8 h-8"
       >
-        {<CrossIcon />}
+        {<CrossIcon className="w-8 h-8" />}
       </IconButton>
 
       {children}

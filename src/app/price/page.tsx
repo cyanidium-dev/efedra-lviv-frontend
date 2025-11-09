@@ -25,12 +25,12 @@ export const metadata: Metadata = getDefaultMetadata({
 
 export default async function PricePage() {
   const categories = await fetchSanityDataServer(allPriceCategoriesQuery);
-
   return (
     <>
       <VerticalTitleHero
         title="Прайс-лист"
         image="/images/pricePage/hero/priceMob.webp"
+        imageDesktop="/images/pricePage/hero/priceDesc.webp"
       />
       <MarqueeLine variant="green" />
       <Suspense fallback={<Loader />}>

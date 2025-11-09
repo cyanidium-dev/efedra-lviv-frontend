@@ -97,7 +97,7 @@ export default function CTAFormWithBackground({
           >
             <motion.p
               variants={fadeInAnimation({ y: 30, delay: 0.3 })}
-              className="text-[20px] lg:text-[24px] xl:text-[32px] font-evolenta uppercase text-center leading-[135%]"
+              className="text-[20px] lg:text-[24px] xl:text-[32px] uppercase text-center leading-[135%]"
             >
               Бажаєте <br /> познайомитися з нашим центром особисто?
             </motion.p>
