@@ -75,7 +75,7 @@ export default function Pagination<T>({
           />
         </button>
 
-        <p className="font-evolenta text-[15px] font-normal leading-[133%]">
+        <p className="text-[15px] font-normal leading-[133%]">
           {currentPage}/{totalPages}
         </p>
 

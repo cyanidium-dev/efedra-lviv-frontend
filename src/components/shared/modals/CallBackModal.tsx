@@ -37,7 +37,7 @@ export default function CallBackModal({
         }}
       />
       <Modal isModalShown={isModalShown} setIsModalShown={setIsModalShown}>
-        <h2 className="max-w-[212px] sm:max-w-[340px] lg:max-w-[478px] mx-auto mb-[15px] font-evolenta text-[24px] lg:text-[32px] font-normal leading-[120%] text-center uppercase">
+        <h2 className="max-w-[212px] sm:max-w-[340px] lg:max-w-[478px] mx-auto mb-[15px] text-[24px] lg:text-[32px] font-normal leading-[120%] text-center uppercase">
           Почніть шлях до оновленої версії себе{' '}
           <span className="italic">вже сьогодні</span>!
         </h2>

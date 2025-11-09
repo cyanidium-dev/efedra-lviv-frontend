@@ -24,13 +24,13 @@ export default function ServicePriceList({
           openVariant[isOpen ? 'open' : 'close'] as string
         )}
       >
-        <div className="pl-[46px] py-[18px] uppercase font-evolenta text-[12px] md:text-[14px] text-left">
+        <div className="pl-[46px] py-[18px] uppercase text-[12px] md:text-[14px] text-left">
           Назва послуги
         </div>
-        <div className="py-[18px] uppercase font-evolenta text-[12px] md:text-[14px] text-center">
+        <div className="py-[18px] uppercase text-[12px] md:text-[14px] text-center">
           Вартість (грн)
         </div>
-        <div className="pr-[27px] py-[18px] uppercase font-evolenta text-[12px] md:text-[14px] text-center">
+        <div className="pr-[27px] py-[18px] uppercase text-[12px] md:text-[14px] text-center">
           Час (хв)
         </div>
 

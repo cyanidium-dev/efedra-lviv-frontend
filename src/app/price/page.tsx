@@ -27,7 +27,6 @@ export const revalidate = 600;
 
 export default async function PricePage() {
   const categories = await fetchSanityDataServer(allPriceCategoriesQuery);
-  console.log(categories);
   return (
     <>
       <VerticalTitleHero

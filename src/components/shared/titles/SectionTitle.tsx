@@ -38,7 +38,7 @@ export default function SectionTitle({
       )}
     >
       <h2
-        className={`pt-0.5 font-evolenta text-[14px] lg:text-[16px] font-normal uppercase`}
+        className={`pt-0.5 text-[14px] lg:text-[16px] font-normal uppercase`}
       >
         {children}
       </h2>

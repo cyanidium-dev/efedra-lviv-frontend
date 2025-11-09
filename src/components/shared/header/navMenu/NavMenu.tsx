@@ -51,8 +51,8 @@ export default function NavMenu({
             <Link
               href={link}
               className={twMerge(
-                'block px-[40px] py-[12px] w-full h-full text-[16px] font-normal leading-[16px] xl:hover:bg-green-light-2/50 focus-visible:bg-green-light-2/50 transition duration-300 ease-in-out',
-                pathname === link ? 'bg-green-light-2 rounded-full' : ''
+                'block px-[40px] py-[12px] w-full h-full text-[16px] font-normal leading-[16px] rounded-full xl:hover:bg-green-light-2/50 focus-visible:bg-green-light-2/50 transition duration-300 ease-in-out',
+                pathname === link ? 'bg-green-light-2' : ''
               )}
             >
               {title}

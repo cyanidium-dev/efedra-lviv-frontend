@@ -10,15 +10,15 @@ import { ScrollButton } from '@/components/shared/buttons/ScrollButton';
 export const Hero = () => {
   return (
     <section className="relative bg-gray-light lg:bg-white pb-[30px] mb-[-15px] lg:mb-0 ">
-      <Container className="lg:relative">
-        <div className="mb-[52px] lg:mb-[108px] lg:pt-[122px]">
+      <Container className="2xl:relative">
+        <div className="relative mb-[52px] lg:mb-[108px] lg:pt-[122px]">
           <motion.div
             initial="hidden"
             whileInView="visible"
             exit="exit"
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeInAnimation({ y: 20, delay: 0.3 })}
-            className="absolute z-10 top-[-257px] left-[-111px] lg:top-[-139px] lg:left-[-139px] w-[471px] h-[453px] lg:w-[669px] lg:h-[669px] rounded-full bg-white pointer-events-none"
+            className="absolute z-10 top-[-257px] left-[-161px] lg:top-[-139px] lg:left-[-189px] w-[471px] h-[453px] lg:w-[669px] lg:h-[669px] rounded-full bg-white pointer-events-none"
           ></motion.div>
           <motion.h1
             initial="hidden"
@@ -52,7 +52,7 @@ export const Hero = () => {
             duration: 1.5,
             opacity: 0.01,
           })}
-          className="relative lg:absolute left-[50%] lg:left-[unset] lg:right-0 lg:top-0 mt-[-86px] mb-[-127px] lg:mt-0 lg:mb-0 -translate-x-1/2 lg:translate-x-0 pointer-events-none w-[454px] md:w-[full] lg:w-[970px] h-auto"
+          className="relative w-full lg:absolute left-[50%] lg:left-[unset] lg:right-0 lg:top-0 mt-[-86px] mb-[-127px] lg:mt-0 lg:mb-0 -translate-x-1/2 lg:translate-x-0 pointer-events-none w-[454px] md:w-[full] lg:w-[970px] h-auto"
         >
           <div className="relative w-full h-full">
             <Image
@@ -61,9 +61,9 @@ export const Hero = () => {
               priority
               fetchPriority="high"
               sizes="(min-width: 1024px) 0px, 100vw"
-              width={1063}
-              height={868}
-              className="object-cover w-full h-full lg:hidden"
+              width={454}
+              height={372}
+              className="object-cover w-full h-[372px] lg:hidden"
               unoptimized
             />
             <Image
