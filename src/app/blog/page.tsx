@@ -21,6 +21,8 @@ export const metadata: Metadata = getDefaultMetadata({
   url: `${SITE_URL}/blog`,
 });
 
+export const revalidate = 600;
+
 export default async function BlogPage() {
   const posts = await fetchSanityDataServer(allPostsQuery);
 

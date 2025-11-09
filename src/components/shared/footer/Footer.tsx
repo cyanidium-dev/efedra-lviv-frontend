@@ -20,6 +20,7 @@ export default function Footer() {
                 textClassName="text-[14px] font-normal leading-[17px] uppercase mb-[20px]"
                 iconClassName=" border-[0.26px] border-green lg:w-[28px] lg:h-[28px]"
                 strokeColor="var(--color-white-secondary)"
+                title="Слідкуйте за нами"
               />
             </div>
           </div>

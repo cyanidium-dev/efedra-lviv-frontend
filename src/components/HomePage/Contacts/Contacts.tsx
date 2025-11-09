@@ -14,7 +14,7 @@ import * as motion from 'motion/react-client';
 
 export const Contacts = () => {
   return (
-    <div id="contacts" className="pt-[90px] pb-[80px]">
+    <section id="contacts" className="pt-[90px] pb-[80px]">
       <Container>
         <div className="lg:flex lg:mb-[60px]">
           <div className="lg:max-w-[434px] lg:flex lg:flex-col lg:justify-between lg:mr-[auto] xl:mr-[113px]">
@@ -137,6 +137,7 @@ export const Contacts = () => {
                 variant="bordered"
                 textClassName="font-manrope text-[14px] md:text-[16px] leading-[110%] tracking-[-0.03em] text-white font-bold mb-[10px]"
                 iconClassName="text-white"
+                title="Слідкуй за нами"
               />
             </motion.div>
             <motion.div
@@ -162,6 +163,6 @@ export const Contacts = () => {
           <Map zoom={1} />
         </motion.div>
       </Container>
-    </div>
+    </section>
   );
 };

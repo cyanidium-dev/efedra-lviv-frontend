@@ -23,14 +23,17 @@ export const metadata: Metadata = getDefaultMetadata({
   url: `${SITE_URL}/price`,
 });
 
+export const revalidate = 600;
+
 export default async function PricePage() {
   const categories = await fetchSanityDataServer(allPriceCategoriesQuery);
-
+  console.log(categories);
   return (
     <>
       <VerticalTitleHero
         title="Прайс-лист"
         image="/images/pricePage/hero/priceMob.webp"
+        imageDesktop="/images/pricePage/hero/priceDesc.webp"
       />
       <MarqueeLine variant="green" />
       <Suspense fallback={<Loader />}>

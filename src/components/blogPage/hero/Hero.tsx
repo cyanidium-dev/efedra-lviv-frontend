@@ -5,7 +5,7 @@ import { fadeInAnimation } from '@/utils/animationVariants';
 
 export default function Hero() {
   return (
-    <section className="pt-3.5 pb-12 lg:pt-[42px] lg:pb-[105px]">
+    <section className="pt-[97px] pb-12 lg:pt-[140px] lg:pb-[105px]">
       <Container className="flex flex-col md:flex-row-reverse md:justify-end gap-[26px] md:gap-[76px] overflow-visible">
         <motion.div
           initial="hidden"
@@ -35,7 +35,7 @@ export default function Hero() {
               exit="exit"
               viewport={{ once: true, amount: 0.3 }}
               variants={fadeInAnimation({ x: -20 })}
-              className="max-w-[377px] lg:max-w-[524px] text-[24px] lg:text-[36px] font-normal leading-[29px] uppercase tracking-[-0.08em]"
+              className="max-w-[377px] lg:max-w-[524px] text-[24px] lg:text-[36px] font-normal leading-[29px] lg:leading-[44px] uppercase tracking-[-0.08em]"
             >
               Блог Efedra: експертно й доступно
             </motion.h1>

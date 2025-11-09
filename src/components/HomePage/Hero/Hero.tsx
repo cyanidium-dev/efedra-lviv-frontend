@@ -4,6 +4,8 @@ import { fadeInAnimation } from '@/utils/animationVariants';
 import Image from 'next/image';
 import { GlassFilter } from '@/components/shared/GlassFilter/GlassFilter';
 import Callback from '@/components/shared/cta/Callback';
+import { HeroArrow } from '@/components/shared/icons/HeroArrow';
+import { ScrollButton } from '@/components/shared/buttons/ScrollButton';
 
 export const Hero = () => {
   return (
@@ -62,6 +64,7 @@ export const Hero = () => {
               width={1063}
               height={868}
               className="object-cover w-full h-full lg:hidden"
+              unoptimized
             />
             <Image
               src="/images/homePage/hero/bgDesk.webp"
@@ -72,6 +75,7 @@ export const Hero = () => {
               width={1063}
               height={868}
               className="object-cover w-full h-full hidden lg:block"
+              unoptimized
             />
             <div
               aria-hidden
@@ -221,6 +225,25 @@ export const Hero = () => {
             </GlassFilter>
           </motion.div>
         </div>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          exit="exit"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={fadeInAnimation({
+            scale: 0.95,
+            duration: 1.5,
+            opacity: 0.01,
+          })}
+          className="absolute bottom-[14.5px] right-[50%] translate-x-1/2 z-50"
+        >
+          <ScrollButton
+            className="h-[20px] w-[20px] flex items-center justify-center cursor-pointer"
+            scrollTo="about"
+          >
+            <HeroArrow strokeColor="#FFFFFF" className=" drop-shadow-md" />
+          </ScrollButton>
+        </motion.div>
       </Container>
     </section>
   );

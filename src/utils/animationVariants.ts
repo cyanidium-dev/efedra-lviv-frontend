@@ -144,3 +144,14 @@ export const scaleInAnimation = (rotate = -15, scale = 0.8) => ({
     },
   },
 });
+
+export const scrollButtonVariants = {
+  animate: {
+    y: [-4, 4, -4],
+    transition: {
+      duration: 2,
+      repeat: Infinity,
+      ease: [0.42, 0, 0.58, 1] as const,
+    },
+  },
+};

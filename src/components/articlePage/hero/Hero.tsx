@@ -18,7 +18,7 @@ export default function Hero({ post }: HeroProps) {
   const { image, title, description, direction, createdAt } = post;
 
   return (
-    <section className="pt-4 pb-10 lg:pt-9 lg:pb-16">
+    <section className="pt-[97px] pb-10 lg:pt-[135px] lg:pb-16">
       <Container className="flex flex-col sm:flex-row gap-[22px] lg:gap-[46px]">
         <motion.div
           initial="hidden"

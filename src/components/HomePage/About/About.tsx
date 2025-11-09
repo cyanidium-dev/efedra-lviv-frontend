@@ -22,7 +22,7 @@ export const About = () => {
           exit="exit"
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInAnimation({ y: 20, delay: 0.3 })}
-          className="text-[28px] leading-[100%] tracking-[-0.05em] text-olive font-bold mb-[25px] uppercase md:text-[50px] lg:leading-[100%] lg:tracking-[-0.05em] lg:text-center lg:mb-[63px]"
+          className="text-[28px] leading-[100%] tracking-[-0.05em] text-black font-bold mb-[25px] uppercase md:text-[50px] lg:leading-[100%] lg:tracking-[-0.05em] lg:text-center lg:mb-[63px]"
         >
           Чому нас обирає більшість
         </motion.h2>
@@ -47,7 +47,7 @@ export const About = () => {
               className="flex items-center p-[10px] md:p-[15px] h-[48px] md:mb-[42px] md:h-[66px] max-w-[261px] md:max-w-[338px] bg-green-light rounded-[10px] md:absolute md:left-[5%] xl:left-[105px]"
             >
               <span className="w-[28px] h-[28px] md:w-[38px] md:h-[38px] flex items-center justify-center bg-white border border-green rounded-full mr-[9px] md:mr-[15px]">
-                <CheckmarkIcon className="md:w-[38px] md:h-[38px]" />
+                <CheckmarkIcon className="md:w-[38px] md:h-[38px] text-green" />
               </span>
               <p className="text-[13px] leading-[110%] tracking-[-0.05em] text-white font-medium md:text-[16px]">
                 Працюємо тільки з сертифікованими препаратами
@@ -62,7 +62,7 @@ export const About = () => {
               className="flex items-center p-[10px] md:p-[15px] h-[48px] md:mb-[145px] md:h-[66px] max-w-[201px] md:max-w-[258px] bg-green-light rounded-[10px] md:absolute md:left-[6%] xl:left-[127px] md:top-[385px]"
             >
               <span className="w-[28px] h-[28px] md:w-[38px] md:h-[38px] flex items-center justify-center bg-white border border-green rounded-full mr-[9px] md:mr-[15px]">
-                <CheckmarkIcon className="md:w-[38px] md:h-[38px]" />
+                <CheckmarkIcon className="md:w-[38px] md:h-[38px] text-green" />
               </span>
               <p className="text-[13px] leading-[110%] tracking-[-0.05em] text-white font-medium md:text-[16px]">
                 Сучасні апарати останнього покоління.
@@ -77,7 +77,7 @@ export const About = () => {
               className="flex items-center p-[10px] md:p-[15px] h-[48px] md:mb-0 md:h-[66px] max-w-[189px] md:max-w-[242px] bg-green-light rounded-[10px] md:absolute md:left-[50%] xl:left-[540px] md:bottom-0"
             >
               <span className="w-[28px] h-[28px] md:w-[38px] md:h-[38px] flex items-center justify-center bg-white border border-green rounded-full mr-[9px] md:mr-[15px]">
-                <CheckmarkIcon className="md:w-[38px] md:h-[38px]" />
+                <CheckmarkIcon className="md:w-[38px] md:h-[38px] text-green" />
               </span>
               <p className="text-[13px] leading-[110%] tracking-[-0.05em] text-white font-medium md:text-[16px]">
                 Затишна атмосфера і конфіденційність.
@@ -92,7 +92,7 @@ export const About = () => {
               className="flex items-center p-[10px] md:p-[15px] h-[48px] md:mb-[145px] md:h-[66px] max-w-[189px] md:max-w-[219px] bg-green-light rounded-[10px] md:absolute md:right-[5%] xl:right-[140px] md:top-[108px]"
             >
               <span className="w-[28px] h-[28px] md:w-[38px] md:h-[38px] flex items-center justify-center bg-white border border-green rounded-full mr-[9px] md:mr-[15px]">
-                <CheckmarkIcon className="md:w-[38px] md:h-[38px]" />
+                <CheckmarkIcon className="md:w-[38px] md:h-[38px] text-green" />
               </span>
               <p className="text-[13px] leading-[110%] tracking-[-0.05em] text-white font-medium md:text-[16px]">
                 Лікарі з досвідом понад 10 років.
@@ -107,7 +107,7 @@ export const About = () => {
               className="flex items-center p-[10px] md:p-[15px] h-[48px] md:mb-[145px] md:h-[66px] max-w-[220px] md:max-w-[276px] bg-green-light rounded-[10px] md:absolute md:right-[5%] xl:right-[81px] md:top-[319px]"
             >
               <span className="w-[28px] h-[28px] md:w-[38px] md:h-[38px] flex items-center justify-center bg-white border border-green rounded-full mr-[9px] md:mr-[15px]">
-                <CheckmarkIcon className="md:w-[38px] md:h-[38px]" />
+                <CheckmarkIcon className="md:w-[38px] md:h-[38px] text-green" />
               </span>
               <p className="text-[13px] leading-[110%] tracking-[-0.05em] text-white font-medium md:text-[16px]">
                 Індивідуальні протоколи під кожне завдання.
