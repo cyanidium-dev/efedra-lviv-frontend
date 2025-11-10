@@ -7,7 +7,7 @@ import LogoLeavesIcon from '@/components/shared/icons/LogoLeavesIcon';
 
 export const Reviews = () => {
   return (
-    <div
+    <section
       id="reviews"
       className="pt-[80px] pb-[50px] lg:pt-[50px] lg:pb-[100px]"
     >
@@ -50,6 +50,6 @@ export const Reviews = () => {
           </div>
         </motion.div>
       </Container>
-    </div>
+    </section>
   );
 };
