@@ -13,7 +13,7 @@ interface PriceListProps {
 
 export default function PriceList({ categories }: PriceListProps) {
   return (
-    <section className="py-15 pt-[97px] lg:pt-[115px] lg:pb-[130px] ">
+    <section className="py-15 pt-[60px] lg:pt-[115px] lg:pb-[130px] ">
       <Container>
         <motion.div
           exit="exit"
