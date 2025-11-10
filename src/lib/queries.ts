@@ -74,7 +74,7 @@ export const postBySlugQuery = `
 `;
 
 export const allDoctorsQuery = `
-  *[_type == "doctor"] | order(_createdAt desc) {
+  *[_type == "doctor"] | order(_createdAt asc) {
     "id": _id,
     name,
     photo {
@@ -105,7 +105,7 @@ export const allServicesQuery = `
 `;
 
 export const allPriceCategoriesQuery = `
-  *[_type == "priceCategory"] | order(_createdAt asc) {
+  *[_type == "priceCategory"] | order(order asc) {
     title,
     colorScheme,
     subcategories[] {
