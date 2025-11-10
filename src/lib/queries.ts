@@ -74,7 +74,7 @@ export const postBySlugQuery = `
 `;
 
 export const allDoctorsQuery = `
-  *[_type == "doctor"] | order(_createdAt asc) {
+  *[_type == "doctor"] | order(order asc) {
     "id": _id,
     name,
     photo {
@@ -90,7 +90,7 @@ export const allDoctorsQuery = `
 `;
 
 export const allServicesQuery = `
-  *[_type == "service"] | order(_createdAt desc) {
+  *[_type == "service"] | order(order asc) {
     title,
     "slug": slug.current,
     categoryImage {
