@@ -52,7 +52,7 @@ export const Hero = () => {
             duration: 1.5,
             opacity: 0.01,
           })}
-          className="relative w-full lg:absolute left-[50%] lg:left-[unset] lg:right-0 lg:top-0 mt-[-86px] mb-[-127px] lg:mt-0 lg:mb-0 -translate-x-1/2 lg:translate-x-0 pointer-events-none w-[454px] md:w-[full] lg:w-[970px] h-auto"
+          className="relative lg:absolute left-[50%] lg:left-[unset] lg:right-0 lg:top-0 mt-[-86px] mb-[-127px] lg:mt-0 lg:mb-0 -translate-x-1/2 lg:translate-x-0 pointer-events-none w-[120vw] md:w-full h-[372px] lg:w-[970px] lg:h-auto"
         >
           <div className="relative w-full h-full">
             <Image
@@ -63,7 +63,7 @@ export const Hero = () => {
               sizes="(min-width: 1024px) 0px, 100vw"
               width={454}
               height={372}
-              className="object-cover w-full h-[372px] lg:hidden"
+              className="object-cover w-full h-full lg:hidden"
               unoptimized
             />
             <Image
