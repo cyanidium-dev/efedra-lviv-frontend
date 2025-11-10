@@ -5,7 +5,7 @@ import { fadeInAnimation } from '@/utils/animationVariants';
 
 export default function Hero() {
   return (
-    <section className="pt-[97px] pb-12 lg:pt-[140px] lg:pb-[105px]">
+    <section className="pt-[9px] pb-12 lg:pt-[140px] lg:pb-[105px]">
       <Container className="flex flex-col md:flex-row-reverse md:justify-end gap-[26px] md:gap-[76px] overflow-visible">
         <motion.div
           initial="hidden"

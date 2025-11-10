@@ -22,7 +22,7 @@ export default function VerticalTitleHero({
   const [isModalShown, setIsModalShown] = useState(false);
 
   return (
-    <section className="pt-[97px] pb-11 lg:pt-[115px] lg:pb-[35px]">
+    <section className="pt-[9.3px] pb-11 lg:pt-[115px] lg:pb-[35px]">
       <Container className="flex gap-[10px] md:gap-[16px] lg:gap-[23px] w-full items-center">
         <motion.h1
           initial="hidden"

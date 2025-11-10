@@ -14,7 +14,7 @@ export const Services = async () => {
   // download services from sanity
   const services = await fetchSanityDataServer(allServicesQuery);
   return (
-    <div id="services" className="py-[50px] lg:pt-[60px] lg:pb-[75px]">
+    <section id="services" className="py-[50px] lg:pt-[60px] lg:pb-[75px]">
       <Container>
         <motion.h2
           initial="hidden"
@@ -51,6 +51,6 @@ export const Services = async () => {
           ))}
         </motion.ul>
       </Container>
-    </div>
+    </section>
   );
 };

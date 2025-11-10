@@ -11,7 +11,7 @@ export const Personel = async () => {
   // download personel from sanity
   const doctors = await fetchSanityDataServer(allDoctorsQuery);
   return (
-    <div
+    <section
       id="personel"
       className="pt-[40px] pb-[31px] lg:pt-[75px] lg:pb-[40px]"
     >
@@ -51,6 +51,6 @@ export const Personel = async () => {
           <LogoLeavesIconFull className="w-[170px] h-[170px] stroke-green-light-2" />
         </div>
       </Container>
-    </div>
+    </section>
   );
 };
