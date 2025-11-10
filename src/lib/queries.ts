@@ -74,7 +74,7 @@ export const postBySlugQuery = `
 `;
 
 export const allDoctorsQuery = `
-  *[_type == "doctor"] | order(order asc) {
+  *[_type == "doctor"] | order(_createdAt desc) {
     "id": _id,
     name,
     photo {
@@ -85,16 +85,12 @@ export const allDoctorsQuery = `
       crop,
       hotspot
     },
-    position,
-    startYear,
-    direction,
-    description,
-    order
+    position
   }
 `;
 
 export const allServicesQuery = `
-  *[_type == "service"] | order(order asc) {
+  *[_type == "service"] | order(_createdAt desc) {
     title,
     "slug": slug.current,
     categoryImage {
@@ -104,101 +100,6 @@ export const allServicesQuery = `
       },
       crop,
       hotspot
-    },
-  }
-`;
-
-export const serviceBySlugQuery = `
-  *[_type == "service" && slug.current == $slug][0] {
-    title,
-    category,
-    order,
-    categoryImage {
-      asset->{
-        _id,
-        url
-      },
-      crop,
-      hotspot
-    },
-    mainImage {
-      asset->{
-        _id,
-        url
-      },
-      crop,
-      hotspot
-    },
-    shortDescription,
-    "slug": slug.current,
-    procedureDescription {
-      text,
-      images[] {
-        "asset": asset->{
-          _id,
-          url
-        },
-        crop,
-        hotspot
-      },
-      info
-    },
-    recommended[] {
-      image {
-        asset->{
-          _id,
-          url
-        },
-        crop,
-        hotspot
-      },
-      text
-    },
-    howItGoes {
-      image {
-        asset->{
-          _id,
-          url
-        },
-        crop,
-        hotspot
-      },
-      steps[] {
-        title,
-        description
-      }
-    },
-    advantages[] {
-      "icon": icon.asset->url,
-      title,
-      text
-    },
-    contraindications {
-      image {
-        asset->{
-          _id,
-          url
-        },
-        crop,
-        hotspot
-      },
-      items
-    },
-    types {
-      title,
-      list[] {
-        image {
-          asset->{
-            _id,
-            url
-          },
-          crop,
-          hotspot
-        },
-        title,
-        text,
-        details
-      }
     }
   }
 `;
