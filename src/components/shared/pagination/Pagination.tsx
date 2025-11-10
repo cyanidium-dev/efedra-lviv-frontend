@@ -1,7 +1,8 @@
-"use client";
-import { useState, useEffect, ReactNode, RefObject } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
-import Image from "next/image";
+'use client';
+import { useState, useEffect, ReactNode, RefObject } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
+import ArrowIconFilled from '../icons/ArrowIconFilled';
+import clsx from 'clsx';
 
 interface PaginationProps<T> {
   items: T[];
@@ -9,7 +10,6 @@ interface PaginationProps<T> {
   useItemsPerPage: () => number;
   scrollTargetRef: RefObject<HTMLElement | null>;
   className?: string;
-  variant?: "blue" | "beige";
 }
 
 export default function Pagination<T>({
@@ -17,12 +17,11 @@ export default function Pagination<T>({
   renderItems,
   useItemsPerPage,
   scrollTargetRef,
-  className = "",
-  variant = "blue",
+  className = '',
 }: PaginationProps<T>) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const page = Number(searchParams.get("page")) || 1;
+  const page = Number(searchParams.get('page')) || 1;
   const [currentPage, setCurrentPage] = useState(page);
   const itemsPerPage = useItemsPerPage();
   const totalPages = Math.ceil(items.length / itemsPerPage);
@@ -32,7 +31,7 @@ export default function Pagination<T>({
   );
 
   useEffect(() => {
-    setCurrentPage(parseInt(searchParams.get("page") || "1", 10));
+    setCurrentPage(parseInt(searchParams.get('page') || '1', 10));
   }, [searchParams]);
 
   const handlePageChange = (page: number) => {
@@ -42,12 +41,12 @@ export default function Pagination<T>({
 
     requestAnimationFrame(() => {
       scrollTargetRef.current?.scrollIntoView({
-        block: "start",
+        block: 'start',
       });
     });
 
     const params = new URLSearchParams(searchParams.toString());
-    params.set("page", page.toString());
+    params.set('page', page.toString());
     router.push(`?${params.toString()}`, { scroll: false });
   };
 
@@ -57,21 +56,22 @@ export default function Pagination<T>({
         {renderItems(currentItems)}
       </div>
       <div
-        className={`${totalPages > 1 ? "flex" : "hidden"} justify-center items-center gap-[15px] mt-9 lg:mt-15 mx-auto`}
+        className={`${totalPages > 1 ? 'flex' : 'hidden'} justify-center items-center gap-[15px] mt-9 lg:mt-15 mx-auto`}
       >
         <button
           aria-label="left"
-          className={`enabled:cursor-pointer flex justify-center items-center size-[30px]  rounded-full transition duration-300 ease-in-out
-          enabled:hover:brightness-125 enabled:active:scale-95 enabled:focus-visible:brightness-125
-          disabled:bg-gray ${variant === "blue" ? "bg-blue" : "bg-beige"}`}
+          className={clsx(
+            `enabled:cursor-pointer w-[30px] h-[30px] lg:w-[54px] lg:h-[54px] rounded-[10px] flex items-center justify-center pointer-events-auto transition-filter 
+          duration-300 xl:enabled:hover:brightness-[1.25] bg-green disabled:bg-white disabled:border disabled:border-green disabled:text-green`
+          )}
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={page === 1}
         >
-          <Image
-            src="/images/icons/arrow-left.svg"
-            alt="arrow-left"
-            width={16}
-            height={16}
+          <ArrowIconFilled
+            className={clsx(
+              'w-[10px] h-[10px] lg:w-[22px] lg:h-[22px] rotate-180',
+              page === 1 ? 'text-green' : 'text-white'
+            )}
           />
         </button>
 
@@ -81,17 +81,18 @@ export default function Pagination<T>({
 
         <button
           aria-label="right"
-          className={`enabled:cursor-pointer flex justify-center items-center size-[30px] rounded-full transition duration-300 ease-in-out
-          enabled:hover:brightness-125 enabled:active:scale-95 enabled:focus-visible:brightness-125
-          disabled:bg-gray  ${variant === "blue" ? "bg-blue" : "bg-beige"}`}
+          className={clsx(
+            `enabled:cursor-pointer w-[30px] h-[30px] lg:w-[54px] lg:h-[54px] rounded-[10px] flex items-center justify-center pointer-events-auto transition-filter 
+          duration-300 xl:enabled:hover:brightness-[1.25] bg-green disabled:bg-white disabled:border disabled:border-green disabled:text-green`
+          )}
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={page === totalPages}
         >
-          <Image
-            src="/images/icons/arrow-right.svg"
-            alt="arrow-right"
-            width={16}
-            height={16}
+          <ArrowIconFilled
+            className={clsx(
+              'w-[10px] h-[10px] lg:w-[22px] lg:h-[22px]',
+              page === totalPages ? 'text-green' : 'text-white'
+            )}
           />
         </button>
       </div>
