@@ -82,7 +82,7 @@ export const ContactForm = ({ className = '' }: ContactFormProps) => {
                   label="Ваше ім’я"
                   isLabelHidden={true}
                   placeholder="Ваше ім’я"
-                  fieldClassName="h-[40px] md:h-[46px] bg-white/30 w-[276px] md:w-full text-[14px] leading-[15px] text-white rounded-full px-[20px] md:px-[25px] pt-[15px] pb-[10px] md:py-[14px]
+                  fieldClassName="h-[40px] md:h-[46px] bg-white/30 w-full text-[14px] leading-[15px] text-white rounded-full px-[20px] md:px-[25px] pt-[15px] pb-[10px] md:py-[14px]
                   md:text-[16px] md:leading-[110%] md:tracking-[-0.03em]"
                 />
                 <CustomizedInput
@@ -91,7 +91,7 @@ export const ContactForm = ({ className = '' }: ContactFormProps) => {
                   inputType="tel"
                   isLabelHidden={true}
                   placeholder="Номер телефону"
-                  fieldClassName="h-[40px] md:h-[46px] bg-white/30 h-[40px] w-[276px] md:w-full text-[14px] leading-[15px] text-white rounded-full px-[20px] md:px-[25px] pt-[15px] pb-[10px] md:py-[14px]
+                  fieldClassName="h-[40px] md:h-[46px] bg-white/30 h-[40px] w-full text-[14px] leading-[15px] text-white rounded-full px-[20px] md:px-[25px] pt-[15px] pb-[10px] md:py-[14px]
                   md:text-[16px] md:leading-[110%] md:tracking-[-0.03em]"
                 />
               </div>
