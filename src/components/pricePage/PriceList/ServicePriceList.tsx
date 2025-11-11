@@ -1,5 +1,9 @@
 import { PriceService } from '@/types/price';
 import { twMerge } from 'tailwind-merge';
+import {
+  normalizePrice,
+  analyzeCurrencyDistribution,
+} from '@/utils/normalizePrice';
 
 interface ServicePriceListProps {
   services: PriceService[];
@@ -17,10 +21,17 @@ export default function ServicePriceList({
     close: 'border rounded-[32px] mt-[6px]',
   };
 
-  // Check if any service has duration (must be truthy and not empty string)
   const hasDuration = services.some(
     service => service?.duration && service.duration.trim() !== ''
   );
+
+  const normalizedServices = services.map(service => ({
+    ...service,
+    normalizedPrice: service.price ? normalizePrice(service.price) : null,
+  }));
+
+  const currencyAnalysis = analyzeCurrencyDistribution(services);
+  const showCurrencyInHeader = currencyAnalysis.shouldShowCurrencyInHeader;
 
   return (
     <>
@@ -38,7 +49,7 @@ export default function ServicePriceList({
           Назва послуги
         </div>
         <div className="py-[18px] uppercase text-[12px] md:text-[14px] text-center">
-          Вартість (грн)
+          {showCurrencyInHeader ? 'Вартість (грн)' : 'Вартість'}
         </div>
         {hasDuration && (
           <div className="pr-[27px] py-[18px] uppercase text-[12px] md:text-[14px] text-center">
@@ -46,9 +57,33 @@ export default function ServicePriceList({
           </div>
         )}
 
-        {services
+        {normalizedServices
           .filter(service => service?.title)
           .map((service, idx) => {
+            const normalized = service.normalizedPrice;
+            let displayPrice: string | null = null;
+
+            if (normalized) {
+              let price = normalized.value;
+              if (showCurrencyInHeader && normalized.currency === 'UAH') {
+                price = price.replace(/\s*\bгрн\b\s*(?![\\\/])/gi, ' ').trim();
+                price = price.replace(/\s+/g, ' ').trim();
+              }
+
+              if (normalized.currency === 'USD') {
+                displayPrice = `$${price}`;
+              } else if (normalized.currency === 'EUR') {
+                displayPrice = `${price} €`;
+              } else if (
+                normalized.currency === 'UAH' &&
+                !showCurrencyInHeader
+              ) {
+                displayPrice = `${price} грн`;
+              } else {
+                displayPrice = price;
+              }
+            }
+
             return (
               <div key={idx} className={`contents`}>
                 <div
@@ -65,7 +100,7 @@ export default function ServicePriceList({
                     `flex items-center justify-center py-3 text-[12px] md:text-[14px] text-center border-t-[0.5px] border-${colorScheme}`
                   )}
                 >
-                  {service.price || <span>—</span>}
+                  {displayPrice || <span>—</span>}
                 </div>
                 {hasDuration && (
                   <div
@@ -87,9 +122,34 @@ export default function ServicePriceList({
           openVariant[isOpen ? 'open' : 'close'] as string
         )}
       >
-        {services
+        {normalizedServices
           .filter(service => service?.title)
           .map((service, idx) => {
+            const normalized = service.normalizedPrice;
+            let displayPrice: string | null = null;
+
+            if (normalized) {
+              let price = normalized.value;
+
+              if (showCurrencyInHeader && normalized.currency === 'UAH') {
+                price = price.replace(/\s*\bгрн\b\s*(?![\\\/])/gi, ' ').trim();
+                price = price.replace(/\s+/g, ' ').trim();
+              }
+
+              if (normalized.currency === 'USD') {
+                displayPrice = `$${price}`;
+              } else if (normalized.currency === 'EUR') {
+                displayPrice = `${price} €`;
+              } else if (
+                normalized.currency === 'UAH' &&
+                !showCurrencyInHeader
+              ) {
+                displayPrice = `${price} грн`;
+              } else {
+                displayPrice = price;
+              }
+            }
+
             return (
               <div
                 key={idx}
@@ -97,7 +157,7 @@ export default function ServicePriceList({
               >
                 <p className="text-[12px] leading-[133%]">{service.title}</p>
                 <div className="flex justify-between text-[12px] leading-[133%]">
-                  <span>{service.price + ' грн' || '—'}</span>
+                  <span>{displayPrice || '—'}</span>
                   {hasDuration && (
                     <span>
                       {service.duration ? `${service.duration} хв` : '—'}
