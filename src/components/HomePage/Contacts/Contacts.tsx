@@ -43,36 +43,29 @@ export const Contacts = () => {
               whileInView="visible"
               exit="exit"
               viewport={{ once: true, amount: 0.3 }}
-              variants={fadeInAnimation({ y: 20, delay: 0.3 })}
-              className="not-italic mb-[40px] lg:mb-0"
+              variants={listVariants({
+                staggerChildren: 0.3,
+                delayChildren: 0.3,
+              })}
+              className="not-italic mb-[40px] lg:mb-0 flex flex-wrap gap-y-[25px] gap-x-[20px] lg:gap-y-[30px] lg:gap-x-[32px] lg:max-w-[350px]"
             >
-              <motion.ul
+              <motion.div
                 initial="hidden"
                 whileInView="visible"
                 exit="exit"
                 viewport={{ once: true, amount: 0.3 }}
-                variants={listVariants({
-                  staggerChildren: 0.3,
-                  delayChildren: 0.3,
-                })}
-                className="flex flex-wrap gap-y-[25px] gap-x-[20px] lg:gap-y-[30px] lg:gap-x-[32px] lg:max-w-[350px]"
+                variants={listItemVariants}
               >
-                <motion.li
-                  initial="hidden"
-                  whileInView="visible"
-                  exit="exit"
-                  viewport={{ once: true, amount: 0.3 }}
-                  variants={listItemVariants}
-                >
-                  <p className="text-[16px] lg:text-[20px] leading-[100%] tracking-[-0.03em] text-black font-medium lg:font-semibold uppercase mb-[5px]">
-                    Адреса
-                  </p>
+                <p className="text-[16px] lg:text-[20px] leading-[100%] tracking-[-0.03em] text-black font-medium lg:font-semibold uppercase mb-[5px]">
+                  Адреса
+                </p>
 
-                  <p className="text-[14px] leading-[17px] tracking-[-0.05em] lg:tracking-[-0.03em] text-black/50">
-                    {CITY}, {ADDRESS}
-                  </p>
-                </motion.li>
-                <motion.li
+                <p className="text-[14px] leading-[17px] tracking-[-0.05em] lg:tracking-[-0.03em] text-black/50">
+                  {CITY}, {ADDRESS}
+                </p>
+              </motion.div>
+              <div className="flex flex-wrap gap-y-[25px] gap-x-[20px] lg:gap-y-[30px] lg:gap-x-[32px] lg:max-w-[350px]">
+                <motion.div
                   initial="hidden"
                   whileInView="visible"
                   exit="exit"
@@ -93,8 +86,8 @@ export const Contacts = () => {
                       </a>
                     ))}
                   </div>
-                </motion.li>
-                <motion.li
+                </motion.div>
+                <motion.div
                   initial="hidden"
                   whileInView="visible"
                   exit="exit"
@@ -110,8 +103,8 @@ export const Contacts = () => {
                   >
                     {EMAIL}
                   </a>
-                </motion.li>
-              </motion.ul>
+                </motion.div>
+              </div>
             </motion.address>
           </div>
           <div className="md:flex">
