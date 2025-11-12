@@ -1,13 +1,15 @@
 'use client';
 import { Form, Formik, FormikHelpers } from 'formik';
 import axios from 'axios';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 import { callBackValidation } from '@/schemas/callBackValidation';
 
 import CustomizedInput from '@/components/shared/formComponents/CustomizedInput';
 import MainButton from '@/components/shared/buttons/MainButton';
 import NotificationPopUp from '@/components/shared/notifications/NotificationPopUp';
+import Backdrop from '@/components/shared/backdrop/Backdrop';
 
 export interface ValuesContactFormType {
   name: string;
@@ -22,6 +24,12 @@ export const ContactForm = ({ className = '' }: ContactFormProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isNotificationShown, setIsNotificationShown] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+    return () => setIsMounted(false);
+  }, []);
 
   const initialValues = {
     name: '',
@@ -76,7 +84,7 @@ export const ContactForm = ({ className = '' }: ContactFormProps) => {
             <Form
               className={`${className} bg-green rounded-[15px] px-[10px] py-[20px] md:px-[20px] md:py-[25px] md:w-full md:h-full md:flex md:flex-col md:justify-between`}
             >
-              <div className="flex flex-col w-full gap-y-[10px] md:gap-y-3.5 mb-[25px] md:mb-[26px]">
+              <div className="flex flex-col w-full gap-y-[16px] md:gap-y-5 mb-[25px] md:mb-[26px]">
                 <CustomizedInput
                   fieldName="name"
                   label="Ваше ім’я"
@@ -111,16 +119,30 @@ export const ContactForm = ({ className = '' }: ContactFormProps) => {
           </>
         )}
       </Formik>
-      <NotificationPopUp
-        title={isError ? 'На жаль, щось пішло не так' : 'Дякуємо за звернення!'}
-        description={
-          isError
-            ? 'Спробуйте відправити форму ще раз'
-            : "Наш менеджер скоро зв'яжеться з вами"
-        }
-        isPopUpShown={isNotificationShown}
-        setIsPopUpShown={setIsNotificationShown}
-      />
+      {isMounted &&
+        createPortal(
+          <>
+            <Backdrop
+              isVisible={isNotificationShown}
+              onClick={() => {
+                setIsNotificationShown(false);
+              }}
+            />
+            <NotificationPopUp
+              title={
+                isError ? 'На жаль, щось пішло не так' : 'Дякуємо за звернення!'
+              }
+              description={
+                isError
+                  ? 'Спробуйте відправити форму ще раз'
+                  : "Наш менеджер скоро зв'яжеться з вами"
+              }
+              isPopUpShown={isNotificationShown}
+              setIsPopUpShown={setIsNotificationShown}
+            />
+          </>,
+          document.body
+        )}
     </>
   );
 };

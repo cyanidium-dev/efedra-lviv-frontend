@@ -8,7 +8,7 @@ const LottieSplashScreen = dynamic(() => import('./LottieSplashScreen'), {
   ssr: false,
 });
 
-const MIN_DURATION = 1500;
+const MIN_DURATION = 2500;
 
 export default function SplashGate({
   children,

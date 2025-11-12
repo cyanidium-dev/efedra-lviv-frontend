@@ -84,7 +84,7 @@ export default function CallBackForm({
     >
       {({ dirty, isValid }) => (
         <Form className={`${className}`}>
-          <div className="flex flex-col w-full gap-y-3 lg:gap-y-3.5 mb-[22px] lg:mb-[26px]">
+          <div className="flex flex-col w-full gap-y-4 lg:gap-y-5 mb-[26px]">
             <CustomizedInput
               fieldName="name"
               label="Імʼя"
