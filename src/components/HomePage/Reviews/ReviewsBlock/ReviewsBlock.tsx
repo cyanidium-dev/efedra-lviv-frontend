@@ -1,13 +1,16 @@
 'use client';
 import { ReviewsCard } from './ReviewsCard';
-import { reviewsList } from './data';
 import SwiperWrapper from '@/components/shared/swiper/SwiperWrapper';
 import { SwiperSlide } from 'swiper/react';
 import { Review } from '@/types/review';
 import { fadeInAnimation } from '@/utils/animationVariants';
 import * as motion from 'motion/react-client';
 
-export const ReviewsBlock = () => {
+interface ReviewsBlockProps {
+  reviews: Review[];
+}
+
+export const ReviewsBlock = ({ reviews }: ReviewsBlockProps) => {
   return (
     <motion.div
       initial="hidden"
@@ -31,11 +34,19 @@ export const ReviewsBlock = () => {
           1024: { spaceBetween: 20, slidesPerView: 'auto' },
         }}
       >
-        {reviewsList.map((review: Review, idx: number) => (
-          <SwiperSlide key={idx}>
-            <ReviewsCard review={review} />
-          </SwiperSlide>
-        ))}
+        {reviews.map((review: Review, idx: number) => {
+          const photoUrl = review.photo?.asset?.url;
+          return (
+            <SwiperSlide key={idx}>
+              <ReviewsCard
+                name={review.name}
+                photoUrl={photoUrl}
+                age={review.age}
+                text={review.text}
+              />
+            </SwiperSlide>
+          );
+        })}
       </SwiperWrapper>
     </motion.div>
   );

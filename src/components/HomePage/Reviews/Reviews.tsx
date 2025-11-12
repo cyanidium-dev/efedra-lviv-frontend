@@ -4,8 +4,11 @@ import Image from 'next/image';
 import { fadeInAnimation } from '@/utils/animationVariants';
 import * as motion from 'motion/react-client';
 import LogoLeavesIcon from '@/components/shared/icons/LogoLeavesIcon';
+import { fetchSanityDataServer } from '@/utils/fetchSanityDataServer';
+import { allReviewsQuery } from '@/lib/queries';
 
-export const Reviews = () => {
+export const Reviews = async () => {
+  const reviews = await fetchSanityDataServer(allReviewsQuery);
   return (
     <section
       id="reviews"
@@ -44,7 +47,7 @@ export const Reviews = () => {
           >
             Відгуки наших клієнтів
           </motion.h2>
-          <ReviewsBlock />
+          <ReviewsBlock reviews={reviews} />
           <div className="hidden lg:block absolute left-[-108px] bottom-[-124px] z-[10] pointer-events-none rotate-90">
             <LogoLeavesIcon className="w-[497px] h-[497px]" stroke="white" />
           </div>
