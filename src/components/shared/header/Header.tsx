@@ -10,7 +10,7 @@ import clsx from 'clsx';
 import { navListAnchors, navListPages } from './navMenu/navMenuData';
 import NavMenu from './navMenu/NavMenu';
 import MainButton from '../buttons/MainButton';
-import { PHONE } from '@/constants/constants';
+import { PHONES } from '@/constants/constants';
 import { contactsPhoneRegex } from '@/regex/regex';
 
 export default function Header() {
@@ -94,9 +94,9 @@ export default function Header() {
           phoneIcon={true}
           iconClassName="text-black"
           spanClassName="bg-green-light-2 w-[30px] h-[30px] left-[5.5px]"
-          onClick={() => (window.location.href = `tel:${PHONE}`)}
+          onClick={() => (window.location.href = `tel:${PHONES[0]}`)}
         >
-          {PHONE.replace(contactsPhoneRegex, '+38 ($1) $2 $3 $4')}
+          {PHONES[0].replace(contactsPhoneRegex, '+38 ($1) $2 $3 $4')}
         </MainButton>
         <BurgerMenu
           isOpenBurgerMenu={isOpenBurgerMenu}

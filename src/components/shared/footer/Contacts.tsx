@@ -4,7 +4,7 @@ import {
   CITY,
   EMAIL,
   GOOGLE_MAPS_URL,
-  PHONE,
+  PHONES,
 } from '@/constants/constants';
 import { contactsPhoneRegex } from '@/regex/regex';
 import ArrowIcon from '../icons/ArrowIcon';
@@ -14,16 +14,18 @@ export default function Contacts() {
     <div>
       <FooterSubtitle>Контакти та Адреса</FooterSubtitle>
       <ul className="flex flex-col gap-3 mb-4.5">
-        <li>
-          <a
-            href={`tel:${PHONE}`}
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-            className="block text-[12px] font-normal leading-[15px] active:text-gray-300 xl:hover:text-gray-300 focus-visible:text-gray-300 transition duration-300 ease-in-out"
-          >
-            {PHONE.replace(contactsPhoneRegex, '+38 ($1) $2 $3 $4')}
-          </a>
-        </li>
+        {PHONES.map((phone, index) => (
+          <li key={index}>
+            <a
+              href={`tel:${phone}`}
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              className="block text-[12px] font-normal leading-[15px] active:text-gray-300 xl:hover:text-gray-300 focus-visible:text-gray-300 transition duration-300 ease-in-out"
+            >
+              {phone.replace(contactsPhoneRegex, '+38 ($1) $2 $3 $4')}
+            </a>
+          </li>
+        ))}
         <li>
           <a
             href={`mailto:${EMAIL}`}

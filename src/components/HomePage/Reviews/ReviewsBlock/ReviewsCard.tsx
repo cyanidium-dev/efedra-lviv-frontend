@@ -1,6 +1,7 @@
 import { QuoteIcon } from '@/components/shared/icons/QuoteIcon';
 import { Review } from '@/types/review';
 import Image from 'next/image';
+import { getAgeText } from '@/utils/getAgeText';
 
 export const ReviewsCard = ({ review }: { review: Review }) => {
   return (
@@ -20,7 +21,7 @@ export const ReviewsCard = ({ review }: { review: Review }) => {
             {review.name}
           </p>
           <p className="text-[12px] lg:text-[14px] lg:leading-[14px] leading-[12px] tracking-[-0.03em] text-black/50 font-medium">
-            {review.age} рік
+            {review.age} {getAgeText(review.age)}
           </p>
         </div>
       </div>
