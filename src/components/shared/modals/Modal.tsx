@@ -28,7 +28,7 @@ export default function Modal({
     >
       <IconButton
         handleClick={() => setIsModalShown(false)}
-        className="absolute top-8 right-8 w-8 h-8"
+        className="absolute top-4 lg:top-8 right-4 lg:right-8 w-8 h-8"
       >
         {<CrossIcon className="w-8 h-8" />}
       </IconButton>

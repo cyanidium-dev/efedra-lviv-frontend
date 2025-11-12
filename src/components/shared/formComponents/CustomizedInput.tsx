@@ -97,7 +97,7 @@ export default function CustomizedInput({
       <ErrorMessage
         name={fieldName}
         component="p"
-        className="absolute bottom-[-13px] left-2 text-[12px] font-normal leading-none text-red-400"
+        className="absolute bottom-[-13px] left-2 text-[12px] font-normal leading-none text-red-300 truncate"
       />
     </label>
   );
