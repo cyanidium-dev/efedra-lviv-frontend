@@ -1,6 +1,6 @@
 import { ContactForm } from './ContactForm/ContactForm';
 import { Map } from './Map';
-import { ADDRESS, CITY, EMAIL, PHONE } from '@/constants/constants';
+import { ADDRESS, CITY, EMAIL, PHONES } from '@/constants/constants';
 import Container from '@/components/shared/container/Container';
 import { FollowUs } from '@/components/shared/FollowUs/FollowUs';
 import Image from 'next/image';
@@ -82,12 +82,17 @@ export const Contacts = () => {
                   <p className="text-[16px] lg:text-[20px] leading-[100%] tracking-[-0.03em] text-black font-medium lg:font-semibold uppercase mb-[5px]">
                     Телефон
                   </p>
-                  <a
-                    href={`tel:${PHONE}`}
-                    className="text-[14px] leading-[17px] tracking-[-0.05em] lg:tracking-[-0.03em] text-black/50"
-                  >
-                    {PHONE.replace(contactsPhoneRegex, '+38 ($1) $2 $3 $4')}
-                  </a>
+                  <div className="flex flex-col gap-[5px]">
+                    {PHONES.map((phone, index) => (
+                      <a
+                        key={index}
+                        href={`tel:${phone}`}
+                        className="text-[14px] leading-[17px] tracking-[-0.05em] lg:tracking-[-0.03em] text-black/50"
+                      >
+                        {phone.replace(contactsPhoneRegex, '+38 ($1) $2 $3 $4')}
+                      </a>
+                    ))}
+                  </div>
                 </motion.li>
                 <motion.li
                   initial="hidden"

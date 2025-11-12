@@ -118,3 +118,20 @@ export const allPriceCategoriesQuery = `
     }
   }
 `;
+
+export const allReviewsQuery = `
+  *[_type == "review"] | order(order asc) {
+    name,
+    photo {
+      asset->{
+        _id,
+        url
+      },
+      crop,
+      hotspot
+    },
+    order,
+    age,
+    text
+  }
+`;
