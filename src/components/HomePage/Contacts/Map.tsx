@@ -9,7 +9,12 @@ export const Map = ({
   zoom?: number;
 }) => {
   return (
-    <div className={clsx('w-full h-full', className)}>
+    <div
+      className={clsx(
+        'w-full h-full rounded-[20px] overflow-hidden',
+        className
+      )}
+    >
       <h3 className="sr-only">Мапа</h3>
       <iframe
         src={MAP_URL}
