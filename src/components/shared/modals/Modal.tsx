@@ -18,6 +18,7 @@ export default function Modal({
 }: ModalProps) {
   return (
     <div
+      data-modal-content
       className={`${
         isModalShown
           ? ' -translate-y-[calc(50dvh-50%)] opacity-100 scale-100'
