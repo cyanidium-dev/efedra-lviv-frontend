@@ -27,25 +27,42 @@ export default function Backdrop({
         };
     }, [isVisible, onClick]);
 
-    // Lock body scroll on iOS devices
+    // Lock body scroll and preserve scroll position
     useEffect(() => {
         if (!isVisible) {
             // Clean up any lingering styles when backdrop is hidden
             const body = document.body;
             const html = document.documentElement;
+            const scrollY = body.style.top ? parseInt(body.style.top || "0") * -1 : 0;
+            
+            // Remove the no-doc-scroll class
+            html.classList.remove("no-doc-scroll");
+            
+            // Restore styles
             body.style.position = "";
             body.style.top = "";
             body.style.width = "";
             body.style.overflow = "";
             body.style.touchAction = "";
+            body.style.overscrollBehavior = "";
             html.style.overflow = "";
             html.style.height = "";
+            html.style.overscrollBehavior = "";
+            
+            // Restore scroll position
+            if (scrollY) {
+                window.scrollTo(0, scrollY);
+            }
             return;
         }
 
-        const scrollY = window.scrollY;
+        // Save scroll position BEFORE any DOM manipulation
+        const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
         const body = document.body;
         const html = document.documentElement;
+
+        // Add the no-doc-scroll class to html element for CSS-based locking
+        html.classList.add("no-doc-scroll");
 
         // Save current scroll position and lock scroll
         body.style.position = "fixed";
@@ -157,7 +174,13 @@ export default function Backdrop({
         });
 
         return () => {
-            // Restore scroll position
+            // Get the saved scroll position from body.style.top
+            const savedScrollY = body.style.top ? parseInt(body.style.top || "0") * -1 : scrollY;
+            
+            // Remove the no-doc-scroll class
+            html.classList.remove("no-doc-scroll");
+            
+            // Restore styles
             body.style.position = "";
             body.style.top = "";
             body.style.width = "";
@@ -167,7 +190,12 @@ export default function Backdrop({
             html.style.overflow = "";
             html.style.height = "";
             html.style.overscrollBehavior = "";
-            window.scrollTo(0, scrollY);
+            
+            // Restore scroll position using requestAnimationFrame for smooth restoration
+            requestAnimationFrame(() => {
+                window.scrollTo(0, savedScrollY);
+            });
+            
             document.removeEventListener("touchstart", handleTouchStart, {
                 capture: true,
             } as EventListenerOptions);
@@ -187,7 +215,7 @@ export default function Backdrop({
                 transparent ? "bg-transparent" : "bg-green/50"
             } transition-opacity duration-[1000ms] ease-in-out ${
                 isVisible
-                    ? "opacity-100 no-doc-scroll"
+                    ? "opacity-100"
                     : "opacity-0 pointer-events-none"
             } ${className}`}
             onClick={onClick}

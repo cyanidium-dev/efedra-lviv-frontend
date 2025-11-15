@@ -1,4 +1,4 @@
-import { Dispatch, ReactNode, SetStateAction } from "react";
+import { Dispatch, ReactNode, SetStateAction, useEffect, useRef } from "react";
 
 import IconButton from "../buttons/IconButton";
 import CrossIcon from "../icons/CrossIcon";
@@ -16,8 +16,63 @@ export default function Modal({
     children,
     className = "bg-gray-light-2",
 }: ModalProps) {
+    const modalRef = useRef<HTMLDivElement>(null);
+
+    // Prevent focus-related scrolling when modal opens
+    useEffect(() => {
+        if (!isModalShown || !modalRef.current) return;
+
+        const modalElement = modalRef.current;
+        let savedScrollY = window.scrollY;
+
+        // Prevent any scroll events from affecting the page
+        const preventPageScroll = (e: Event) => {
+            // Only prevent if scrolling would affect the page (not the modal itself)
+            const target = e.target as HTMLElement;
+            if (target && !modalElement.contains(target)) {
+                e.preventDefault();
+                window.scrollTo(0, savedScrollY);
+            }
+        };
+
+        // Save scroll position when modal opens
+        savedScrollY =
+            window.scrollY ||
+            window.pageYOffset ||
+            document.documentElement.scrollTop;
+
+        // Prevent scroll events on window
+        window.addEventListener("scroll", preventPageScroll, {
+            passive: false,
+            capture: true,
+        });
+
+        // Also prevent wheel events that might cause scrolling
+        const preventWheel = (e: WheelEvent) => {
+            const target = e.target as HTMLElement;
+            if (!modalElement.contains(target)) {
+                e.preventDefault();
+            }
+        };
+
+        window.addEventListener("wheel", preventWheel, {
+            passive: false,
+            capture: true,
+        });
+
+        return () => {
+            window.removeEventListener("scroll", preventPageScroll, {
+                capture: true,
+            } as EventListenerOptions);
+            window.removeEventListener("wheel", preventWheel, {
+                capture: true,
+            } as EventListenerOptions);
+        };
+    }, [isModalShown]);
+
     return (
         <div
+            ref={modalRef}
             data-modal-content
             className={`${
                 isModalShown
